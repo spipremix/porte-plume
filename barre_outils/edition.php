@@ -263,6 +263,15 @@ function barre_outils_edition(){
 						"display"     => true,
 						"lang"    => array('fr','eo','cpf'),
 					),
+					// E majuscule accent grave
+					array(
+						"id"          => 'E_grave',
+						"name"        => _T('barre_outils:barre_e_accent_grave'),
+						"className"   => "outil_e_maj_grave",
+						"replaceWith" => "&Egrave;",
+						"display"     => true,
+						"lang"        => array('fr','eo','cpf'),
+					),
 					// oe 
 					array(
 						"id"          => 'oe',
@@ -398,6 +407,7 @@ function barre_outils_edition_icones(){
 		'outil_caracteres' => 'keyboard.png',
 			'outil_a_maj_grave' => 'agrave-maj.png',
 			'outil_e_maj_aigu' => 'eacute-maj.png',
+			'outil_e_maj_grave' => 'eagrave-maj.png',
 			'outil_oe' => 'oelig.png',
 			'outil_oe_maj' => 'oelig-maj.png',
 		

@@ -20,6 +20,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 'barre_a_accent_grave' => 'Ins&eacute;rer un A accent grave majuscule',
 'barre_aide' => 'Utilisez les raccourcis typographiques pour enrichir votre mise en page',
 'barre_e_accent_aigu' => 'Ins&eacute;rer un E accent aigu majuscule',
+'barre_e_accent_grave' => 'Ins&eacute;rer un E majuscule accent grave: &Egrave;',
 'barre_eo' => 'Ins&eacute;rer un E dans l\'O',
 'barre_eo_maj' => 'Ins&eacute;rer un E dans l\'O majuscule',
 'barre_euro' => 'Ins&eacute;rer le symbole &euro;',
