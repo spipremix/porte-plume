@@ -24,7 +24,7 @@ function barre_outils_forum(){
 		'sepCaracteres','guillemets', 'guillemets_simples', 
 		   'guillemets_de', 'guillemets_de_simples',
 		   'guillemets_autres', 'guillemets_autres_simples',
-		   'A_grave', 'E_aigu', 'oe', 'OE',
+		   'A_grave', 'E_aigu', 'E_grave', 'aelig', 'AElig', 'oe', 'OE', 'Ccedil',
 	));
 	return $barre;
 }
