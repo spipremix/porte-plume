@@ -272,6 +272,24 @@ function barre_outils_edition(){
 						"display"     => true,
 						"lang"        => array('fr','eo','cpf'),
 					),
+					// e dans le a
+					array(
+						"id"          => 'aelig',
+						"name"        => _T('barre_outils:barre_ea'),
+						"className"   => "outil_aelig",
+						"replaceWith" => "&aelig;",
+						"display"     => true,
+						"lang"        => array('fr','eo','cpf'),
+					),
+					// e dans le a majuscule
+					array(
+						"id"          => 'AElig',
+						"name"        => _T('barre_outils:barre_ea_maj'),
+						"className"   => "outil_aelig_maj",
+						"replaceWith" => "&AElig;",
+						"display"     => true,
+						"lang"        => array('fr','eo','cpf'),
+					),
 					// oe 
 					array(
 						"id"          => 'oe',
@@ -289,6 +307,33 @@ function barre_outils_edition(){
 						"replaceWith"   => "&OElig;",
 						"display"     => true,
 						"lang"    => array('fr'),
+					),
+					// c cedille majuscule
+					array(
+						"id"          => 'Ccedil',
+						"name"        => _T('barre_outils:barre_c_cedille_maj'),
+						"className"   => "outil_ccedil_maj",
+						"replaceWith" => "&Ccedil;",
+						"display"     => true,
+						"lang"        => array('fr','eo','cpf'),
+					),
+					// Transformation en majuscule
+					array(
+						"id"          => 'uppercase',
+						"name"        => _T('barre_outils:barre_gestion_cr_changercassemajuscules'),
+						"className"   => "outil_uppercase",
+						"replaceWith" => 'function(markitup) { return markitup.selection.toUpperCase() }',
+						"display"     => true,
+						"lang"        => array('fr'),
+					),
+					// Transformation en minuscule
+					array(
+						"id"          => 'lowercase',
+						"name"        => _T('barre_outils:barre_gestion_cr_changercasseminuscules'),
+						"className"   => "outil_lowercase",
+						"replaceWith" => 'function(markitup) { return markitup.selection.toLowerCase() }',
+						"display"     => true,
+						"lang"        => array('fr'),
 					),
 				),
 			),
@@ -408,8 +453,13 @@ function barre_outils_edition_icones(){
 			'outil_a_maj_grave' => 'agrave-maj.png',
 			'outil_e_maj_aigu' => 'eacute-maj.png',
 			'outil_e_maj_grave' => 'eagrave-maj.png',
+			'outil_aelig' => 'aelig.png',
+			'outil_aelig_maj' => 'aelig-maj.png',
 			'outil_oe' => 'oelig.png',
 			'outil_oe_maj' => 'oelig-maj.png',
+			'outil_ccedil_maj' => 'ccedil-maj.png',
+			'outil_uppercase' => 'text_uppercase.png',
+			'outil_lowercase' => 'text_lowercase.png',
 		
 		'outil_clean' => 'clean.png',
 		'outil_preview' => 'eye.png',	
