@@ -324,7 +324,7 @@ function barre_outils_edition(){
 						"className"   => "outil_uppercase",
 						"replaceWith" => 'function(markitup) { return markitup.selection.toUpperCase() }',
 						"display"     => true,
-						"lang"        => array('fr'),
+						"lang"        => array('fr','en'),
 					),
 					// Transformation en minuscule
 					array(
@@ -333,7 +333,7 @@ function barre_outils_edition(){
 						"className"   => "outil_lowercase",
 						"replaceWith" => 'function(markitup) { return markitup.selection.toLowerCase() }',
 						"display"     => true,
-						"lang"        => array('fr'),
+						"lang"        => array('fr','en'),
 					),
 				),
 			),
