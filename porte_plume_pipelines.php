@@ -20,7 +20,7 @@ function porte_plume_insert_head($flux){
 		. "<script type='text/javascript' src='$js_previsu'></script>\n"
 		. "<script type='text/javascript' src='$js_settings'></script>\n";
 		
-	$preview = url_absolue(generer_url_public('preview'));
+	$preview = url_absolue(generer_url_public('porte_plume_preview'));
 	$tEditer = _T('barre_outils:editer');
 	$tVoir = _T('barre_outils:voir');
 	$flux .= <<<EOF
