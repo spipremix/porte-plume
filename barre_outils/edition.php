@@ -38,6 +38,7 @@ function barre_outils_edition(){
 				"name"      => _T('barre_outils:barre_gras'), 
 				"key"       => "B", 
 				"className" => "outil_bold", 
+				"replaceWith" => "function(h){ return espace_si_accolade(h);}",
 				"openWith" => "{{", 
 				"closeWith" => "}}",
 				"display"   => true,
@@ -49,6 +50,7 @@ function barre_outils_edition(){
 				"name"      => _T('barre_outils:barre_italic'), 
 				"key"       => "I", 
 				"className" => "outil_italic", 
+				"replaceWith" => "function(h){ return espace_si_accolade(h);}",
 				"openWith" => "{", 
 				"closeWith" => "}",
 				"display"   => true,
@@ -406,6 +408,17 @@ function barre_outils_edition(){
 					}
 					return s;
 				}
+				
+				// ajouter un espace avant, apres un {qqc} pour ne pas que
+				// gras {{}} suivi de italique {} donnent {{{}}}, mais { {{}} }
+				function espace_si_accolade(h){
+					if (s = h.selection) {
+						if (s.substr(0,1)=='{') {
+							s = ' ' + s + ' ';
+						}
+					}
+					return s;
+				} 
 				",
 	));
 	
