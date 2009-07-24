@@ -327,7 +327,7 @@
 
 				set(caretPosition, nb);
 				get();
-				$.extend(hash, { caretPosition:caretPosition, scrollPosition:scrollPosition } );
+				$.extend(hash, { selection:selection, caretPosition:caretPosition, scrollPosition:scrollPosition } );
 			}
 			
 			// define markup to insert
