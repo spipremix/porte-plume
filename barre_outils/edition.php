@@ -412,7 +412,6 @@ function barre_outils_edition(){
 				// ajouter un espace avant, apres un {qqc} pour ne pas que
 				// gras {{}} suivi de italique {} donnent {{{}}}, mais { {{}} }
 				function espace_si_accolade(h, openWith, closeWith){
-					console.log(h);
 					if (s = h.selection) {
 						// accolade dans la selection
 						if (s.charAt(0)=='{') {
