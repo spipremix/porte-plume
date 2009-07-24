@@ -38,9 +38,9 @@ function barre_outils_edition(){
 				"name"      => _T('barre_outils:barre_gras'), 
 				"key"       => "B", 
 				"className" => "outil_bold", 
-				"replaceWith" => "function(h){ return espace_si_accolade(h);}",
-				"openWith" => "{{", 
-				"closeWith" => "}}",
+				"replaceWith" => "function(h){ return espace_si_accolade(h, '{{', '}}');}",
+				//"openWith" => "{{", 
+				//"closeWith" => "}}",
 				"display"   => true,
 				"selectionType" => "word",
 			),
@@ -50,9 +50,9 @@ function barre_outils_edition(){
 				"name"      => _T('barre_outils:barre_italic'), 
 				"key"       => "I", 
 				"className" => "outil_italic", 
-				"replaceWith" => "function(h){ return espace_si_accolade(h);}",
-				"openWith" => "{", 
-				"closeWith" => "}",
+				"replaceWith" => "function(h){ return espace_si_accolade(h, '{', '}');}",
+				//"openWith" => "{", 
+				//"closeWith" => "}",
 				"display"   => true,
 				"selectionType" => "word",
 			),
@@ -411,13 +411,21 @@ function barre_outils_edition(){
 				
 				// ajouter un espace avant, apres un {qqc} pour ne pas que
 				// gras {{}} suivi de italique {} donnent {{{}}}, mais { {{}} }
-				function espace_si_accolade(h){
+				function espace_si_accolade(h, openWith, closeWith){
+					console.log(h);
 					if (s = h.selection) {
-						if (s.substr(0,1)=='{') {
-							s = ' ' + s + ' ';
+						// accolade dans la selection
+						if (s.charAt(0)=='{') {
+							return openWith + ' ' + s + ' ' + closeWith;
+						}
+						// accolade avant la selection
+						else if (c = h.textarea.selectionStart) {
+							if (h.textarea.value.charAt(c-1) == '{') {
+								return ' ' + openWith + s + closeWith + ' ';
+							}
 						}
 					}
-					return s;
+					return openWith + s + closeWith;
 				} 
 				",
 	));
