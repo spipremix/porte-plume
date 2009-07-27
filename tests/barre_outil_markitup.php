@@ -321,8 +321,8 @@ class Test_barre_outil_markitup extends SpipTest{
 	
 	function testAjouterFonctions(){
 		$b = new Barre_outils($this->baseParamsBarre);
-		$b->Ajouterfonction("function dido(){}");
-		$this->assertPattern('/function dido\(/', $b->fonctions);		
+		$b->ajouterFonction("function dido(){}");
+		$this->assertPattern('/function dido\(/', $b->functions);		
 	}
 	
 	/*	
