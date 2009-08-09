@@ -97,15 +97,14 @@ width:96%; /* reduire la taille par defaut des formulaires spip */
 .markItUp .markItUpHeader ul .markItUpDropMenu li {
 	margin-right:0px;
 	background-color: #eee;
-	padding:2px 1px 2px 0;
+	padding:1px 0px 1px 1px;
 }
-.markItUp .markItUpHeader ul .markItUpDropMenu li:first-child{padding-left:2px;}
  
 /* next rows of buttons */
 .markItUp .markItUpHeader ul ul {
 	display:none;
 	position:absolute;
-	top:24px; left:-2px;	
+	top:24px; left:-1px;	
 	width:150px;
 }
 .markItUp .markItUpHeader ul ul li {
