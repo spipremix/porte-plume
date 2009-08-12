@@ -145,7 +145,7 @@ function barre_outils_edition(){
 			array(
 				"id" => "sepCitations", // trouver un nom correct !
 				"separator" => "---------------",
-				"display"   => false,
+				"display"   => true,
 			),
 			// quote spip
 			// (affichee dans forum)
@@ -156,7 +156,7 @@ function barre_outils_edition(){
 				"className"   => "outil_quote", 
 				"openWith"    => "\n<quote>", 
 				"closeWith"   => "</quote>\n",
-				"display"     => false,
+				"display"     => true,
 				"selectionType" => "word",
 			),
 			
@@ -340,7 +340,8 @@ function barre_outils_edition(){
 				),
 			),
 
-							
+/*	inutile (origine de markitup et non de spip)
+					
 			// separation
 			array(
 				"id" => "sepPreview", // trouver un nom correct !
@@ -363,7 +364,7 @@ function barre_outils_edition(){
 				"call"      => "preview",
 				"display"   => true,
 			),
-
+*/
 			
 		),
 		
