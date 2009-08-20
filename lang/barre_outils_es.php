@@ -8,7 +8,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 'barre_liste_ul' => 'Convertir en lista',
 'barre_liste_ol' => 'Convertir en lista ordenada',
 'barre_indenter' => 'Convertir en sublista',
-'barre_desindenter' => 'Deshacer sublita',
+'barre_desindenter' => 'Deshacer sublista',
 'barre_inserer_caracteres' => 'Insertar caracteres especiales',
 
 'editer'=>'Editar',
@@ -24,7 +24,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 'barre_euro' => 'Insertar s&iacute;mbolo &euro; ',
 'barre_gestion_cr_changercassemajuscules' => 'MAY&Uacute;SCULAS',
 'barre_gestion_cr_changercasseminuscules' => 'min&uacute;sculas',
-'barre_gras' => '{{negrita}}',
+'barre_gras' => '{{Negrita}}',
 'barre_guillemets' => 'Encerrar entre &laquo;comillas dobles&laquo;',
 'barre_guillemets_simples' => 'Place between &ldquo;single quotes&ldquo;',
 'barre_intertitre' => 'Convertir en {{{intert&iacute;tulo}}}',
