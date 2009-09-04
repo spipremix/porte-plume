@@ -533,6 +533,7 @@ function barre_outils_liste(){
 	// on recupere l'ensemble des barres d'outils connues
 	if (!$sets = find_all_in_path('barre_outils/','.*[.]php')
 	or !is_array($sets)) {
+		spip_log("[Scandale] Porte Plume ne trouve pas de barre d'outils !");
 		$sets = false;
 		return $sets;
 	}
