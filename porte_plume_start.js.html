@@ -1,0 +1,55 @@
+#CACHE{7*24*3600}
+#HTTP_HEADER{Content-Type: text/javascript; charset=#CHARSET}
+;(function($){
+// 2 fonctions pour appeler le porte plume reutilisables pour d'autres plugins
+// on envoie dedans la selection jquery qui doit etre effectuee
+// ce qui evite des appels direct a markitup, aucazou on change de lib un jour
+$.fn.barre_outils = function(nom, settings) {
+	options = {
+		lang:'[(#ENV{lang})]'
+	};
+	$.extend(options, settings);
+		
+	lang='[(#ENV{lang})]'
+	return $(this)
+		.not('.markItUpEditor')
+		.markItUp(eval('barre_outils_' + nom), {lang:options.lang});
+};
+$.fn.barre_previsualisation = function(settings) {
+	options = {
+		previewParserPath:"[(#URL_PAGE{porte_plume_preview}|url_absolue)]",
+		textEditer:"<:barre_outils:editer:>",
+		textVoir:"<:barre_outils:voir:>"
+	};
+	$.extend(options, settings);
+		
+	return $(this)
+		.not('.pp_previsualisation')
+		.previsu_spip(options);
+};
+
+$(document).ready(function(){
+	// ajoute les barres d'outils markitup
+	// fonction generique appliquee aux classes CSS : 
+	// inserer_barre_forum, inserer_barre_edition, inserer_previsualisation
+	function barrebouilles(){
+		$('.formulaire_spip textarea.inserer_barre_forum').barre_outils('forum');
+		$('.formulaire_spip textarea.inserer_barre_edition').barre_outils('edition');
+		$('.formulaire_spip textarea.inserer_previsualisation').barre_previsualisation();
+	}
+	// fonction specifique aux formulaires de SPIP : 
+	function barrebouilles_spip(){
+		// barre de forum
+		$('textarea.textarea_forum,.formulaire_forum textarea[name=texte]')
+			.barre_outils('forum');
+		// barre d'edition et onglets de previsualisation
+		$('.formulaire_spip textarea[name=texte]')
+			.barre_outils('edition')
+			.barre_previsualisation();			
+	}
+	barrebouilles();
+	onAjaxLoad(barrebouilles);
+	barrebouilles_spip();
+	onAjaxLoad(barrebouilles_spip);
+});
+})(jQuery);

@@ -17,6 +17,7 @@
 
 			// init and build previsu buttons
 			function init() {
+				$$.addClass("pp_previsualisation");
 				tabs = $('<div class="markItUpTabs"></div>').prependTo($$.parent());
 				$(tabs).append(
 					'<a href="#previsuVoir" class="previsuVoir">' + options.textVoir + '</a>' +
