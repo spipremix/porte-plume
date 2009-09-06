@@ -2,7 +2,7 @@
 	<nom>Porte plume - Une barre d'outil pour bien &eacute;crire</nom>
 	<auteur>Matthieu Marcillaud</auteur>
 	<licence>GNU/GPL</licence>
-	<version>1.5</version>
+	<version>1.5.1</version>
 	<description>
 	"Porte plume" est une barre d'outil g&eacute;niale pour SPIP qui 
 	utilise la librairie javascript [MarkItUp->http://markitup.jaysalvat.com/home/]
@@ -20,7 +20,8 @@
 	<fonctions>inc/barre_outils.php</fonctions>
 	
  	<pipeline>
-		<nom>insert_head_public</nom>
+		<nom>insert_head</nom>
+		<action>insert_head_public</action>
 		<inclure>porte_plume_pipelines.php</inclure>
 	</pipeline>
  	<pipeline>

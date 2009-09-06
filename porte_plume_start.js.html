@@ -9,8 +9,7 @@ $.fn.barre_outils = function(nom, settings) {
 		lang:'[(#ENV{lang})]'
 	};
 	$.extend(options, settings);
-		
-	lang='[(#ENV{lang})]'
+
 	return $(this)
 		.not('.markItUpEditor')
 		.markItUp(eval('barre_outils_' + nom), {lang:options.lang});
@@ -22,7 +21,7 @@ $.fn.barre_previsualisation = function(settings) {
 		textVoir:"<:barre_outils:voir:>"
 	};
 	$.extend(options, settings);
-		
+
 	return $(this)
 		.not('.pp_previsualisation')
 		.previsu_spip(options);
@@ -30,26 +29,19 @@ $.fn.barre_previsualisation = function(settings) {
 
 $(document).ready(function(){
 	// ajoute les barres d'outils markitup
-	// fonction generique appliquee aux classes CSS : 
-	// inserer_barre_forum, inserer_barre_edition, inserer_previsualisation
 	function barrebouilles(){
+		// fonction generique appliquee aux classes CSS : 
+		// inserer_barre_forum, inserer_barre_edition, inserer_previsualisation
 		$('.formulaire_spip textarea.inserer_barre_forum').barre_outils('forum');
 		$('.formulaire_spip textarea.inserer_barre_edition').barre_outils('edition');
 		$('.formulaire_spip textarea.inserer_previsualisation').barre_previsualisation();
-	}
-	// fonction specifique aux formulaires de SPIP : 
-	function barrebouilles_spip(){
+		// fonction specifique aux formulaires de SPIP : 
 		// barre de forum
-		$('textarea.textarea_forum,.formulaire_forum textarea[name=texte]')
-			.barre_outils('forum');
+		$('textarea.textarea_forum,.formulaire_forum textarea[name=texte]').barre_outils('forum');
 		// barre d'edition et onglets de previsualisation
-		$('.formulaire_spip textarea[name=texte]')
-			.barre_outils('edition')
-			.barre_previsualisation();			
+		$('.formulaire_spip textarea[name=texte]').barre_outils('edition').barre_previsualisation();			
 	}
 	barrebouilles();
 	onAjaxLoad(barrebouilles);
-	barrebouilles_spip();
-	onAjaxLoad(barrebouilles_spip);
 });
 })(jQuery);
