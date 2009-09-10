@@ -76,6 +76,10 @@ width:96%; /* reduire la taille par defaut des formulaires spip */
 /***************************************************************************************/
 /* first row of buttons */
 .markItUp .markItUpHeader { margin:0px; padding:0px;}
+.markItUp .markItUpHeader ul {
+	margin:0 !important;
+	padding:0;
+}
 .markItUp .markItUpHeader ul li {
 	list-style:none;
 	float:left;
