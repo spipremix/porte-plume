@@ -1,5 +1,6 @@
-.formulaire_spip  textarea.markItUpEditor {
-width:96%; /* reduire la taille par defaut des formulaires spip */
+.formulaire_spip  textarea.markItUpEditor, .formulaire_spip li.editer_texte textarea {
+	width:96%; /* reduire la taille par defaut des formulaires spip */
+	clear: both;
 }
 
 
@@ -22,7 +23,6 @@ width:96%; /* reduire la taille par defaut des formulaires spip */
 	margin:0px; padding:0px;
 }
 .markItUp .markItUpEditor {
-	padding:5px;
 	height:320px; /* la hauteur est calculee par SPIP */
 	clear:both; display:block;
 	overflow:auto;
@@ -44,21 +44,32 @@ width:96%; /* reduire la taille par defaut des formulaires spip */
 /***************************/
 /* tabs */
 .markItUp .markItUpTabs {
-	text-align:right; margin-bottom:3px; padding:1px 1px 0;
-	border-bottom:1px solid #888; overflow:hidden; 
-	width:auto; float:right; clear:both;}
+	text-align:right; 
+	padding:1px 1px 0;
+	margin-bottom: -1px;
+	margin-top: 3px;
+	overflow:hidden; 
+	width:auto; 
+	float:right; 
+	margin-right: 30px;
+	clear:both;
+}
 .markItUp .markItUpTabs a {
-	display:block; float:right; border:1px solid #888; margin:0px 1px; border-bottom:none;
-	padding:3px 4px 2px 4px; background:#f0f0f0;
-	-moz-border-radius:5px 5px 0 0;-webkit-border-top-left-radius:5px;-webkit-border-top-right-radius:5px;}
-.markItUp .markItUpTabs a.on {background:#fff; }
+	display:block; 
+	float:right; 
+	border:1px solid #ccc; 
+	margin:0px 1px; 
+	padding:3px 4px 2px 4px; 
+	background:#f0f0f0;
+}
+.markItUp .markItUpTabs a.on {background:#fff; border-bottom: 1px solid #fff; }
 .markItUp .markItUpTabs a:hover {background:#fff;}
 
 /***************************/
 /* previsu */
 .markItUp .markItUpPreview {
 	clear:both;
-	border:1px solid #888;
+	border:1px solid #ccc;
 	background:#fff;
 	overflow:auto;
 	padding:1em;
