@@ -37,7 +37,9 @@ $(document).ready(function(){
 		$('.formulaire_spip textarea.inserer_previsualisation').barre_previsualisation();
 		// fonction specifique aux formulaires de SPIP : 
 		// barre de forum
-		$('textarea.textarea_forum,.formulaire_forum textarea[name=texte]').barre_outils('forum');
+		$('textarea.textarea_forum').barre_outils('forum');
+		[(#CONFIG{forums_afficher_barre}|=={non}|non)
+		$('.formulaire_forum textarea[name=texte]').barre_outils('forum');]
 		// barre d'edition et onglets de previsualisation
 		$('.formulaire_spip textarea[name=texte]').barre_outils('edition').barre_previsualisation();			
 	}
