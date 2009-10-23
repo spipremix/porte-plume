@@ -41,7 +41,9 @@ $(document).ready(function(){
 		[(#CONFIG{forums_afficher_barre}|=={non}|non)
 		$('.formulaire_forum textarea[(#VAL{91}|chr)]name=texte[(#VAL{93}|chr)]').barre_outils('forum');]
 		// barre d'edition et onglets de previsualisation
-		$('.formulaire_spip textarea[name=texte]').barre_outils('edition').barre_previsualisation();			
+		$('.formulaire_spip[(#CONFIG{forums_afficher_barre}|=={non}|?{':not(#formulaire_forum)',''})] textarea[name=texte]')
+			.barre_outils('edition')
+			.barre_previsualisation();
 	}
 	barrebouilles();
 	onAjaxLoad(barrebouilles);
