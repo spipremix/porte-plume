@@ -40,7 +40,9 @@
 					$(this).addClass('on').next().removeClass('on');
 					$(mark).find('.markItUpPreview').show()
 						.addClass('ajaxLoad')
-						.html(renderPreview())
+						.html(renderPreview(
+							$(mark).find('textarea.pp_previsualisation').val())
+						)
 						.removeClass('ajaxLoad');
 					return false;
 				});
@@ -56,14 +58,14 @@
 			}
 
 
-			function renderPreview() {	
+			function renderPreview(val) {	
 				var phtml;			
 				if (options.previewParserPath !== '') {
 					$.ajax( {
 						type: 'POST',
 						async: false,
 						url: options.previewParserPath,
-						data: options.previewParserVar+'='+encodeURIComponent($$.val()),
+						data: options.previewParserVar+'='+encodeURIComponent(val),
 						success: function(data) {
 							phtml = data; 
 						}
