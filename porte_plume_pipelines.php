@@ -6,8 +6,16 @@
  */
 define('PORTE_PLUME_PUBLIC', true);
 
+// autoriser le porte plume dans le public ?
+function autoriser_porte_plume_afficher_public_dist($faire, $type, $id, $qui, $opt) {
+	return PORTE_PLUME_PUBLIC;
+	// n'autoriser qu'aux identifies :
+	# return $qui['id_auteur'] ? PORTE_PLUME_PUBLIC : false;
+}
+
 function porte_plume_insert_head_public($flux){
-	if (PORTE_PLUME_PUBLIC) {
+	include_spip('inc/autoriser');
+	if (autoriser('afficher_public', 'porte_plume')) {
 		$flux = porte_plume_inserer_head($flux, $GLOBALS['spip_lang']);
 	}
 	return $flux;
