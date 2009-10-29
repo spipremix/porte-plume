@@ -11,7 +11,7 @@ $.fn.barre_outils = function(nom, settings) {
 	$.extend(options, settings);
 
 	return $(this)
-		.not('.markItUpEditor')
+		.not('.markItUpEditor, .no_barre')
 		.markItUp(eval('barre_outils_' + nom), {lang:options.lang});
 };
 $.fn.barre_previsualisation = function(settings) {
