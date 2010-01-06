@@ -2,23 +2,23 @@
 	<nom>Porte plume - Une barre d'outil pour bien &eacute;crire</nom>
 	<auteur>Matthieu Marcillaud</auteur>
 	<licence>GNU/GPL</licence>
-	<version>1.5.4</version>
+	<version>1.6.0</version>
 	<description>
 	"Porte plume" est une barre d'outil g&eacute;niale pour SPIP qui 
 	utilise la librairie javascript [MarkItUp->http://markitup.jaysalvat.com/home/]
-	
+
 	Utilise les icones [FamFamFam->http://www.famfamfam.com/]
 	</description>
 	<lien>http://documentation.magraine.net/-Porte-Plume-</lien> <!-- URI de documentation -->	
 	<etat>stable</etat>
 	<prefix>porte_plume</prefix>
-  	
+
   	<!-- Icone de http://icons.mysitemyway.com/free-clipart-icons/1/traditional-ink-bottle-pen-icon-id/83350/style-id/614/high-resolution-dark-blue-denim-jeans-icons/business/ -->
   	<icon>images/porte-plume-128.png</icon>
-  	
+
 	<options>porte_plume_options.php</options>
 	<fonctions>inc/barre_outils.php</fonctions>
-	
+
  	<pipeline>
 		<nom>insert_head</nom>
 		<action>insert_head_public</action>

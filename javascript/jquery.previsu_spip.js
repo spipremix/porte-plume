@@ -29,6 +29,8 @@
 				
 				$('.previsuVoir').click(function(){
 					mark = $(this).parent().parent();
+					objet = mark.parents('.formulaire_spip')[0].className.match(/formulaire_editer_(\w+)/);
+					champ = mark.parents('li')[0].className.match(/editer_(\w+)/);
 					$(mark).find('.markItUpPreview').height(
 						  $(mark).find('.markItUpHeader').height()
 						+ $(mark).find('.markItUpEditor').height()
@@ -41,7 +43,9 @@
 					$(mark).find('.markItUpPreview').show()
 						.addClass('ajaxLoad')
 						.html(renderPreview(
-							$(mark).find('textarea.pp_previsualisation').val())
+							$(mark).find('textarea.pp_previsualisation').val(),
+							champ[1].toUpperCase(),
+							objet[1])
 						)
 						.removeClass('ajaxLoad');
 					return false;
@@ -58,14 +62,16 @@
 			}
 
 
-			function renderPreview(val) {	
-				var phtml;			
+			function renderPreview(val, champ, objet) {	
+				var phtml;
 				if (options.previewParserPath !== '') {
 					$.ajax( {
 						type: 'POST',
 						async: false,
 						url: options.previewParserPath,
-						data: options.previewParserVar+'='+encodeURIComponent(val),
+						data: 'champ='+champ
+							+'&objet='+objet
+							+'&' + options.previewParserVar+'='+encodeURIComponent(val),
 						success: function(data) {
 							phtml = data; 
 						}

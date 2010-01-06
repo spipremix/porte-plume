@@ -544,4 +544,31 @@ function barre_outils_liste(){
 	return $sets;	
 }
 
+/**
+ * filtre appliquant les traitements SPIP d'un champ (et eventuellement d'un type d'objet) sur un texte
+ * (voir la fonction champs_traitements($p) dans : public/references.php)
+ * ce mecanisme est a preferer au traditionnel #TEXTE*|propre
+ * traitements_previsu() consulte la globale $table_des_traitements et applique le traitement adequat
+ * si aucun traitement n'est trouve, alors propre() est applique
+ * 
+ * @param string $texte : texte source
+ * @param string $nom_champ : champ (en majuscules)
+ * @param string $type_objet : objet (en minuscules)
+ * @return string : texte traite
+ */
+function traitements_previsu($texte, $nom_champ='', $type_objet='', $connect=null) {
+	global $table_des_traitements;
+	if(!strlen($nom_champ) || !isset($table_des_traitements[$nom_champ]))
+		return propre($texte, $connect);
+	include_spip('base/abstract_sql');
+	$table = table_objet($type_objet);
+	$ps = $table_des_traitements[$nom_champ];
+	if(is_array($ps))
+		$ps = $ps[(strlen($table) && isset($ps[$table])) ? $table : 0];
+	if(!$ps) 
+		return propre($texte, $connect);
+	// remplacer le placeholder %s par le texte fourni
+	eval('$texte=' . str_replace('%s', '$texte', $ps) . ';');
+	return $texte;
+}
 ?>
