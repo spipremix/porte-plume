@@ -121,6 +121,8 @@
 	position:absolute;
 	top:24px; left:-1px;	
 	width:150px;
+	z-index:2;
+	padding-top:2px;
 }
 .markItUp .markItUpHeader ul ul li {
 	float:left;
