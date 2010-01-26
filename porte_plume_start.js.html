@@ -23,7 +23,7 @@ $.fn.barre_previsualisation = function(settings) {
 	$.extend(options, settings);
 
 	return $(this)
-		.not('.pp_previsualisation')
+		.not('.pp_previsualisation, .no_previsualisation')
 		.previsu_spip(options);
 };
 
