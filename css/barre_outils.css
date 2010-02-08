@@ -23,9 +23,11 @@
 	margin:0px; padding:0px;
 }
 .markItUp .markItUpEditor {
-	height:320px; /* la hauteur est calculee par SPIP */
 	clear:both; display:block;
 	overflow:auto;
+}
+.markItUp .markItUpEditor.texte {
+	height:300px;
 }
 .markItUp .markItUpPreviewFrame {}
 .markItUp .markItUpFooter {
