@@ -140,13 +140,14 @@ function barre_outils_edition(){
 				"selectionType" => "word",
 			),
 					
+			
 			// separation
-			// (affichee dans forum)
 			array(
-				"id" => "sepCitations", // trouver un nom correct !
+				"id" => "sepGuillemets",
 				"separator" => "---------------",
 				"display"   => true,
 			),
+			
 			// quote spip
 			// (affichee dans forum)
 			array(
@@ -158,13 +159,6 @@ function barre_outils_edition(){
 				"closeWith"   => "</quote>\n",
 				"display"     => true,
 				"selectionType" => "word",
-			),
-			
-			// separation
-			array(
-				"id" => "sepGuillemets",
-				"separator" => "---------------",
-				"display"   => true,
 			),
 			// guillemets
 			array(

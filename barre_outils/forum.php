@@ -20,7 +20,7 @@ function barre_outils_forum(){
 	$barre->afficher(array(
 		'bold','italic',
 		'sepLink','link',
-		'sepCitations', 'quote',
+		'sepGuillemets', 'quote',
 		'sepCaracteres','guillemets', 'guillemets_simples', 
 		   'guillemets_de', 'guillemets_de_simples',
 		   'guillemets_autres', 'guillemets_autres_simples',
