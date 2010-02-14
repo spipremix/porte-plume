@@ -25,6 +25,11 @@
 		<inclure>porte_plume_pipelines.php</inclure>
 	</pipeline>
  	<pipeline>
+		<nom>insert_head_css</nom>
+		<action>insert_head_css</action>
+		<inclure>porte_plume_pipelines.php</inclure>
+	</pipeline>
+ 	<pipeline>
 		<nom>header_prive</nom>
 		<action>insert_head_prive</action>
 		<inclure>porte_plume_pipelines.php</inclure>
