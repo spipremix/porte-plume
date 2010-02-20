@@ -10,20 +10,25 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 'barre_indenter' => 'Indent a line',
 'barre_desindenter' => 'Unindent a line',
 'barre_inserer_caracteres' => 'Insert special characters',
+'barre_barre' => 'Strike through the text',
 
 'editer'=>'Edit',
 'voir'=>'Preview',
 
 
 // B (depuis SPIP)
-'barre_a_accent_grave' => 'Insert a capital A with grave accent',
+'barre_a_accent_grave' => 'Insert a capital A with grave accent: &Agrave;',
 'barre_aide' => 'Use the typographic short cuts to refine your layout',
-'barre_e_accent_aigu' => 'Insert a capital E with acute accent',
-'barre_eo' => 'Insert an oe-ligature',
-'barre_eo_maj' => 'Insert a capital EO-ligature',
+'barre_c_cedille_maj' => 'Insert a capital &Ccedil; with cedilla: &Ccedil;',
+'barre_e_accent_aigu' => 'Insert a capital E with acute accent: &Eacute;',
+'barre_e_accent_grave' => 'Insert a capital E with grave accent: &Egrave;',
+'barre_ea' => 'Insert an oe-ligature: &aelig;',
+'barre_ea_maj' => 'Insert a capital an oe-ligature: &AElig;',
+'barre_eo' => 'Insert an oe-ligature: &#339;',
+'barre_eo_maj' => 'Insert a capital OE-ligature: &#338;',
 'barre_euro' => 'Insert the &euro; symbol',
-'barre_gestion_cr_changercassemajuscules' => 'CAPITALS',
-'barre_gestion_cr_changercasseminuscules' => 'lowercase',
+'barre_gestion_cr_changercassemajuscules' => 'Convert to UPPERCASE',
+'barre_gestion_cr_changercasseminuscules' => 'Convert to lowercase',
 'barre_gras' => '{{Bold}}',
 'barre_guillemets' => 'Place between &laquo;double quotes&laquo;',
 'barre_guillemets_simples' => 'Place between &ldquo;single quotes&ldquo;',
@@ -37,12 +42,12 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 
 // B (depuis BTv2)
 'barre_langue' => 'Abbreviated lnguage', 
-'barre_miseenevidence' => 'Mettre le texte en [*&eacute;vidence*]',
+'barre_miseenevidence' => '[*Highlight*] the text',
 'barre_exposant' => 'Put the text in &lt;sup&gt;superscript&lt;/sup&gt;',
 'barre_petitescapitales' => 'Put the text in &lt;sc&gt;small capitales&lt;/sc&gt;',
-'barre_centrer' => '[|Center|] paragraph',
-'barre_alignerdroite' => '[/Right align/] paragraph',
-'barre_encadrer' => '[(Frame)] paragraph',
+'barre_centrer' => '[|Center|] the paragraph',
+'barre_alignerdroite' => '[/Right align/] the paragraph',
+'barre_encadrer' => '[(Frame)] the paragraph',
 'barre_e_accent_grave' => 'Insert capital E grave',
 'barre_ea' => 'Insert &aelig;',
 'barre_ea_maj' => 'Insert &AElig;',
@@ -83,7 +88,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 'barre_gestion_anc_inserer' => 'Convert to anchor',
 'barre_gestion_anc_nom' => 'Anchor name',
 'barre_gestion_anc_pointer' => 'Point to an anchor',
-'barre_gestion_anc_cible' => 'Anhor target',
+'barre_gestion_anc_cible' => 'Anchor target',
 'barre_gestion_anc_bulle' => 'Anchor help bubble',
 
 
