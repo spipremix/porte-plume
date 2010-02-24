@@ -1,9 +1,5 @@
 .formulaire_spip  textarea.markItUpEditor, .formulaire_spip li.editer_texte textarea {
-	width: 100%;
-	box-sizing: border-box;
-	-webkit-box-sizing: border-box;
-	-moz-box-sizing: border-box;
-	-ms-box-sizing: border-box;
+	width: 96%;
 	clear: both;
 }
 
