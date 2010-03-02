@@ -22,7 +22,11 @@ function porte_plume_insert_head_public($flux){
 }
 
 function porte_plume_insert_head_prive($flux){
-	$flux = porte_plume_inserer_head($flux, $GLOBALS['spip_lang']);
+	$js = find_in_path('javascript/porte_plume_forcer_hauteur.js');
+
+	$flux = porte_plume_inserer_head($flux, $GLOBALS['spip_lang'])
+		. "<script type='text/javascript' src='$js'></script>\n";
+
 	return $flux;
 }
 
