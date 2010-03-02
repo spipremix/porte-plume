@@ -23,9 +23,11 @@ function porte_plume_insert_head_public($flux){
 
 function porte_plume_insert_head_prive($flux){
 	$js = find_in_path('javascript/porte_plume_forcer_hauteur.js');
+	$css = find_in_path('css/barre_outils_prive.css');
 
 	$flux = porte_plume_inserer_head($flux, $GLOBALS['spip_lang'])
-		. "<script type='text/javascript' src='$js'></script>\n";
+		. "<script type='text/javascript' src='$js'></script>\n"
+		. "<link rel='stylesheet' type='text/css' media='all' href='$css' />\n";
 
 	return $flux;
 }
