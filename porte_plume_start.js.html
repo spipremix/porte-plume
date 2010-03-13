@@ -1,6 +1,12 @@
 #CACHE{7*24*3600}
 #HTTP_HEADER{Content-Type: text/javascript; charset=#CHARSET}
+
+[(#REM) chargement des definitions des barres d'outils ]
+[(#VAL|porte_plume_creer_json_markitup)]
+
+
 ;(function($){
+	
 // 2 fonctions pour appeler le porte plume reutilisables pour d'autres plugins
 // on envoie dedans la selection jquery qui doit etre effectuee
 // ce qui evite des appels direct a markitup, aucazou on change de lib un jour
@@ -14,6 +20,7 @@ $.fn.barre_outils = function(nom, settings) {
 		.not('.markItUpEditor, .no_barre')
 		.markItUp(eval('barre_outils_' + nom), {lang:options.lang});
 };
+
 $.fn.barre_previsualisation = function(settings) {
 	options = {
 		previewParserPath:"[(#URL_PAGE{porte_plume_preview}|url_absolue)]",
@@ -27,7 +34,7 @@ $.fn.barre_previsualisation = function(settings) {
 		.previsu_spip(options);
 };
 
-$(document).ready(function(){
+$(window).load(function(){
 	// ajoute les barres d'outils markitup
 	function barrebouilles(){
 		// fonction generique appliquee aux classes CSS : 

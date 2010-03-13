@@ -89,8 +89,27 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 'barre_gestion_anc_nom' => 'Nom de l\'ancre',
 'barre_gestion_anc_pointer' => 'Pointer vers une ancre',
 'barre_gestion_anc_cible' => 'Ancre cible',
-'barre_gestion_anc_bulle' => 'Bulle d\'aide ancre'
+'barre_gestion_anc_bulle' => 'Bulle d\'aide ancre',
 
+// E
+'explication_barre_outils_public' => "Les scripts CSS et Javascript des barre d'outils
+	(extension Porte Plume) sont charg&eacute;s sur l'espace public
+	et permettent d'utiliser ces barres sur les formulaires de forums,
+	les crayons publics ou pour d'autres plugins, si leurs configurations
+	respectives le permettent.",
+'explication_barre_outils_public_2' => "Vous pouvez choisir de ne pas charger
+	ces scripts afin d'all&eacute;ger le poids des pages publiques.
+	D&egrave;s lors quelque soit la configuration des forums, crayons ou plugin,
+	aucune barre d'outils du Porte Plume ne pourra &ecirc;tre
+	pr&eacute;sente automatiquement sur l'espace public.",
+	
+// I
+'info_porte_plume_titre' => "Configurer les barres d'outils",
+'info_barre_outils_public' => "Barre d'outils publique",
+
+// L
+'label_barre_outils_public_oui' => "Charger les scripts de barre d'outils sur l'espace public",
+'label_barre_outils_public_non' => "Ne pas charger les scripts de barre d'outils sur l'espace public",
 
 );
 ?>
