@@ -20,10 +20,13 @@ include_spip('inc/config');
 function configuration_porte_plume_dist()
 {
 
+	if (!$val =  $GLOBALS['meta']["barre_outils_public"]) {
+		$val = 'oui';
+	}
 	$res = propre(_T("barre_outils:explication_barre_outils_public"));
 	$res .= propre(_T("barre_outils:explication_barre_outils_public_2"));
 	
-	$res .= afficher_choix('barre_outils_public', $GLOBALS['meta']["barre_outils_public"],
+	$res .= afficher_choix('barre_outils_public', $val,
 		array(
 			'oui' => _T("barre_outils:label_barre_outils_public_oui"),
 			'non' => _T("barre_outils:label_barre_outils_public_non")
