@@ -57,6 +57,7 @@ function porte_plume_insert_head_css($flux=''){
 	static $done = false;
 	if ($done) return $flux;
 	$done = true;
+	include_spip('inc/autoriser');
 	if (autoriser('afficher_public', 'porte_plume')) {
 		$css = find_in_path('css/barre_outils.css');
 		$css_icones = generer_url_public('barre_outils_icones.css');
