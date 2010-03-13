@@ -36,8 +36,7 @@ class Barre_outils{
 	
 	// private
 	var $_liste_params_autorises = array(
-		'keepDefault',
-		
+	
 		'replaceWith',
 		'openWith',
 		'closeWith',

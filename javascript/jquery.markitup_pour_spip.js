@@ -1,9 +1,9 @@
 // ----------------------------------------------------------------------------
 // markItUp! Universal MarkUp Engine, JQuery plugin
-// v 1.1.6
+// v 1.1.6.1
 // Dual licensed under the MIT and GPL licenses.
 // ----------------------------------------------------------------------------
-// Copyright (C) 2007-2009 Jay Salvat
+// Copyright (C) 2007-2010 Jay Salvat
 // http://markitup.jaysalvat.com/
 // ----------------------------------------------------------------------------
 // Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -26,7 +26,7 @@
 // ----------------------------------------------------------------------------
 
 /*
- *   Le code original de markitup 1.1.5
+ *   Le code original de markitup 1.1.6.1
  *   a ete modifie pour prendre en compte
  * 
  *   1) la langue utilisee dans les textarea :
@@ -55,8 +55,8 @@
  */
 ;(function($) {
 	$.fn.markItUp = function(settings, extraSettings) {
-		var options, ctrlKey, shiftKey, altKey, enterKey;
-		ctrlKey = shiftKey = altKey = enterKey = false;
+		var options, ctrlKey, shiftKey, altKey;
+		ctrlKey = shiftKey = altKey = false;
 
 		options = {	id:						'',
 					nameSpace:				'',
@@ -137,6 +137,7 @@
 				footer = $('<div class="markItUpFooter"></div>').insertAfter($$);
 
 				// add the resize handle after textarea
+				
 				if (options.resizeHandle === true && $.browser.safari !== true) {
 					resizeHandle = $('<div class="markItUpResizeHandle"></div>')
 						.insertAfter($$)
@@ -314,8 +315,8 @@
 				before = $$.val().substring(0, caretEffectivePosition);
 				after = $$.val().substring(caretEffectivePosition + selection.length - fixOperaBug(selection) - fixIeBug(selection));
 			
-				before = before.xSplit(pattern);
-				after = after.xSplit(pattern);			
+				before = before.split(pattern);
+				after = after.split(pattern);			
 			}
 			
 			function selectionSave(){
@@ -343,8 +344,7 @@
 									caretPosition:caretPosition,
 									ctrlKey:ctrlKey, 
 									shiftKey:shiftKey, 
-									altKey:altKey,
-									enterKey:enterKey
+									altKey:altKey
 								}
 							);
 
@@ -389,7 +389,6 @@
 						before[before.length-1] = before_last;
 						selectionSave();
 					}
-
 				}
 				// / fin corrections
 				
@@ -404,7 +403,7 @@
 				// insertion forcee en multiligne ou ctrl+click
 				if ((button.forceMultiline === true && selection.length)
 				|| (ctrlKey === true && shiftKey === true)) {
-					lines = selection.xSplit(/\r?\n/);
+					lines = selection.split(/\r?\n/);
 					for (j = 0, n = lines.length, i = 0; i < n; i++) {
 						if ($.trim(lines[i]) !== '') {
 							$.extend(hash, { line:++j, selection:lines[i] } );
@@ -436,7 +435,7 @@
 				if (selection === ''){
 					start += fixOperaBug(string.replaceWith);
 				}
-				//$.extend(hash, { caretPosition:caretPosition, scrollPosition:scrollPosition } );
+				$.extend(hash, { caretPosition:caretPosition, scrollPosition:scrollPosition } );
 
 				if (string.block !== selection && abort === false) {
 					insert(string.block);
@@ -460,9 +459,9 @@
 				if (previewWindow && options.previewAutoRefresh) {
 					refreshPreview(); 
 				}
-																									
+				
 				// reinit keyevent
-				shiftKey = altKey = ctrlKey = enterKey = abort = false;
+				shiftKey = altKey = ctrlKey = abort = false;
 				
 			}
 
@@ -622,9 +621,11 @@
 					if (e.keyCode === 17) {e.ctrlKey = true;} // control
 					if (e.keyCode === 16) {e.shiftKey = true;} // shift
 				}
+
 				shiftKey = e.shiftKey;
 				altKey = e.altKey;
 				ctrlKey = (!(e.altKey && e.ctrlKey)) ? e.ctrlKey : false;
+
 				if (e.type === 'keydown') {
 					if (ctrlKey === true) {
 						li = $("a[accesskey="+String.fromCharCode(e.keyCode)+"]", header).parent('li');
@@ -638,7 +639,6 @@
 					// car il ne prend pas en compte l'arret de ces evenements
 					if (!$.browser.opera) {				
 						if (e.keyCode === 13 || e.keyCode === 10) { // Enter key
-							enterKey = true;
 							if (ctrlKey === true) {  // Enter + Ctrl
 								ctrlKey = false;
 								markup(options.onCtrlEnter);
@@ -654,7 +654,6 @@
 						}
 					
 						if (e.keyCode === 9) { // Tab key
-							// don't know what that is for...
 							if (shiftKey == true || ctrlKey == true || altKey == true) { // Thx Dr Floob.
 								return false; 
 							}
@@ -691,91 +690,3 @@
 	};
 
 })(jQuery);
-
-
-/*
- * Corriger les split qui ne fonctionnent pas pareil 
- * sous IE particulierement. Provient de :
- * http://blog.stevenlevithan.com/archives/cross-browser-split
- * (ici, remplace par la fonction xSplit)
- */
-
-/*
-	Cross-Browser Split 0.3
-	By Steven Levithan <http://stevenlevithan.com>
-	MIT license
-	Provides a consistent cross-browser, ECMA-262 v3 compliant split method
-*/
-
-//String.prototype._$$split = String.prototype._$$split || String.prototype.split;
-
-//String.prototype.split = function (s /* separator */, limit) {
-String.prototype.xSplit = function (s /* separator */, limit) {
-	// if separator is not a regex, use the native split method
-	if (!(s instanceof RegExp))
-		return String.prototype.split.apply(this, arguments);
-		//return String.prototype._$$split.apply(this, arguments);
-
-	var	flags = (s.global ? "g" : "") + (s.ignoreCase ? "i" : "") + (s.multiline ? "m" : ""),
-		s2 = new RegExp("^" + s.source + "$", flags),
-		output = [],
-		origLastIndex = s.lastIndex,
-		lastLastIndex = 0,
-		i = 0, match, lastLength;
-
-	/* behavior for limit: if it's...
-	- undefined: no limit
-	- NaN or zero: return an empty array
-	- a positive number: use limit after dropping any decimal
-	- a negative number: no limit
-	- other: type-convert, then use the above rules
-	*/
-	if (limit === undefined || +limit < 0) {
-		limit = false;
-	} else {
-		limit = Math.floor(+limit);
-		if (!limit)
-			return [];
-	}
-
-	if (s.global)
-		s.lastIndex = 0;
-	else
-		s = new RegExp(s.source, "g" + flags);
-
-	while ((!limit || i++ <= limit) && (match = s.exec(this))) {
-		var emptyMatch = !match[0].length;
-
-		// Fix IE's infinite-loop-resistant but incorrect lastIndex
-		if (emptyMatch && s.lastIndex > match.index)
-			s.lastIndex--;
-
-		if (s.lastIndex > lastLastIndex) {
-			// Fix browsers whose exec methods don't consistently return undefined for non-participating capturing groups
-			if (match.length > 1) {
-				match[0].replace(s2, function () {
-					for (var j = 1; j < arguments.length - 2; j++) {
-						if (arguments[j] === undefined)
-							match[j] = undefined;
-					}
-				});
-			}
-
-			output = output.concat(this.slice(lastLastIndex, match.index));
-			if (1 < match.length && match.index < this.length)
-				output = output.concat(match.slice(1));
-			lastLength = match[0].length; // only needed if s.lastIndex === this.length
-			lastLastIndex = s.lastIndex;
-		}
-
-		if (emptyMatch)
-			s.lastIndex++; // avoid an infinite loop
-	}
-
-	// since this uses test(), output must be generated before restoring lastIndex
-	output = lastLastIndex === this.length ?
-		(s.test("") && !lastLength ? output : output.concat("")) :
-		(limit ? output : output.concat(this.slice(lastLastIndex)));
-	s.lastIndex = origLastIndex; // only needed if s.global, else we're working with a copy of the regex
-	return output;
-};
