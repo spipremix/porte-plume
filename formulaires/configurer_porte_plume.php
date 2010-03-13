@@ -21,7 +21,11 @@ function formulaires_configurer_porte_plume_charger_dist(){
 function formulaires_configurer_porte_plume_traiter_dist(){
 	include_spip('inc/config');
 	appliquer_modifs_config();
-		
+	
+	if (version_compare($GLOBALS['spip_version_branche'], "2.1.0-dev", "<")) {
+		ecrire_config('barre_outils_public', _request('barre_outils_public'));
+	}
+			
 	return array('message_ok'=>_T('barre_outils:config_info_enregistree'));
 }
 
