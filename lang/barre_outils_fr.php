@@ -91,6 +91,9 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 'barre_gestion_anc_cible' => 'Ancre cible',
 'barre_gestion_anc_bulle' => 'Bulle d\'aide ancre',
 
+// C
+'config_info_enregistree' => "Configuration sauvegard&eacute;e",
+
 // E
 'explication_barre_outils_public' => "Les scripts CSS et Javascript des barre d'outils
 	(extension Porte Plume) sont charg&eacute;s sur l'espace public

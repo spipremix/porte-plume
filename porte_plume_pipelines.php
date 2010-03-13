@@ -78,12 +78,13 @@ function porte_plume_configurer_liste_metas($metas){
 
 function porte_plume_affiche_milieu($flux){
 	if ($flux['args']['exec']=='config_fonctions'){
-		// dans la branche 2.1 on utilise l'ancienne interface du compresseur par homogeneite
-		if (version_compare($GLOBALS['spip_version_branche'], "2.2.0-dev","<")){
+		// dans la branche 2.1 on utilise l'ancienne interface du porte plume par homogeneite
+		// en version 2.0, le pipeline configurer_liste_metas n'existe pas...
+		if (version_compare($GLOBALS['spip_version_branche'], "2.2.0-dev","<")
+		and version_compare($GLOBALS['spip_version_branche'], "2.1.0-dev", ">")) {
 			$porte_plume = charger_fonction('porte_plume', 'configuration');
 			$flux['data'] .= $porte_plume(); 
-		}
-		else {
+		} else {
 			$flux['data'] .= recuperer_fond('prive/configurer/porte_plume',array()); 
 		}
 	}

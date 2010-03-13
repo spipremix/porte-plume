@@ -22,7 +22,7 @@ function formulaires_configurer_porte_plume_traiter_dist(){
 	include_spip('inc/config');
 	appliquer_modifs_config();
 		
-	return array('message_ok'=>_T('config_info_enregistree'));
+	return array('message_ok'=>_T('barre_outils:config_info_enregistree'));
 }
 
 ?>
