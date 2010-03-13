@@ -617,18 +617,18 @@
 			// set keys pressed
 			function keyPressed(e) {
 				if (e.type === 'keydown') {
-					if (e.keyCode === 18) {e.altKey = true;} // alt
-					if (e.keyCode === 17) {e.ctrlKey = true;} // control
-					if (e.keyCode === 16) {e.shiftKey = true;} // shift
+					if (e.which === 18) {e.altKey = true;} // alt
+					if (e.which === 17) {e.ctrlKey = true;} // control
+					if (e.which === 16) {e.shiftKey = true;} // shift
 				}
-
+				
 				shiftKey = e.shiftKey;
 				altKey = e.altKey;
 				ctrlKey = (!(e.altKey && e.ctrlKey)) ? e.ctrlKey : false;
 
 				if (e.type === 'keydown') {
 					if (ctrlKey === true) {
-						li = $("a[accesskey="+String.fromCharCode(e.keyCode)+"]", header).parent('li');
+						li = $("a[accesskey="+String.fromCharCode(e.which)+"]", header).parent('li');
 						if (li.length !== 0) {
 							ctrlKey = false;
 							li.triggerHandler('mouseup');
@@ -638,7 +638,7 @@
 					// si opera, on s'embete pas, il cree plus de problemes qu'autre chose
 					// car il ne prend pas en compte l'arret de ces evenements
 					if (!$.browser.opera) {				
-						if (e.keyCode === 13 || e.keyCode === 10) { // Enter key
+						if (e.which === 13 || e.which === 10) { // Enter key
 							if (ctrlKey === true) {  // Enter + Ctrl
 								ctrlKey = false;
 								markup(options.onCtrlEnter);
@@ -653,7 +653,7 @@
 							}
 						}
 					
-						if (e.keyCode === 9) { // Tab key
+						if (e.which === 9) { // Tab key
 							if (shiftKey == true || ctrlKey == true || altKey == true) { // Thx Dr Floob.
 								return false; 
 							}
