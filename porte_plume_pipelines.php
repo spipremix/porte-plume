@@ -29,10 +29,14 @@ function porte_plume_insert_head_public($flux){
 function porte_plume_insert_head_prive($flux){
 	$js = find_in_path('javascript/porte_plume_forcer_hauteur.js');
 	$css = find_in_path('css/barre_outils_prive.css');
+	$css2 = find_in_path('css/barre_outils.css');
+	$css_icones = generer_url_public('barre_outils_icones.css');
 
 	$flux = porte_plume_inserer_head($flux, $GLOBALS['spip_lang'])
 		. "<script type='text/javascript' src='$js'></script>\n"
-		. "<link rel='stylesheet' type='text/css' media='all' href='$css' />\n";
+		. "<link rel='stylesheet' type='text/css' media='all' href='$css' />\n"
+		. "<link rel='stylesheet' type='text/css' media='all' href='$css2' />\n"
+		.  "<link rel='stylesheet' type='text/css' media='all' href='$css_icones' />\n";
 	
 	return $flux;
 }
