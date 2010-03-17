@@ -28,27 +28,20 @@ function porte_plume_insert_head_public($flux){
 
 function porte_plume_insert_head_prive($flux){
 	$js = find_in_path('javascript/porte_plume_forcer_hauteur.js');
-	$css = find_in_path('css/barre_outils_prive.css');
-	$css2 = find_in_path('css/barre_outils.css');
-	$css_icones = generer_url_public('barre_outils_icones.css');
-
-	$flux = porte_plume_inserer_head($flux, $GLOBALS['spip_lang'])
-		. "<script type='text/javascript' src='$js'></script>\n"
-		. "<link rel='stylesheet' type='text/css' media='all' href='$css' />\n"
-		. "<link rel='stylesheet' type='text/css' media='all' href='$css2' />\n"
-		.  "<link rel='stylesheet' type='text/css' media='all' href='$css_icones' />\n";
+	$flux = porte_plume_inserer_head($flux, $GLOBALS['spip_lang'], $prive=true)
+		. "<script type='text/javascript' src='$js'></script>\n";
 	
 	return $flux;
 }
 
-function porte_plume_inserer_head($flux, $lang){
+function porte_plume_inserer_head($flux, $lang, $prive = false){
 	$xregexp = find_in_path('javascript/xregexp-min.js');
 	$markitup = find_in_path('javascript/jquery.markitup_pour_spip.js');
 	$js_previsu = find_in_path('javascript/jquery.previsu_spip.js');
 	$js_start = parametre_url(generer_url_public('porte_plume_start.js'), 'lang', $lang);
 
 	$flux 
-		.= porte_plume_insert_head_css() // compat SPIP 2.0
+		.= porte_plume_insert_head_css('', $prive) // compat SPIP 2.0
 		.  "<script type='text/javascript' src='$xregexp'></script>\n"
 		.  "<script type='text/javascript' src='$markitup'></script>\n"
 		.  "<script type='text/javascript' src='$js_previsu'></script>\n"
@@ -57,15 +50,22 @@ function porte_plume_inserer_head($flux, $lang){
 	return $flux;
 }
 
-function porte_plume_insert_head_css($flux=''){
+// pour charger tous les CSS avant les JS
+// uniquement dans le public. (SPIP 2.1+)
+// ici aussi appele depuis le prive avec le parametre $prive a true.
+function porte_plume_insert_head_css($flux='', $prive = false){
 	static $done = false;
 	if ($done) return $flux;
 	$done = true;
 	include_spip('inc/autoriser');
-	if (autoriser('afficher_public', 'porte_plume')) {
+	// toujours autoriser pour le prive.
+	if ($prive or autoriser('afficher_public', 'porte_plume')) {
+		if ($prive) {
+			$cssprive = find_in_path('css/barre_outils_prive.css');
+			$flux .= "<link rel='stylesheet' type='text/css' media='all' href='$cssprive' />\n";
+		}
 		$css = find_in_path('css/barre_outils.css');
 		$css_icones = generer_url_public('barre_outils_icones.css');
-
 		$flux
 			.= "<link rel='stylesheet' type='text/css' media='all' href='$css' />\n"
 			.  "<link rel='stylesheet' type='text/css' media='all' href='$css_icones' />\n";
