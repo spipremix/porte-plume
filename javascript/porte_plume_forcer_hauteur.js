@@ -22,6 +22,3 @@ function barre_forcer_hauteur () {
 jQuery(window).bind("load", function() {
 	barre_forcer_hauteur();
 });
-jQuery(window).bind("resize", function() {
-	barre_forcer_hauteur();
-});
