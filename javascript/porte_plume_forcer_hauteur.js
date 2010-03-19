@@ -3,11 +3,10 @@ function barre_forcer_hauteur () {
 		var hauteur_min = jQuery(this).height();
 		var hauteur_max = parseInt(jQuery(window).height()) - 200;
 		var hauteur = hauteur_min;
-
 		
 		var signes = jQuery(this).val().length;
 		if (signes){
-			/* en gros: 400 signes donne 100 pixels de haut */
+			/* en gros: 400 signes donnent 100 pixels de haut */
 			var hauteur_signes = Math.round(signes / 4) + 50;
 			if (hauteur_signes > hauteur_min && hauteur_signes < hauteur_max) 
 				hauteur = hauteur_signes;
@@ -17,8 +16,12 @@ function barre_forcer_hauteur () {
 		
 			jQuery(this).height(hauteur);
 		}
-
 	});
 }
 
-jQuery(barre_forcer_hauteur);
+jQuery(window).bind("load", function() {
+	barre_forcer_hauteur();
+});
+jQuery(window).bind("resize", function() {
+	barre_forcer_hauteur();
+});
