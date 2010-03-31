@@ -38,7 +38,7 @@ function porte_plume_inserer_head($flux, $lang, $prive = false){
 	$xregexp = find_in_path('javascript/xregexp-min.js');
 	$markitup = find_in_path('javascript/jquery.markitup_pour_spip.js');
 	$js_previsu = find_in_path('javascript/jquery.previsu_spip.js');
-	$js_start = parametre_url(generer_url_public('porte_plume_start.js'), 'lang', $lang);
+	$js_start = parametre_url(generer_url_public('porte_plume_start.js'), 'lang', $lang, '&');
 
 	$flux 
 		.= porte_plume_insert_head_css('', $prive) // compat SPIP 2.0
