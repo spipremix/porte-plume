@@ -16,7 +16,7 @@ function barre_outils_edition(){
 		#'previewAutoRefresh'=> true,
 		#'previewParserPath' => url_absolue(generer_url_public('preview')),
 		'onShiftEnter'      => array('keepDefault'=>false, 'replaceWith'=>"\n_ "),
-		'onCtrlEnter'       => array('keepDefault'=>true, 'replaceWith'=>"\n\n"),
+		'onCtrlEnter'       => array('keepDefault'=>false, 'replaceWith'=>"\n\n"),
 		// garder les listes si on appuie sur entree
 		'onEnter'           => array('keepDefault'=>false, 'selectionType'=>'return', 'replaceWith'=>"\n"),
 		'onTab'             => array('keepDefault'=>false, 'replaceWith'=>"\t"),
