@@ -91,6 +91,26 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 'barre_gestion_anc_cible' => 'Anchor target',
 'barre_gestion_anc_bulle' => 'Anchor help bubble',
 
+// C
+'config_info_enregistree' => "Configuration saved",
+
+// E
+'explication_barre_outils_public' => "CSS and Javascript Scripts for toolbars
+	(Quill extension, Porte Plume) are loaded in the public site and 
+	provide toolbars in forums, public crayons or other plugins
+	if their respective configurations allow it.",
+'explication_barre_outils_public_2' => "You can choose not to load
+	these scripts in to lighten public pages.
+	Therefore, whatever configuration the forums, crayons or plugins have, 
+	no Quill toolbar will show automatically in the public site.",
+	
+// I
+'info_porte_plume_titre' => "Toolbars configuration",
+'info_barre_outils_public' => "Public toolbars",
+
+// L
+'label_barre_outils_public_oui' => "Load the toolbars\' scripts in the public site.",
+'label_barre_outils_public_non' => "Do not load the toolbars\' scripts in the public site"
 
 );
 ?>
