@@ -556,18 +556,28 @@ function barre_outils_liste(){
  * @return string : texte traite
  */
 function traitements_previsu($texte, $nom_champ='', $type_objet='', $connect=null) {
+	include_spip('public/interfaces'); // charger les traitements
+	safehtml($t);
 	global $table_des_traitements;
-	if(!strlen($nom_champ) || !isset($table_des_traitements[$nom_champ]))
-		return propre($texte, $connect);
-	include_spip('base/abstract_sql');
-	$table = table_objet($type_objet);
-	$ps = $table_des_traitements[$nom_champ];
-	if(is_array($ps))
-		$ps = $ps[(strlen($table) && isset($ps[$table])) ? $table : 0];
-	if(!$ps) 
-		return propre($texte, $connect);
-	// remplacer le placeholder %s par le texte fourni
-	eval('$texte=' . str_replace('%s', '$texte', $ps) . ';');
-	return $texte;
+	if(!strlen($nom_champ) || !isset($table_des_traitements[$nom_champ])) {
+		$texte = propre($texte, $connect);
+	}
+	else {
+		include_spip('base/abstract_sql');
+		$table = table_objet($type_objet);
+		$ps = $table_des_traitements[$nom_champ];
+		if(is_array($ps))
+			$ps = $ps[(strlen($table) && isset($ps[$table])) ? $table : 0];
+		if(!$ps)
+			$texte = propre($texte, $connect);
+		else
+			// remplacer le placeholder %s par le texte fourni
+			eval('$texte=' . str_replace('%s', '$texte', $ps) . ';');
+	}
+	// il faut toujours securiser le texte preivusalise car il peut contenir n'importe quoi
+	// et servir de support a une attaque xss ou vol de cookie admin
+	// on ne peut donc se fier au statut de l'auteur connecte car le contenu ne vient pas
+	// forcement de lui
+	return safehtml($texte);
 }
 ?>

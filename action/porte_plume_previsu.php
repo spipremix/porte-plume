@@ -13,6 +13,17 @@
 if (!defined("_ECRIRE_INC_VERSION")) return;
 
 function action_porte_plume_previsu_dist(){
-	echo recuperer_fond('porte_plume_preview',$_POST);
+
+	// $_POST a ete sanitise par SPIP
+	// et le fond injecte des interdire_scripts pour empecher les injections PHP
+	// le js est bloque ou non selon les reglages de SPIP et si on est ou non dans l'espace prive
+	$contexte = $_POST;
+
+	// mais il faut avoir le droit de previsualiser
+	// (par defaut le droit d'aller dans ecrire/)
+	if (!autoriser('previsualiser','porte_plume'))
+		$contexte = array();
+
+	echo recuperer_fond('prive/porte_plume_preview',$contexte);
 }
 ?>

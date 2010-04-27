@@ -1,7 +1,8 @@
 #CACHE{7*24*3600}
 #HTTP_HEADER{Content-Type: text/javascript; charset=#CHARSET}
 
-[(#REM) chargement des definitions des barres d'outils ]
+[(#REM) chargement des definitions des barres d'outils
+<script>]
 [(#VAL|porte_plume_creer_json_markitup)]
 
 
@@ -23,7 +24,7 @@ $.fn.barre_outils = function(nom, settings) {
 
 $.fn.barre_previsualisation = function(settings) {
 	options = {
-		previewParserPath:"[(#URL_ACTION{porte_plume_previsu}|url_absolue)]",
+		previewParserPath:"index.php?action=porte_plume_previsu", // ici une url relative pour prive/public
 		textEditer:"<:barre_outils:editer:>",
 		textVoir:"<:barre_outils:voir:>"
 	};
