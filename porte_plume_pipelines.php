@@ -6,6 +6,24 @@
  */
 #define('PORTE_PLUME_PUBLIC', true);
 
+function porte_plume_autoriser($flux){return $flux;}
+
+/**
+ * Autoriser l'action de previsu : la fermer aux non identifies
+ * si pas de porte plume dans le public
+ * @param string $faire
+ * @param string $type
+ * @param int $id
+ * @param array $qui
+ * @param array $opt
+ * @return bool
+ */
+function autoriser_porte_plume_previsualiser_dist($faire, $type, $id, $qui, $opt){
+	return
+		(test_espace_prive() AND autoriser('ecrire'))
+	  OR (!test_espace_prive() AND autoriser('afficher_public','porte_plume'));
+}
+
 // autoriser le porte plume dans le public ?
 function autoriser_porte_plume_afficher_public_dist($faire, $type, $id, $qui, $opt) {
 	// compatibilite d'avant le formulaire de configuration
