@@ -6,7 +6,7 @@
 
 
 ;(function($){
-	
+
 // 2 fonctions pour appeler le porte plume reutilisables pour d'autres plugins
 // on envoie dedans la selection jquery qui doit etre effectuee
 // ce qui evite des appels direct a markitup, aucazou on change de lib un jour
@@ -23,7 +23,7 @@ $.fn.barre_outils = function(nom, settings) {
 
 $.fn.barre_previsualisation = function(settings) {
 	options = {
-		previewParserPath:"[(#URL_PAGE{porte_plume_preview}|url_absolue)]",
+		previewParserPath:"[(#URL_ACTION{porte_plume_previsu}|url_absolue)]",
 		textEditer:"<:barre_outils:editer:>",
 		textVoir:"<:barre_outils:voir:>"
 	};
@@ -37,12 +37,12 @@ $.fn.barre_previsualisation = function(settings) {
 $(window).load(function(){
 	// ajoute les barres d'outils markitup
 	function barrebouilles(){
-		// fonction generique appliquee aux classes CSS : 
+		// fonction generique appliquee aux classes CSS :
 		// inserer_barre_forum, inserer_barre_edition, inserer_previsualisation
 		$('.formulaire_spip textarea.inserer_barre_forum').barre_outils('forum');
 		$('.formulaire_spip textarea.inserer_barre_edition').barre_outils('edition');
 		$('.formulaire_spip textarea.inserer_previsualisation').barre_previsualisation();
-		// fonction specifique aux formulaires de SPIP : 
+		// fonction specifique aux formulaires de SPIP :
 		// barre de forum
 		$('textarea.textarea_forum').barre_outils('forum');
 		[(#CONFIG{forums_afficher_barre}|=={non}|non)
@@ -54,6 +54,6 @@ $(window).load(function(){
 	}
 	barrebouilles();
 	onAjaxLoad(barrebouilles);
-	
+
 });
 })(jQuery);
