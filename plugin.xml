@@ -1,5 +1,5 @@
 <plugin>
-	<nom><multi>[fr]Porte plume[en]Quill[ar]&#1575;&#1604;&#1585;&#1610;&#1588;&#1577;</multi></nom>
+	<nom><multi>[fr]Porte plume[en]Quill[ar]&#1575;&#1604;&#1585;&#1610;&#1588;&#1577;[de]Federhalter</multi></nom>
 	<auteur>Matthieu Marcillaud</auteur>
 	<licence>GNU/GPL</licence>
 	<version>1.7.2</version>
@@ -17,7 +17,11 @@ _ Porte plume est une barre d'outil extensible pour SPIP qui
 	[ar]&#1588;&#1585;&#1610;&#1591; &#1571;&#1583;&#1608;&#1575;&#1578; &#1604;&#1578;&#1581;&#1587;&#1610;&#1606; &#1575;&#1604;&#1603;&#1578;&#1575;&#1576;&#1577;
 _ &#1575;&#1604;&#1585;&#1610;&#1588;&#1577; &#1607;&#1610; &#1588;&#1585;&#1610;&#1591; &#1571;&#1583;&#1608;&#1575;&#1578; &#1605;&#1608;&#1587;&#1593; &#1604;&#1606;&#1592;&#1575;&#1605; SPIP &#1610;&#1587;&#1578;&#1582;&#1583;&#1605; &#1605;&#1603;&#1578;&#1576;&#1577; &#1580;&#1575;&#1601;&#1575;&#1587;&#1603;&#1585;&#1610;&#1576;&#1578; [MarkItUp->http://markitup.jaysalvat.com/home/]
 
-&#1575;&#1604;&#1571;&#1610;&#1602;&#1608;&#1606;&#1575;&#1578; &#1578;&#1571;&#1578;&#1610; &#1605;&#1606; &#1605;&#1603;&#1578;&#1576;&#1577; [FamFamFam->http://www.famfamfam.com/]</multi>
+&#1575;&#1604;&#1571;&#1610;&#1602;&#1608;&#1606;&#1575;&#1578; &#1578;&#1571;&#1578;&#1610; &#1605;&#1606; &#1605;&#1603;&#1578;&#1576;&#1577; [FamFamFam->http://www.famfamfam.com/]
+[de]Eine Me&uuml;leiste zum Versch&ouml;nern der Texte.
+_ Der Federhalter ist eine erweiterbare Werkzeugleiste f&uuml;r SPIP auf Grundlage der Javascript-Bibiliothek [MarkItUp->http://markitup.jaysalvat.com/home/]
+
+	Die Icons stammen aus der Sammlung [FamFamFam->http://www.famfamfam.com/].</multi>
 	</description>
 	<lien>http://www.spip-contrib.net/Porte-plume,3117</lien> <!-- URI de documentation -->
 	<etat>stable</etat>
