@@ -65,4 +65,5 @@ _ Der Federhalter ist eine erweiterbare Werkzeugleiste f&uuml;r SPIP auf Grundla
 	</pipeline>
 	
 	<necessite id="SPIP" version="[2.0.2;]" />
+	<categorie>edition</categorie>
 </plugin>
