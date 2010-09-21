@@ -19,8 +19,10 @@ function bouton_barre_racc($action, $img, $help, $champhelp) {
 // construit un tableau de raccourcis pour un noeud de DOM 
 
 // http://doc.spip.org/@afficher_barre
+if (!function_exists('afficher_barre')) {
 function afficher_barre($champ, $forum=false, $lang='') {
 	return;
+}
 }
 
 // expliciter les 3 arguments pour avoir xhtml strict
