@@ -1,6 +1,6 @@
 // ----------------------------------------------------------------------------
 // markItUp! Universal MarkUp Engine, JQuery plugin
-// v 1.1.6.1
+// v 1.1.8
 // Dual licensed under the MIT and GPL licenses.
 // ----------------------------------------------------------------------------
 // Copyright (C) 2007-2010 Jay Salvat
@@ -26,7 +26,7 @@
 // ----------------------------------------------------------------------------
 
 /*
- *   Le code original de markitup 1.1.6.1
+ *   Le code original de markitup 1.1.8
  *   a ete modifie pour prendre en compte
  * 
  *   1) la langue utilisee dans les textarea :
@@ -200,11 +200,13 @@
 								return false;
 							}).click(function() {
 								return false;
-							}).mouseup(function() {
+							}).focusin(function(){
+								$$.focus();
+							}).mousedown(function() {
 								if (button.call) {
 									eval(button.call)();
 								}
-								markup(button);
+								setTimeout(function() { markup(button) },1);
 								return false;
 							}).hover(function() {
 									$('> ul', this).show();
@@ -312,8 +314,8 @@
 			
 			function selectionBeforeAfter(pattern) {
 				if (!pattern) pattern = /\s/;
-				before = $$.val().substring(0, caretEffectivePosition);
-				after = $$.val().substring(caretEffectivePosition + selection.length - fixOperaBug(selection) - fixIeBug(selection));
+				before = textarea.value.substring(0, caretEffectivePosition);
+				after = textarea.value.substring(caretEffectivePosition + selection.length - fixIeBug(selection));
 			
 				before = before.split(pattern);
 				after = after.split(pattern);			
@@ -322,7 +324,7 @@
 			function selectionSave(){
 				nb_before = before ? before[before.length-1].length : 0;
 				nb_after = after ? after[0].length : 0;
-		
+
 				nb = nb_before + selection.length + nb_after - fixIeBug(selection);
 				caretPosition =  caretPosition - nb_before;
 
@@ -414,7 +416,7 @@
 					}
 					string = { block:lines.join('\n')};
 					start = caretPosition;
-					len = string.block.length + (($.browser.opera) ? n : 0);
+					len = string.block.length + (($.browser.opera) ? n-1 : 0);
 				} else if (ctrlKey === true) {
 					string = build(selection);
 					start = caretPosition + string.openWith.length;
@@ -486,7 +488,7 @@
 					var newSelection = document.selection.createRange();
 					newSelection.text = block;
 				} else {
-					$$.val($$.val().substring(0, caretEffectivePosition) + block + $$.val().substring(caretEffectivePosition + selection.length));
+					textarea.value =  textarea.value.substring(0, caretEffectivePosition)  + block + textarea.value.substring(caretEffectivePosition + selection.length, textarea.value.length);
 				}
 			}
 
@@ -516,7 +518,7 @@
 						var range = document.selection.createRange(), rangeCopy = range.duplicate();
 						rangeCopy.moveToElementText(textarea);
 						caretPosition = -1;
-						while(rangeCopy.inRange(range)) { // fix most of the ie bugs with linefeeds...
+						while(rangeCopy.inRange(range)) {
 							rangeCopy.moveStart('character');
 							caretPosition ++;
 						}
@@ -531,10 +533,11 @@
 							set(caretPosition, lenSelection);
 							selection = document.selection.createRange().text;
 					}
-				} else { // gecko
+				} else { // gecko & webkit
 					caretPosition = textarea.selectionStart;
 					caretEffectivePosition = caretPosition;
-					selection = $$.val().substring(caretPosition, textarea.selectionEnd);
+					selection = textarea.value.substring(caretPosition, textarea.selectionEnd);
+	
 				} 
 				return selection;
 			}
@@ -544,6 +547,9 @@
 				if (!previewWindow || previewWindow.closed) {
 					if (options.previewInWindow) {
 						previewWindow = window.open('', 'preview', options.previewInWindow);
+						$(window).unload(function() {
+							previewWindow.close();
+						});
 					} else {
 						iFrame = $('<iframe class="markItUpPreviewFrame"></iframe>');
 						if (options.previewPosition == 'after') {
@@ -554,7 +560,6 @@
 						previewWindow = iFrame[iFrame.length - 1].contentWindow || frame[iFrame.length - 1];
 					}
 				} else if (altKey === true) {
-					// Thx Stephen M. Redd for the IE8 fix
 					if (iFrame) {
 						iFrame.remove();
 					} else {
@@ -564,6 +569,9 @@
 				}
 				if (!options.previewAutoRefresh) {
 					refreshPreview(); 
+				}
+				if (options.previewInWindow) {
+					previewWindow.focus();
 				}
 			}
 
@@ -603,14 +611,10 @@
 					} catch(e) {
 						sp = 0;
 					}	
-					var h = "test";
 					previewWindow.document.open();
 					previewWindow.document.write(data);
 					previewWindow.document.close();
 					previewWindow.document.documentElement.scrollTop = sp;
-				}
-				if (options.previewInWindow) {
-					previewWindow.focus();
 				}
 			}
 						
@@ -631,7 +635,9 @@
 						li = $("a[accesskey="+String.fromCharCode(e.which)+"]", header).parent('li');
 						if (li.length !== 0) {
 							ctrlKey = false;
-							li.triggerHandler('mouseup');
+							setTimeout(function() {
+								li.triggerHandler('mousedown');
+							},1);
 							return false;
 						}
 					}
@@ -654,7 +660,7 @@
 						}
 					
 						if (e.which === 9) { // Tab key
-							if (shiftKey == true || ctrlKey == true || altKey == true) { // Thx Dr Floob.
+							if (shiftKey == true || ctrlKey == true || altKey == true) {
 								return false; 
 							}
 							markup(options.onTab);
@@ -670,7 +676,7 @@
 
 	$.fn.markItUpRemove = function() {
 		return this.each(function() {
-				$$ = $(this).unbind().removeClass('markItUpEditor');
+				var $$ = $(this).unbind().removeClass('markItUpEditor');
 				$$.parent('div').parent('div.markItUp').parent('div').replaceWith($$);
 			}
 		);
