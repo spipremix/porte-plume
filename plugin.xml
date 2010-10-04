@@ -4,13 +4,13 @@
 	<licence>GNU/GPL</licence>
 	<version>1.7.4</version>
 	<description>
-	<multi>[fr]Une barre d'outil pour bien &eacute;crire
+	<multi>[fr]Une barre d'outil pour bien &#233;crire
 _ Porte plume est une barre d'outil extensible pour SPIP qui
 	utilise la librairie javascript [MarkItUp->http://markitup.jaysalvat.com/home/]
 
 	Les icones proviennent de la librairie [FamFamFam->http://www.famfamfam.com/]
 	[en]A toolbar to enhance your texts
-	_ The Quill is a SPIP extensible toolbar which uses the javascript library 
+_ The Quill is a SPIP extensible toolbar which uses the javascript library 
 	[MarkItUp->http://markitup.jaysalvat.com/home/]
 	
 	Icons are courtesy of the library [FamFamFam->http://www.famfamfam.com/]
@@ -18,8 +18,8 @@ _ Porte plume est une barre d'outil extensible pour SPIP qui
 _ &#1575;&#1604;&#1585;&#1610;&#1588;&#1577; &#1607;&#1610; &#1588;&#1585;&#1610;&#1591; &#1571;&#1583;&#1608;&#1575;&#1578; &#1605;&#1608;&#1587;&#1593; &#1604;&#1606;&#1592;&#1575;&#1605; SPIP &#1610;&#1587;&#1578;&#1582;&#1583;&#1605; &#1605;&#1603;&#1578;&#1576;&#1577; &#1580;&#1575;&#1601;&#1575;&#1587;&#1603;&#1585;&#1610;&#1576;&#1578; [MarkItUp->http://markitup.jaysalvat.com/home/]
 
 &#1575;&#1604;&#1571;&#1610;&#1602;&#1608;&#1606;&#1575;&#1578; &#1578;&#1571;&#1578;&#1610; &#1605;&#1606; &#1605;&#1603;&#1578;&#1576;&#1577; [FamFamFam->http://www.famfamfam.com/]
-[de]Eine Me&uuml;leiste zum Versch&ouml;nern der Texte.
-_ Der Federhalter ist eine erweiterbare Werkzeugleiste f&uuml;r SPIP auf Grundlage der Javascript-Bibiliothek [MarkItUp->http://markitup.jaysalvat.com/home/]
+[de]Eine Me&#252;leiste zum Versch&#246;nern der Texte.
+_ Der Federhalter ist eine erweiterbare Werkzeugleiste f&#252;r SPIP auf Grundlage der Javascript-Bibiliothek [MarkItUp->http://markitup.jaysalvat.com/home/]
 
 	Die Icons stammen aus der Sammlung [FamFamFam->http://www.famfamfam.com/].</multi>
 	</description>
