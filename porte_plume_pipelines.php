@@ -82,7 +82,7 @@ function porte_plume_insert_head_css($flux='', $prive = false){
 			$cssprive = find_in_path('css/barre_outils_prive.css');
 			$flux .= "<link rel='stylesheet' type='text/css' media='all' href='$cssprive' />\n";
 		}
-		$css = find_in_path('css/barre_outils.css');
+		$css = direction_css(find_in_path('css/barre_outils.css'), lang_dir());
 		$css_icones = generer_url_public('barre_outils_icones.css');
 		$flux
 			.= "<link rel='stylesheet' type='text/css' media='all' href='$css' />\n"
