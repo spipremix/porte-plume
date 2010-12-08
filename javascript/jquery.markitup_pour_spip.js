@@ -1,6 +1,6 @@
 // ----------------------------------------------------------------------------
 // markItUp! Universal MarkUp Engine, JQuery plugin
-// v 1.1.8
+// v 1.1.9
 // Dual licensed under the MIT and GPL licenses.
 // ----------------------------------------------------------------------------
 // Copyright (C) 2007-2010 Jay Salvat
@@ -200,7 +200,7 @@
 								return false;
 							}).click(function() {
 								return false;
-							}).focusin(function(){
+							}).bind("focusin", function(){
 								$$.focus();
 							}).mousedown(function() {
 								if (button.call) {
@@ -477,7 +477,7 @@
 			// Substract linefeed in IE
 			function fixIeBug(string) {
 				if ($.browser.msie) {
-					return string.length - string.replace(/\r*/g, '').length;
+					return string.length - string.replace(/\r/g, '').length;
 				}
 				return 0;
 			}
@@ -513,15 +513,17 @@
 
 				scrollPosition = textarea.scrollTop;
 				if (document.selection) {
-					selection = document.selection.createRange().text;
-					if ($.browser.msie) { // ie
-						var range = document.selection.createRange(), rangeCopy = range.duplicate();
-						rangeCopy.moveToElementText(textarea);
-						caretPosition = -1;
-						while(rangeCopy.inRange(range)) {
-							rangeCopy.moveStart('character');
-							caretPosition ++;
-						}
+					selection = document.selection;	
+					if ($.browser.msie) { // ie	
+						var range = selection.createRange();
+						var stored_range = range.duplicate();
+						stored_range.moveToElementText(textarea);
+						stored_range.setEndPoint('EndToEnd', range);
+						var s = stored_range.text.length - range.text.length;
+	
+						caretPosition = s - (textarea.value.substr(0, s).length - textarea.value.substr(0, s).replace(/\r/g, '').length);
+						selection = range.text;
+					
 						caretEffectivePosition = caretPosition;
 					} else { // opera
 						caretPosition = textarea.selectionStart;
