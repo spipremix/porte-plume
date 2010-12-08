@@ -19,7 +19,9 @@ $.fn.barre_outils = function(nom, settings) {
 
 	return $(this)
 		.not('.markItUpEditor, .no_barre')
-		.markItUp(eval('barre_outils_' + nom), {lang:options.lang});
+		.markItUp(eval('barre_outils_' + nom), {lang:options.lang})
+		.parent().find('.markItUpButton a').attr('tabindex', -1) // ne pas tabuler les boutons
+		.end(); 
 };
 
 $.fn.barre_previsualisation = function(settings) {
@@ -32,7 +34,9 @@ $.fn.barre_previsualisation = function(settings) {
 
 	return $(this)
 		.not('.pp_previsualisation, .no_previsualisation')
-		.previsu_spip(options);
+		.previsu_spip(options)
+		.parent().find('.markItUpTabs a').attr('tabindex', -1) // ne pas tabuler les onglets
+		.end();
 };
 
 $(window).load(function(){
