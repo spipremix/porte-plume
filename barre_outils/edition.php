@@ -88,22 +88,22 @@ function barre_outils_edition(){
 						"selectionType" => "line",
 						"forceMultiline" => true,
 					),
-					// indenter		
-					array(
-						"id"        => 'indenter',
-						"name"      => _T('barre_outils:barre_indenter'), 
-						"className" => "outil_indenter", 
-						"replaceWith" => "function(h){return outil_indenter(h);}",  
-						"display"   => true,
-						"selectionType" => "line",
-						"forceMultiline" => true,
-					),
 					// desindenter	
 					array(
 						"id"        => 'desindenter',
 						"name"      => _T('barre_outils:barre_desindenter'), 
 						"className" => "outil_desindenter", 
 						"replaceWith" => "function(h){return outil_desindenter(h);}", 
+						"display"   => true,
+						"selectionType" => "line",
+						"forceMultiline" => true,
+					),
+					// indenter		
+					array(
+						"id"        => 'indenter',
+						"name"      => _T('barre_outils:barre_indenter'), 
+						"className" => "outil_indenter", 
+						"replaceWith" => "function(h){return outil_indenter(h);}",  
 						"display"   => true,
 						"selectionType" => "line",
 						"forceMultiline" => true,
