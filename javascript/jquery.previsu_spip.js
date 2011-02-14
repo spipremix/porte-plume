@@ -43,7 +43,7 @@
 					$(mark).find('.markItUpPreview').show()
 						.addClass('ajaxLoad')
 						.html(renderPreview(
-							$(mark).find('textarea.pp_previsualisation').val(),
+							$(mark).find('.pp_previsualisation textarea').val(),
 							champ[1].toUpperCase(),
 							objet[1])
 						)
