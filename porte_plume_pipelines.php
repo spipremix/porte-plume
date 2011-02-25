@@ -18,14 +18,14 @@ function porte_plume_autoriser($flux){return $flux;}
  * @param array $opt
  * @return bool
  */
-function autoriser_porte_plume_previsualiser_dist($faire, $type, $id, $qui, $opt){
+function autoriser_porteplume_previsualiser_dist($faire, $type, $id, $qui, $opt){
 	return
 		(test_espace_prive() AND autoriser('ecrire'))
-	  OR (!test_espace_prive() AND autoriser('afficher_public','porte_plume'));
+	  OR (!test_espace_prive() AND autoriser('afficher_public','porteplume'));
 }
 
 // autoriser le porte plume dans le public ?
-function autoriser_porte_plume_afficher_public_dist($faire, $type, $id, $qui, $opt) {
+function autoriser_porteplume_afficher_public_dist($faire, $type, $id, $qui, $opt) {
 	// compatibilite d'avant le formulaire de configuration
 	if (defined('PORTE_PLUME_PUBLIC')) {
 		return PORTE_PLUME_PUBLIC;
@@ -38,7 +38,7 @@ function autoriser_porte_plume_afficher_public_dist($faire, $type, $id, $qui, $o
 
 function porte_plume_insert_head_public($flux){
 	include_spip('inc/autoriser');
-	if (autoriser('afficher_public', 'porte_plume')) {
+	if (autoriser('afficher_public', 'porteplume')) {
 		$flux = porte_plume_inserer_head($flux, $GLOBALS['spip_lang']);
 	}
 	return $flux;
@@ -77,7 +77,7 @@ function porte_plume_insert_head_css($flux='', $prive = false){
 	$done = true;
 	include_spip('inc/autoriser');
 	// toujours autoriser pour le prive.
-	if ($prive or autoriser('afficher_public', 'porte_plume')) {
+	if ($prive or autoriser('afficher_public', 'porteplume')) {
 		if ($prive) {
 			$cssprive = find_in_path('css/barre_outils_prive.css');
 			$flux .= "<link rel='stylesheet' type='text/css' media='all' href='$cssprive' />\n";
