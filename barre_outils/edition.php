@@ -25,7 +25,7 @@ function barre_outils_edition(){
 			// H1 - {{{
 			array(
 				"id"        => 'header1', 
-				"name"      => _T('barre_outils:barre_intertitre'), 
+				"name"      => _T('barreoutils:barre_intertitre'), 
 				"key"       => "H", 
 				"className" => "outil_header1", 
 				"openWith" => "\n{{{", 
@@ -36,7 +36,7 @@ function barre_outils_edition(){
 			// Bold - {{
 			array(
 				"id"        => 'bold',
-				"name"      => _T('barre_outils:barre_gras'), 
+				"name"      => _T('barreoutils:barre_gras'), 
 				"key"       => "B", 
 				"className" => "outil_bold", 
 				"replaceWith" => "function(h){ return espace_si_accolade(h, '{{', '}}');}",
@@ -48,7 +48,7 @@ function barre_outils_edition(){
 			// Italic - {
 			array(
 				"id"        => 'italic',
-				"name"      => _T('barre_outils:barre_italic'), 
+				"name"      => _T('barreoutils:barre_italic'), 
 				"key"       => "I", 
 				"className" => "outil_italic", 
 				"replaceWith" => "function(h){ return espace_si_accolade(h, '{', '}');}",
@@ -61,7 +61,7 @@ function barre_outils_edition(){
 			// montrer une suppression
 			array(
 				"id"        => 'stroke_through',
-				"name"      => _T('barre_outils:barre_barre'), // :-)
+				"name"      => _T('barreoutils:barre_barre'), // :-)
 				"className" => "outil_stroke_through", 
 				"openWith" => "<del>", 
 				"closeWith" => "</del>",
@@ -72,7 +72,7 @@ function barre_outils_edition(){
 			// listes -*
 			array(
 				"id"        => 'liste_ul',
-				"name"      => _T('barre_outils:barre_liste_ul'), 
+				"name"      => _T('barreoutils:barre_liste_ul'), 
 				"className" => "outil_liste_ul", 
 				"replaceWith" => "function(h){ return outil_liste(h, '*');}", 
 				"display"   => true,
@@ -82,7 +82,7 @@ function barre_outils_edition(){
 					// liste -#		
 					array(
 						"id"        => 'liste_ol',
-						"name"      => _T('barre_outils:barre_liste_ol'), 
+						"name"      => _T('barreoutils:barre_liste_ol'), 
 						"className" => "outil_liste_ol", 
 						"replaceWith" => "function(h){ return outil_liste(h, '#');}", 
 						"display"   => true,
@@ -92,7 +92,7 @@ function barre_outils_edition(){
 					// desindenter	
 					array(
 						"id"        => 'desindenter',
-						"name"      => _T('barre_outils:barre_desindenter'), 
+						"name"      => _T('barreoutils:barre_desindenter'), 
 						"className" => "outil_desindenter", 
 						"replaceWith" => "function(h){return outil_desindenter(h);}", 
 						"display"   => true,
@@ -102,7 +102,7 @@ function barre_outils_edition(){
 					// indenter		
 					array(
 						"id"        => 'indenter',
-						"name"      => _T('barre_outils:barre_indenter'), 
+						"name"      => _T('barreoutils:barre_indenter'), 
 						"className" => "outil_indenter", 
 						"replaceWith" => "function(h){return outil_indenter(h);}",  
 						"display"   => true,
@@ -123,17 +123,17 @@ function barre_outils_edition(){
 			// lien spip
 			array(
 				"id"          => 'link',
-				"name"        => _T('barre_outils:barre_lien'),
+				"name"        => _T('barreoutils:barre_lien'),
 				"key"         => "L", 
 				"className"   => "outil_link", 
 				"openWith"    => "[", 
-				"closeWith"   => "->[!["._T('barre_outils:barre_lien_input')."]!]]",
+				"closeWith"   => "->[!["._T('barreoutils:barre_lien_input')."]!]]",
 				"display"     => true,
 			),
 			// note en bas de page spip
 			array(
 				"id"          => 'notes',
-				"name"        => _T('barre_outils:barre_note'),
+				"name"        => _T('barreoutils:barre_note'),
 				"className"   => "outil_notes", 
 				"openWith"    => "[[", 
 				"closeWith"   => "]]",
@@ -153,7 +153,7 @@ function barre_outils_edition(){
 			// (affichee dans forum)
 			array(
 				"id"          => 'quote',
-				"name"        => _T('barre_outils:barre_quote'),
+				"name"        => _T('barreoutils:barre_quote'),
 				"key"         => "Q", 
 				"className"   => "outil_quote", 
 				"openWith"    => "\n<quote>", 
@@ -164,7 +164,7 @@ function barre_outils_edition(){
 			// guillemets
 			array(
 				"id"          => 'guillemets',
-				"name"        => _T('barre_outils:barre_guillemets'),
+				"name"        => _T('barreoutils:barre_guillemets'),
 				"className"   => "outil_guillemets", 
 				"openWith"    => "&laquo;", 
 				"closeWith"   => "&raquo;",
@@ -175,7 +175,7 @@ function barre_outils_edition(){
 			// guillemets internes
 			array(
 				"id"          => 'guillemets_simples',
-				"name"        => _T('barre_outils:barre_guillemets_simples'),
+				"name"        => _T('barreoutils:barre_guillemets_simples'),
 				"className"   => "outil_guillemets_simples", 
 				"openWith"    => "&ldquo;", 
 				"closeWith"   => "&rdquo;",
@@ -186,7 +186,7 @@ function barre_outils_edition(){
 			// guillemets de
 			array(
 				"id"          => 'guillemets_de',
-				"name"        => _T('barre_outils:barre_guillemets'),
+				"name"        => _T('barreoutils:barre_guillemets'),
 				"className"   => "outil_guillemets_de", 
 				"openWith"    => "&bdquo;", 
 				"closeWith"   => "&ldquo;",
@@ -197,7 +197,7 @@ function barre_outils_edition(){
 			// guillemets de, simples
 			array(
 				"id"          => 'guillemets_de_simples',
-				"name"        => _T('barre_outils:barre_guillemets_simples'),
+				"name"        => _T('barreoutils:barre_guillemets_simples'),
 				"className"   => "outil_guillemets_de_simples", 
 				"openWith"    => "&sbquo;", 
 				"closeWith"   => "&lsquo;",
@@ -208,7 +208,7 @@ function barre_outils_edition(){
 			// guillemets autres langues
 			array(
 				"id"          => 'guillemets_autres',
-				"name"        => _T('barre_outils:barre_guillemets'),
+				"name"        => _T('barreoutils:barre_guillemets'),
 				"className"   => "outil_guillemets_simples", 
 				"openWith"    => "&ldquo;", 
 				"closeWith"   => "&rdquo;",
@@ -219,7 +219,7 @@ function barre_outils_edition(){
 			// guillemets simples, autres langues
 			array(
 				"id"          => 'guillemets_autres_simples',
-				"name"        => _T('barre_outils:barre_guillemets_simples'),
+				"name"        => _T('barreoutils:barre_guillemets_simples'),
 				"className"   => "outil_guillemets_uniques", 
 				"openWith"    => "&lsquo;", 
 				"closeWith"   => "&rsquo;",
@@ -237,7 +237,7 @@ function barre_outils_edition(){
 			// icones clavier
 			array(
 				"id"          => 'grpCaracteres',
-				"name"        => _T('barre_outils:barre_inserer_caracteres'),
+				"name"        => _T('barreoutils:barre_inserer_caracteres'),
 				"className"   => 'outil_caracteres',
 				"display"     => true,
 				
@@ -245,7 +245,7 @@ function barre_outils_edition(){
 					// A majuscule accent grave
 					array(
 						"id"          => 'A_grave',
-						"name"        => _T('barre_outils:barre_a_accent_grave'),
+						"name"        => _T('barreoutils:barre_a_accent_grave'),
 						"className"   => "outil_a_maj_grave", 
 						"replaceWith"   => "&Agrave;",
 						"display"     => true,
@@ -254,7 +254,7 @@ function barre_outils_edition(){
 					// E majuscule accent aigu
 					array(
 						"id"          => 'E_aigu',
-						"name"        => _T('barre_outils:barre_e_accent_aigu'),
+						"name"        => _T('barreoutils:barre_e_accent_aigu'),
 						"className"   => "outil_e_maj_aigu", 
 						"replaceWith"   => "&Eacute;",
 						"display"     => true,
@@ -263,7 +263,7 @@ function barre_outils_edition(){
 					// E majuscule accent grave
 					array(
 						"id"          => 'E_grave',
-						"name"        => _T('barre_outils:barre_e_accent_grave'),
+						"name"        => _T('barreoutils:barre_e_accent_grave'),
 						"className"   => "outil_e_maj_grave",
 						"replaceWith" => "&Egrave;",
 						"display"     => true,
@@ -272,7 +272,7 @@ function barre_outils_edition(){
 					// e dans le a
 					array(
 						"id"          => 'aelig',
-						"name"        => _T('barre_outils:barre_ea'),
+						"name"        => _T('barreoutils:barre_ea'),
 						"className"   => "outil_aelig",
 						"replaceWith" => "&aelig;",
 						"display"     => true,
@@ -281,7 +281,7 @@ function barre_outils_edition(){
 					// e dans le a majuscule
 					array(
 						"id"          => 'AElig',
-						"name"        => _T('barre_outils:barre_ea_maj'),
+						"name"        => _T('barreoutils:barre_ea_maj'),
 						"className"   => "outil_aelig_maj",
 						"replaceWith" => "&AElig;",
 						"display"     => true,
@@ -290,7 +290,7 @@ function barre_outils_edition(){
 					// oe 
 					array(
 						"id"          => 'oe',
-						"name"        => _T('barre_outils:barre_eo'),
+						"name"        => _T('barreoutils:barre_eo'),
 						"className"   => "outil_oe", 
 						"replaceWith"   => "&oelig;",
 						"display"     => true,
@@ -299,7 +299,7 @@ function barre_outils_edition(){
 					// OE 
 					array(
 						"id"          => 'OE',
-						"name"        => _T('barre_outils:barre_eo_maj'),
+						"name"        => _T('barreoutils:barre_eo_maj'),
 						"className"   => "outil_oe_maj", 
 						"replaceWith"   => "&OElig;",
 						"display"     => true,
@@ -308,7 +308,7 @@ function barre_outils_edition(){
 					// c cedille majuscule
 					array(
 						"id"          => 'Ccedil',
-						"name"        => _T('barre_outils:barre_c_cedille_maj'),
+						"name"        => _T('barreoutils:barre_c_cedille_maj'),
 						"className"   => "outil_ccedil_maj",
 						"replaceWith" => "&Ccedil;",
 						"display"     => true,
@@ -317,7 +317,7 @@ function barre_outils_edition(){
 					// Transformation en majuscule
 					array(
 						"id"          => 'uppercase',
-						"name"        => _T('barre_outils:barre_gestion_cr_changercassemajuscules'),
+						"name"        => _T('barreoutils:barre_gestion_cr_changercassemajuscules'),
 						"className"   => "outil_uppercase",
 						"replaceWith" => 'function(markitup) { return markitup.selection.toUpperCase() }',
 						"display"     => true,
@@ -326,7 +326,7 @@ function barre_outils_edition(){
 					// Transformation en minuscule
 					array(
 						"id"          => 'lowercase',
-						"name"        => _T('barre_outils:barre_gestion_cr_changercasseminuscules'),
+						"name"        => _T('barreoutils:barre_gestion_cr_changercasseminuscules'),
 						"className"   => "outil_lowercase",
 						"replaceWith" => 'function(markitup) { return markitup.selection.toLowerCase() }',
 						"display"     => true,
@@ -346,7 +346,7 @@ function barre_outils_edition(){
 			// clean
 			array(
 				"id"          => 'clean',
-				"name"        => _T('barre_outils:barre_clean'), 
+				"name"        => _T('barreoutils:barre_clean'), 
 				"className"   => "outil_clean",
 				"replaceWith" => 'function(markitup) { return markitup.selection.replace(/<(.*?)>/g, "") }',
 				"display"     => true,
@@ -354,7 +354,7 @@ function barre_outils_edition(){
 			// preview
 			array(
 				"id"        => 'preview',
-				"name"      => _T('barre_outils:barre_preview'), 
+				"name"      => _T('barreoutils:barre_preview'), 
 				"className" => "outil_preview",
 				"call"      => "preview",
 				"display"   => true,

@@ -26,7 +26,7 @@ function formulaires_configurer_porte_plume_traiter_dist(){
 		ecrire_config('barre_outils_public', _request('barre_outils_public'));
 	}
 			
-	return array('message_ok'=>_T('barre_outils:config_info_enregistree'));
+	return array('message_ok'=>_T('barreoutils:config_info_enregistree'));
 }
 
 ?>
