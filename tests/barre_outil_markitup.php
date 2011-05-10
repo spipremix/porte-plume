@@ -23,7 +23,7 @@ class Test_barre_outil_markitup extends SpipTest{
 				// H1 - {{{
 				array(
 					"id"        => 'header1',
-					"name"      => _T('barre_outils:barre_intertitre'),
+					"name"      => _T('barreoutils:barre_intertitre'),
 					"key"       => "H",
 					"className" => "outil_header1",
 					"openWith" => "{{{",
@@ -33,7 +33,7 @@ class Test_barre_outil_markitup extends SpipTest{
 		$p = $this->baseParamsBarre;
 		$p['markupSet'][1] = array(
 			"id"        => 'couleurs',
-			"name"      => _T('barre_outils:barre_couleur'),
+			"name"      => _T('barreoutils:barre_couleur'),
 			"key"       => "C",
 			"className" => "outil_couleur",
 			"openWith"  => '[color=[![Color]!]]',
@@ -297,7 +297,7 @@ class Test_barre_outil_markitup extends SpipTest{
 		$b = new Barre_outils($this->baseParamsBarre);
 		$clean = array(
 				"id"          => 'clean',
-				"name"        => _T('barre_outils:barre_clean'), 
+				"name"        => _T('barreoutils:barre_clean'), 
 				"className"   => "outil_clean",
 				// function doit etre echappe
 				"replaceWith" => 'function(markitup) { return markitup.selection.replace(/<(.*?)>/g, "") }',
