@@ -1,6 +1,7 @@
 <plugin>
 	<nom><multi>[fr]Porte plume[en]Quill[ar]&#1575;&#1604;&#1585;&#1610;&#1588;&#1577;[de]Federhalter</multi></nom>
-	<auteur>Matthieu Marcillaud</auteur>
+	<auteur>Matthieu Marcillaud, 
+	[mysitemyway pour l'icone->http://icons.mysitemyway.com/free-clipart-icons/1/traditional-ink-bottle-pen-icon-id/83350/style-id/614/high-resolution-dark-blue-denim-jeans-icons/business/]</auteur>
 	<licence>GNU/GPL</licence>
 	<version>1.8.3</version>
 	<description>
@@ -27,7 +28,6 @@ _ Der Federhalter ist eine erweiterbare Werkzeugleiste f&#252;r SPIP auf Grundla
 	<etat>stable</etat>
 	<prefix>porte_plume</prefix>
 
-  	<!-- Icone de http://icons.mysitemyway.com/free-clipart-icons/1/traditional-ink-bottle-pen-icon-id/83350/style-id/614/high-resolution-dark-blue-denim-jeans-icons/business/ -->
   	<icon>images/porte-plume-128.png</icon>
 
 	<fonctions>inc/barre_outils.php</fonctions>
