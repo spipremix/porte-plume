@@ -663,7 +663,7 @@
 					
 						if (e.which === 9) { // Tab key
 							if (shiftKey == true || ctrlKey == true || altKey == true) {
-								return false; 
+								return true;
 							}
 							markup(options.onTab);
 							return options.onTab.keepDefault;
