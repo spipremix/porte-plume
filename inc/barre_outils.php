@@ -497,7 +497,12 @@ function barre_outils_css_icones(){
 	
 	// passage en css
 	foreach ($classe2icone as $n=>$i) {
-		$css .= "\n.markItUp .$n a {\n\tbackground-image:url(".url_absolue(find_in_path("icones_barre/$i")).");\n}";
+		$pos="";
+		if (is_array($i)){
+			$pos = "background-position:".end($i);
+		  $i = reset($i);
+		}
+		$css .= "\n.markItUp .$n a b {background-image:url(".url_absolue(find_in_path("icones_barre/$i")).");$pos}";
 	}
 
 	return $css;
