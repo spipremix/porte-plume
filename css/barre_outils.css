@@ -148,15 +148,18 @@
 
 .markItUp .markItUpHeader ul a {
 	display:block;
-	width:16px; height:16px;
-	text-indent:-10000px;
-	background-repeat:no-repeat;
-	background-position:50% 50%;
 	background-color:#f5f5f5;
 	border:1px solid #ccc;
 	padding:3px;
 	margin-right:1px;
 }
+.markItUp .markItUpHeader ul a b{
+	display:block;
+	background-repeat:no-repeat;
+	width:16px; height:16px;
+	text-indent:-10000px;
+}
+
 .markItUp .markItUpHeader ul a:hover{border:1px solid #888; background-color:#fff;}
 
 

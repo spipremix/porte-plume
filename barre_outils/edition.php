@@ -441,44 +441,45 @@ function barre_outils_edition(){
 function barre_outils_edition_icones(){
 	return array(
 		//'outil_header1' => 'text_heading_1.png',
-		'outil_header1' => 'intertitre.png',
-		'outil_bold' => 'text_bold.png',
-		'outil_italic' => 'text_italic.png',
-		
-		'outil_stroke_through' => 'text_strikethrough.png',
-		
-		'outil_liste_ul' => 'text_list_bullets.png',
-		'outil_liste_ol' => 'text_list_numbers.png',
-		'outil_indenter' => 'text_indent.png',
-		'outil_desindenter' => 'text_indent_remove.png',
+		'outil_header1' => array('spt-v1.png','-10px -226px'), //'intertitre.png'
+		'outil_bold' => array('spt-v1.png','-10px -478px'), //'text_bold.png'
+		'outil_italic' => array('spt-v1.png','-10px -586px'), //'text_italic.png'
+
+		'outil_stroke_through' => array('spt-v1.png','-10px -946px'), //'text_strikethrough.png'
+
+		'outil_liste_ul' => array('spt-v1.png','-10px -622px'), //'text_list_bullets.png'
+		'outil_liste_ol' => array('spt-v1.png','-10px -658px'), //'text_list_numbers.png'
+		'outil_indenter' => array('spt-v1.png','-10px -514px'), //'text_indent.png'
+		'outil_desindenter' => array('spt-v1.png','-10px -550px'), //'text_indent_remove.png'
 		
 		//'outil_quote' => 'text_indent.png',
-		'outil_quote' => 'quote.png',
-		
+		'outil_quote' => array('spt-v1.png','-10px -442px'), //'quote.png'
+
 		//'outil_link' => 'world_link.png',
-		'outil_link' => 'lien.png',
-		'outil_notes' => 'notes.png',
+		'outil_link' => array('spt-v1.png','-10px -298px'), //'lien.png'
+		'outil_notes' => array('spt-v1.png','-10px -334px'), //'notes.png'
+
+
+		'outil_guillemets' => array('spt-v1.png','-10px -910px'), //'guillemets.png'
+		'outil_guillemets_simples' => array('spt-v1.png','-10px -802px'), //'guillemets-simples.png'
+		'outil_guillemets_de' => array('spt-v1.png','-10px -766px'), //'guillemets-de.png'
+		'outil_guillemets_de_simples' => array('spt-v1.png','-10px -838px'), //'guillemets-uniques-de.png'
+		'outil_guillemets_uniques' => array('spt-v1.png','-10px -874px'), //'guillemets-uniques.png'
 		
-		'outil_guillemets' => 'guillemets.png',
-		'outil_guillemets_simples' => 'guillemets-simples.png',
-		'outil_guillemets_de' => 'guillemets-de.png',
-		'outil_guillemets_de_simples' => 'guillemets-uniques-de.png',
-		'outil_guillemets_uniques' => 'guillemets-uniques.png',
-		
-		'outil_caracteres' => 'keyboard.png',
-			'outil_a_maj_grave' => 'agrave-maj.png',
-			'outil_e_maj_aigu' => 'eacute-maj.png',
-			'outil_e_maj_grave' => 'eagrave-maj.png',
-			'outil_aelig' => 'aelig.png',
-			'outil_aelig_maj' => 'aelig-maj.png',
-			'outil_oe' => 'oelig.png',
-			'outil_oe_maj' => 'oelig-maj.png',
-			'outil_ccedil_maj' => 'ccedil-maj.png',
-			'outil_uppercase' => 'text_uppercase.png',
-			'outil_lowercase' => 'text_lowercase.png',
-		
-		'outil_clean' => 'clean.png',
-		'outil_preview' => 'eye.png',	
+		'outil_caracteres' => array('spt-v1.png','-10px -262px'), //'keyboard.png'
+			'outil_a_maj_grave' => array('spt-v1.png','-10px -82px'), //'agrave-maj.png'
+			'outil_e_maj_aigu' => array('spt-v1.png','-10px -154px'), //'eacute-maj.png'
+			'outil_e_maj_grave' => array('spt-v1.png','-10px -190px'), //'eagrave-maj.png'
+			'outil_aelig' => array('spt-v1.png','-10px -46px'), //'aelig.png'
+			'outil_aelig_maj' => array('spt-v1.png','-10px -10px'), //'aelig-maj.png'
+			'outil_oe' => array('spt-v1.png','-10px -406px'), //'oelig.png'
+			'outil_oe_maj' => array('spt-v1.png','-10px -370px'), //'oelig-maj.png'
+			'outil_ccedil_maj' => array('spt-v1.png','-10px -118px'),  //'ccedil-maj.png'
+			'outil_uppercase' => array('spt-v1.png','-10px -730px'), //'text_uppercase.png'
+			'outil_lowercase' => array('spt-v1.png','-10px -694px'), //'text_lowercase.png'
+
+		'outil_clean' => array('spt-v1.png','-10px -982px'), //'clean.png'
+		'outil_preview' => array('spt-v1.png','-10px -1018px'), //'eye.png'
 	);
 }
 ?>
