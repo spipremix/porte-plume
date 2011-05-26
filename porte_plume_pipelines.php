@@ -57,6 +57,8 @@ function porte_plume_inserer_head($flux, $lang, $prive = false){
 	$markitup = find_in_path('javascript/jquery.markitup_pour_spip.js');
 	$js_previsu = find_in_path('javascript/jquery.previsu_spip.js');
 	$js_start = parametre_url(generer_url_public('porte_plume_start.js'), 'lang', $lang);
+	if (_VAR_MODE=="recalcul")
+		$js_start = parametre_url($js_start, 'var_mode', 'recalcul');
 
 	$flux 
 		.= porte_plume_insert_head_css('', $prive) // compat SPIP 2.0
@@ -84,6 +86,8 @@ function porte_plume_insert_head_css($flux='', $prive = false){
 		}
 		$css = direction_css(find_in_path('css/barre_outils.css'), lang_dir());
 		$css_icones = generer_url_public('barre_outils_icones.css');
+		if (_VAR_MODE=="recalcul")
+			$css_icones = parametre_url($css_icones, 'var_mode', 'recalcul');
 		$flux
 			.= "<link rel='stylesheet' type='text/css' media='all' href='$css' />\n"
 			.  "<link rel='stylesheet' type='text/css' media='all' href='$css_icones' />\n";
