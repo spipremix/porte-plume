@@ -3,5 +3,7 @@
 	<langue code="de" />
 	<langue code="en" />
 	<langue code="es" />
-	<langue code="it" />
+	<langue code="it">
+		<traducteur nom="renatoformato" />
+	</langue>
 </traduction>
