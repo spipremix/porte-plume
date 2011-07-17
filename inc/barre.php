@@ -30,7 +30,7 @@ function afficher_barre($champ, $forum=false, $lang='') {
 // http://doc.spip.org/@afficher_textarea_barre
 function afficher_textarea_barre($texte, $forum=false, $form='')
 {
-	global $spip_display, $spip_ecran;
+	global $spip_ecran;
 	$rows = ($spip_ecran == "large") ? 28 : 15;
 	
 	$class = 'formo' . ($forum ? ' textarea_forum':'');
