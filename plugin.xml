@@ -30,7 +30,7 @@
 	<etat>stable</etat>
 	<prefix>porte_plume</prefix>
 
-  	<icon>images/porte-plume-128.png</icon>
+  	<icon>images/porte-plume-32.png</icon>
 
 	<fonctions>inc/barre_outils.php</fonctions>
 
