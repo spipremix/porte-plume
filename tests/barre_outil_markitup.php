@@ -16,7 +16,7 @@ class Test_barre_outil_markitup extends SpipTest{
 		$this->SpipTest("Test de la classe Barre_outils");
 
 		// instancier une barre d'outil
-		include_spip('inc/barre_outils');
+		include_spip('porte_plume_fonctions');
 		$this->baseParamsBarre = array(
 			'nameSpace'    => 'spip',
 			'markupSet'    => array(
