@@ -12,7 +12,7 @@
  */
 function porte_plume_creer_json_markitup(){
 	// on recupere l'ensemble des barres d'outils connues
-	include_spip('inc/barre_outils');
+	include_spip('porte_plume_fonctions');
 	if (!$sets = barre_outils_liste()) {
 		return null;
 	}
