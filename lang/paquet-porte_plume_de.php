@@ -4,8 +4,8 @@
 // Fichier produit par PlugOnet
 // Module: paquet-porte_plume
 // Langue: de
-// Date: 30-07-2011 15:01:38
-// Items: 2
+// Date: 03-08-2011 19:45:21
+// Items: 3
 
 if (!defined('_ECRIRE_INC_VERSION')) return;
 
@@ -15,6 +15,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'porte_plume_description' => 'Der Federhalter ist eine erweiterbare Werkzeugleiste für SPIP auf Grundlage der Javascript-Bibiliothek [MarkItUp->http://markitup.jaysalvat.com/home/]
 
 	Die Icons stammen aus der Sammlung [FamFamFam->http://www.famfamfam.com/].',
+	'porte_plume_nom' => 'Federhalter',
 	'porte_plume_slogan' => 'Eine Meüleiste zum Verschönern der Texte',
 );
 ?>
