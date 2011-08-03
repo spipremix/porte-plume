@@ -4,8 +4,8 @@
 // Fichier produit par PlugOnet
 // Module: paquet-porte_plume
 // Langue: en
-// Date: 30-07-2011 15:01:38
-// Items: 2
+// Date: 03-08-2011 19:45:21
+// Items: 3
 
 if (!defined('_ECRIRE_INC_VERSION')) return;
 
@@ -16,6 +16,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	[MarkItUp->http://markitup.jaysalvat.com/home/]
 	
 	Icons are courtesy of the library [FamFamFam->http://www.famfamfam.com/]',
+	'porte_plume_nom' => 'Quill',
 	'porte_plume_slogan' => 'A toolbar to enhance your texts',
 );
 ?>
