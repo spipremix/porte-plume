@@ -502,7 +502,7 @@ function barre_outils_css_icones(){
 			$pos = "background-position:".end($i);
 		  $i = reset($i);
 		}
-		$css .= "\n.markItUp .$n a b {background-image:url(".url_absolue(find_in_path("icones_barre/$i")).");$pos}";
+		$css .= "\n.markItUp .$n a b {background-image:url(".url_relative_protocole(url_absolue(find_in_path("icones_barre/$i"))).");$pos}";
 	}
 
 	return $css;
