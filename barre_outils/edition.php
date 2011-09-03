@@ -160,6 +160,18 @@ function barre_outils_edition(){
 				"closeWith"   => "</quote>\n",
 				"display"     => true,
 				"selectionType" => "word",
+				"dropMenu"    => array(
+					// poesie spip
+					array(
+						"id"          => 'barre_poesie',
+						"name"        => _T('barreoutils:barre_poesie'),
+						"className"   => "outil_poesie", 
+						"openWith"    => "\n&lt;poesie&gt;", 
+						"closeWith"   => "&lt;/poesie&gt;\n",
+						"display"     => true,
+						"selectionType" => "line",
+					),
+				),
 			),
 			// guillemets
 			array(
@@ -171,18 +183,21 @@ function barre_outils_edition(){
 				"display"     => true,
 				"lang"        => array('fr','eo','cpf','ar','es'),
 				"selectionType" => "word",
+				"dropMenu"    => array(
+					// guillemets internes
+					array(
+						"id"          => 'guillemets_simples',
+						"name"        => _T('barreoutils:barre_guillemets_simples'),
+						"className"   => "outil_guillemets_simples", 
+						"openWith"    => "&ldquo;", 
+						"closeWith"   => "&rdquo;",
+						"display"     => true,
+						"lang"        => array('fr','eo','cpf','ar','es'),
+						"selectionType" => "word",
+					),
+				)
 			),
-			// guillemets internes
-			array(
-				"id"          => 'guillemets_simples',
-				"name"        => _T('barreoutils:barre_guillemets_simples'),
-				"className"   => "outil_guillemets_simples", 
-				"openWith"    => "&ldquo;", 
-				"closeWith"   => "&rdquo;",
-				"display"     => true,
-				"lang"        => array('fr','eo','cpf','ar','es'),
-				"selectionType" => "word",
-			),
+
 			// guillemets de
 			array(
 				"id"          => 'guillemets_de',
@@ -193,18 +208,21 @@ function barre_outils_edition(){
 				"display"     => true,
 				"lang"        => array('bg','de','pl','hr','src'),
 				"selectionType" => "word",
+				"dropMenu"    => array(
+					// guillemets de, simples
+					array(
+						"id"          => 'guillemets_de_simples',
+						"name"        => _T('barreoutils:barre_guillemets_simples'),
+						"className"   => "outil_guillemets_de_simples", 
+						"openWith"    => "&sbquo;", 
+						"closeWith"   => "&lsquo;",
+						"display"     => true,
+						"lang"        => array('bg','de','pl','hr','src'),
+						"selectionType" => "word",
+					),
+				)
 			),
-			// guillemets de, simples
-			array(
-				"id"          => 'guillemets_de_simples',
-				"name"        => _T('barreoutils:barre_guillemets_simples'),
-				"className"   => "outil_guillemets_de_simples", 
-				"openWith"    => "&sbquo;", 
-				"closeWith"   => "&lsquo;",
-				"display"     => true,
-				"lang"        => array('bg','de','pl','hr','src'),
-				"selectionType" => "word",
-			),
+
 			// guillemets autres langues
 			array(
 				"id"          => 'guillemets_autres',
@@ -215,18 +233,21 @@ function barre_outils_edition(){
 				"display"     => true,
 				"lang_not"    => array('fr','eo','cpf','ar','es','bg','de','pl','hr','src'),
 				"selectionType" => "word",
+				"dropMenu"    => array(
+					// guillemets simples, autres langues
+					array(
+						"id"          => 'guillemets_autres_simples',
+						"name"        => _T('barreoutils:barre_guillemets_simples'),
+						"className"   => "outil_guillemets_uniques", 
+						"openWith"    => "&lsquo;", 
+						"closeWith"   => "&rsquo;",
+						"display"     => true,
+						"lang_not"    => array('fr','eo','cpf','ar','es','bg','de','pl','hr','src'),
+						"selectionType" => "word",
+					),
+				)
 			),
-			// guillemets simples, autres langues
-			array(
-				"id"          => 'guillemets_autres_simples',
-				"name"        => _T('barreoutils:barre_guillemets_simples'),
-				"className"   => "outil_guillemets_uniques", 
-				"openWith"    => "&lsquo;", 
-				"closeWith"   => "&rsquo;",
-				"display"     => true,
-				"lang_not"    => array('fr','eo','cpf','ar','es','bg','de','pl','hr','src'),
-				"selectionType" => "word",
-			),
+
 			
 			// separation
 			array(
@@ -454,6 +475,7 @@ function barre_outils_edition_icones(){
 		
 		//'outil_quote' => 'text_indent.png',
 		'outil_quote' => array('spt-v1.png','-10px -442px'), //'quote.png'
+		'outil_poesie' => array('spt-v1.png','-10px -1050px'), //'poesie.png'
 
 		//'outil_link' => 'world_link.png',
 		'outil_link' => array('spt-v1.png','-10px -298px'), //'lien.png'
