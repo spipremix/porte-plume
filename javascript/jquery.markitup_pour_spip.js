@@ -352,7 +352,6 @@
 						// idem pour le caractere apres la ligne !
 						set(caretPosition, 2);
 						sautApresIE = fixIeBug(document.selection.createRange().text);
-						alert(sautApresIE);
 						// selection avant
  						set(0,caretPosition);
  						before = document.selection.createRange().text;
