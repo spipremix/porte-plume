@@ -40,6 +40,8 @@ class Barre_outils{
 		'replaceWith',
 		'openWith',
 		'closeWith',
+		'openBlockWith', // sur multiline, avant les lignes selectionnees
+		'closeBlockWith', // sur multiline, apres les lignes selectionnees
 		'placeHolder', // remplace par ce texte lorsqu'il n'y a pas de selection
 		
 		'beforeInsert', // avant l'insertion
@@ -55,7 +57,7 @@ class Barre_outils{
 		'lang', // langues dont le bouton doit apparaitre - array
 		'lang_not', // langues dont le bouton ne doit pas apparaitre - array
 		'selectionType', // '','word','line' : type de selection (normale, aux mots les plus proches, a la ligne la plus proche) 
-		'forceMultiline', // pour faire comme si on faisait systematiquement un control+shift (multi ligne)
+		'multiline', // pour faire comme si on faisait systematiquement un control+shift (multi ligne)
 		
 		'separator',
 		
@@ -502,7 +504,7 @@ function barre_outils_css_icones(){
 			$pos = "background-position:".end($i);
 		  $i = reset($i);
 		}
-		$css .= "\n.markItUp .$n a b {background-image:url(".protocole_implicite(url_absolue(find_in_path("icones_barre/$i"))).");$pos}";
+		$css .= "\n.markItUp .$n a em {background-image:url(".protocole_implicite(url_absolue(find_in_path("icones_barre/$i"))).");$pos}";
 	}
 
 	return $css;

@@ -1,9 +1,9 @@
 // ----------------------------------------------------------------------------
 // markItUp! Universal MarkUp Engine, JQuery plugin
-// v 1.1.9
+// v 1.1.12
 // Dual licensed under the MIT and GPL licenses.
 // ----------------------------------------------------------------------------
-// Copyright (C) 2007-2010 Jay Salvat
+// Copyright (C) 2007-2011 Jay Salvat
 // http://markitup.jaysalvat.com/
 // ----------------------------------------------------------------------------
 // Permission is hereby granted, free of charge, to any person obtaining a copy
@@ -26,7 +26,7 @@
 // ----------------------------------------------------------------------------
 
 /*
- *   Le code original de markitup 1.1.8
+ *   Le code original de markitup 1.1.12
  *   a ete modifie pour prendre en compte
  * 
  *   1) la langue utilisee dans les textarea :
@@ -39,18 +39,16 @@
  * 		- si un bouton n'a pas ce parametre, l'icone s'affiche 
  *   	  quelque soit la langue designee dans le textarea ou les parametres de markitup ;
  *   	  sinon, il faut que la langue soit contenue dedans pour que l'icone s'affiche.
- *   2) les control + shift (ou alt) + click bouton qui ne semblaient pas fonctionner
- *      en tout cas sous FF3/ubintu/jquery 1.2.6 a verifier chez les autres (opera 9.5/ubuntu ok)
- *   3) gerer des types de selections differentes : 
+
+ *   2) gerer des types de selections differentes : 
  * 		- normales comme dans markitup (rien a faire)
  * 		- 'selectionType':'word' : aux mots le plus proche si pas de selection (sinon la selection)
  * 		- 'selectionType':'line' : aux lignes les plus proches
  * 		- and 'return' : ugly hack to generate list (and so on) on key 'return' press
- *   4) forcer des actions multilignes sans avoir besoin de faire control+click
- * 		- 'forceMultiline':true  : force donc une insertion multiligne
- *   5) correction de la recuperation des selections d'Opera et de IE
- * 		en utilisant une autre fonction de split() qui corrige leurs bugs.
- * 		(caretOffset n'est plus necessaire)
+ *
+ *   3) eviter a Opera de gerer les evenements apres tabulation ou entree...
+ *      il ne sait pas gerer (v11.51)
+ * 
  * 		
  */
 ;(function($) {
@@ -66,6 +64,7 @@
 					previewAutoRefresh:		true,
 					previewPosition:		'after',
 					previewTemplatePath:	'~/templates/preview.html',
+					previewParser:			false,
 					previewParserPath:		'',
 					previewParserVar:		'data',
 					resizeHandle:			true,
@@ -90,7 +89,7 @@
 		}
 
 		return this.each(function() {
-			var $$, textarea, levels, scrollPosition, caretPosition, caretEffectivePosition,
+			var $$, textarea, levels, scrollPosition, caretPosition,
 				clicked, hash, header, footer, previewWindow, template, iFrame, abort,
 				before, after;
 			$$ = $(this);
@@ -98,6 +97,7 @@
 			levels = [];
 			abort = false;
 			scrollPosition = caretPosition = 0;
+			caretOffset = -1;
 
 			options.previewParserPath = localize(options.previewParserPath);
 			options.previewTemplatePath = localize(options.previewTemplatePath);
@@ -195,14 +195,14 @@
 							for (j = levels.length -1; j >= 0; j--) {
 								t += levels[j]+"-";
 							}
-							li = $('<li class="markItUpButton markItUpButton'+t+(i)+' '+(button.className||'')+'"><a href="" '+key+' title="'+title+'"><b>'+(button.name||'')+'</b></a></li>')
+							li = $('<li class="markItUpButton markItUpButton'+t+(i)+' '+(button.className||'')+'"><a href="" '+key+' title="'+title+'"><em>'+(button.name||'')+'</em></a></li>')
 							.bind("contextmenu", function() { // prevent contextmenu on mac and allow ctrl+click
 								return false;
 							}).click(function() {
 								return false;
 							}).bind("focusin", function(){
 								$$.focus();
-							}).mousedown(function() {
+							}).mouseup(function() {
 								if (button.call) {
 									eval(button.call)();
 								}
@@ -272,17 +272,38 @@
 
 			// build block to insert
 			function build(string) {
-				openWith 	= prepare(clicked.openWith);
-				placeHolder = prepare(clicked.placeHolder);
-				replaceWith = prepare(clicked.replaceWith);
-				closeWith 	= prepare(clicked.closeWith);
+				var openWith 			= prepare(clicked.openWith);
+				var placeHolder 		= prepare(clicked.placeHolder);
+				var replaceWith 		= prepare(clicked.replaceWith);
+				var closeWith 			= prepare(clicked.closeWith);
+				var openBlockWith 		= prepare(clicked.openBlockWith);
+				var closeBlockWith 		= prepare(clicked.closeBlockWith);
+				var multiline 			= clicked.multiline;
+
 				if (replaceWith !== "") {
 					block = openWith + replaceWith + closeWith;
 				} else if (selection === '' && placeHolder !== '') {
 					block = openWith + placeHolder + closeWith;
 				} else {
-					block = openWith + (string||selection) + closeWith;
+					string = string || selection;
+
+					var lines = selection.split(/\r?\n/), blocks = [];
+
+					for (var l=0; l < lines.length; l++) {
+						line = lines[l];
+						var trailingSpaces;
+						if (trailingSpaces = line.match(/ *$/)) {
+							blocks.push(openWith + line.replace(/ *$/g, '') + closeWith + trailingSpaces);
+						} else {
+							blocks.push(openWith + line + closeWith);
+						}
+					}
+
+					block = blocks.join("\n");
 				}
+
+				block = openBlockWith + block + closeBlockWith;
+				
 				return {	block:block, 
 							openWith:openWith, 
 							replaceWith:replaceWith, 
@@ -314,11 +335,39 @@
 			
 			function selectionBeforeAfter(pattern) {
 				if (!pattern) pattern = /\s/;
-				before = textarea.value.substring(0, caretEffectivePosition);
-				after = textarea.value.substring(caretEffectivePosition + selection.length - fixIeBug(selection));
-			
+
+				sautAvantIE = 0;
+				if ($.browser.msie) {
+					 	// calcul du nombre reel de caracteres pour le substr()
+					 	// IE ne compte pas les sauts de lignes pour definir les selections
+					 	// mais les compte dans la fonction length()
+						lenSelection = selection.length - fixIeBug(selection);
+						// si le caractere avant mon debut est un saut le ligne,
+						// ie ne le prendra pas en compte dans la selection.
+						// il faut pouvoir le connaitre.
+						if (caretPosition) {
+							set(caretPosition - 1, 2);
+							sautAvantIE = fixIeBug(document.selection.createRange().text);
+						}
+						// selection avant
+ 						set(0,caretPosition);
+ 						before = document.selection.createRange().text;
+ 						// selection apres
+ 						set(caretPosition + lenSelection, textarea.value.length);
+ 						after = document.selection.createRange().text;
+ 						// remettre la veritable selection
+ 						set(caretPosition, lenSelection);
+ 						selection = document.selection.createRange().text;
+				} else {
+					before = textarea.value.substring(0, caretPosition);
+					after = textarea.value.substring(caretPosition + selection.length - fixIeBug(selection));
+				}
+						
 				before = before.split(pattern);
-				after = after.split(pattern);			
+				// ajouter ce fichu saut de ligne pour IE
+				if (sautAvantIE) before[before.length] = "";
+				after = after.split(pattern);
+					
 			}
 			
 			function selectionSave(){
@@ -397,17 +446,17 @@
 				// callbacks before insertion
 				prepare(options.beforeInsert);
 				prepare(clicked.beforeInsert);
-				if (ctrlKey === true && shiftKey === true) {
+				if ((ctrlKey === true && shiftKey === true) || button.multiline === true) {
 					prepare(clicked.beforeMultiInsert);
 				}			
 				$.extend(hash, { line:1 });
 
-				// insertion forcee en multiligne ou ctrl+click
-				if ((button.forceMultiline === true && selection.length)
-				|| (ctrlKey === true && shiftKey === true)) {
+				if ((ctrlKey === true && shiftKey === true) || button.multiline === true) {
 					lines = selection.split(/\r?\n/);
 					for (j = 0, n = lines.length, i = 0; i < n; i++) {
-						if ($.trim(lines[i]) !== '') {
+						// si une seule ligne, on se fiche de savoir qu'elle est vide,
+						// c'est volontaire si on clique le bouton
+						if (n == 1 || $.trim(lines[i]) !== '') {
 							$.extend(hash, { line:++j, selection:lines[i] } );
 							lines[i] = build(lines[i]).block;
 						} else {
@@ -421,6 +470,7 @@
 					string = build(selection);
 					start = caretPosition + string.openWith.length;
 					len = string.block.length - string.openWith.length - string.closeWith.length;
+					len = len - (string.block.match(/ $/) ? 1 : 0);
 					len -= fixIeBug(string.block);
 				} else if (shiftKey === true) {
 					string = build(selection);
@@ -434,23 +484,29 @@
 					start -= fixIeBug(string.block);
 				}
 
-				if (selection === ''){
-					start += fixOperaBug(string.replaceWith);
+				if ((selection === '' && string.replaceWith === '')) {
+					caretOffset += fixOperaBug(string.block);
+					
+					start = caretPosition + string.openWith.length;
+					len = string.block.length - string.openWith.length - string.closeWith.length;
+
+					caretOffset = $$.val().substring(caretPosition,  $$.val().length).length;
+					caretOffset -= fixOperaBug($$.val().substring(0, caretPosition));
 				}
 				$.extend(hash, { caretPosition:caretPosition, scrollPosition:scrollPosition } );
 
 				if (string.block !== selection && abort === false) {
 					insert(string.block);
 					set(start, len);
-				} 
-
+				} else {
+					caretOffset = -1;
+				}
 				get();
 
 				$.extend(hash, { line:'', selection:selection });
 
 				// callbacks after insertion
-				if ((button.forceMultiline === true)
-				|| (ctrlKey === true && shiftKey === true)) {
+				if ((ctrlKey === true && shiftKey === true) || button.multiline === true) {
 					prepare(clicked.afterMultiInsert);
 				}
 
@@ -477,7 +533,7 @@
 			// Substract linefeed in IE
 			function fixIeBug(string) {
 				if ($.browser.msie) {
-					return string.length - string.replace(/\r/g, '').length;
+					return string.length - string.replace(/\r*/g, '').length;
 				}
 				return 0;
 			}
@@ -488,13 +544,17 @@
 					var newSelection = document.selection.createRange();
 					newSelection.text = block;
 				} else {
-					textarea.value =  textarea.value.substring(0, caretEffectivePosition)  + block + textarea.value.substring(caretEffectivePosition + selection.length, textarea.value.length);
+					textarea.value =  textarea.value.substring(0, caretPosition)  + block + textarea.value.substring(caretPosition + selection.length, textarea.value.length);
 				}
 			}
 
 			// set a selection
 			function set(start, len) {
 				if (textarea.createTextRange){
+					// quick fix to make it work on Opera 9.5
+					if ($.browser.opera && $.browser.version >= 9.5 && len == 0) {
+						return false;
+					}
 					range = textarea.createTextRange();
 					range.collapse(true);
 					range.moveStart('character', start); 
@@ -513,31 +573,20 @@
 
 				scrollPosition = textarea.scrollTop;
 				if (document.selection) {
-					selection = document.selection;	
-					if ($.browser.msie) { // ie	
-						var range = selection.createRange();
-						var stored_range = range.duplicate();
-						stored_range.moveToElementText(textarea);
-						stored_range.setEndPoint('EndToEnd', range);
-						var s = stored_range.text.length - range.text.length;
-	
-						caretPosition = s - (textarea.value.substr(0, s).length - textarea.value.substr(0, s).replace(/\r/g, '').length);
-						selection = range.text;
-					
-						caretEffectivePosition = caretPosition;
+					selection = document.selection.createRange().text;
+					if ($.browser.msie) { // ie
+						var range = document.selection.createRange(), rangeCopy = range.duplicate();
+						rangeCopy.moveToElementText(textarea);
+						caretPosition = -1;
+						while(rangeCopy.inRange(range)) {
+							rangeCopy.moveStart('character');
+							caretPosition ++;
+						}
 					} else { // opera
 						caretPosition = textarea.selectionStart;
-						lenSelection = selection.length;
-							// calcul du nombre reel de caracteres pour les substr()
-							set(0,caretPosition);
-							opBefore = document.selection.createRange().text;
-							caretEffectivePosition = opBefore.length - fixOperaBug(opBefore);
-							set(caretPosition, lenSelection);
-							selection = document.selection.createRange().text;
 					}
 				} else { // gecko & webkit
 					caretPosition = textarea.selectionStart;
-					caretEffectivePosition = caretPosition;
 					selection = textarea.value.substring(caretPosition, textarea.selectionEnd);
 	
 				} 
@@ -584,23 +633,30 @@
 
 			function renderPreview() {
 				var phtml;
-				if (options.previewParserPath !== '') {
-					$.ajax( {
+				if (options.previewParser && typeof options.previewParser === 'function') {
+					var data = options.previewParser( $$.val() );
+					writeInPreview( localize(data, 1) ); 
+				} else if (options.previewParserPath !== '') {
+					$.ajax({
 						type: 'POST',
+						dataType: 'text',
+						global: false,
 						url: options.previewParserPath,
 						data: options.previewParserVar+'='+encodeURIComponent($$.val()),
 						success: function(data) {
 							writeInPreview( localize(data, 1) ); 
 						}
-					} );
+					});
 				} else {
 					if (!template) {
 						$.ajax( {
 							url: options.previewTemplatePath,
+							dataType: 'text',
+							global: false,
 							success: function(data) {
 								writeInPreview( localize(data, 1).replace(/<!-- content -->/g, $$.val()) );
 							}
-						} );
+						});
 					}
 				}
 				return false;
@@ -622,31 +678,26 @@
 						
 			// set keys pressed
 			function keyPressed(e) {
-				if (e.type === 'keydown') {
-					if (e.which === 18) {e.altKey = true;} // alt
-					if (e.which === 17) {e.ctrlKey = true;} // control
-					if (e.which === 16) {e.shiftKey = true;} // shift
-				}
-				
 				shiftKey = e.shiftKey;
 				altKey = e.altKey;
-				ctrlKey = (!(e.altKey && e.ctrlKey)) ? e.ctrlKey : false;
+				ctrlKey = (!(e.altKey && e.ctrlKey)) ? (e.ctrlKey || e.metaKey) : false;
 
 				if (e.type === 'keydown') {
 					if (ctrlKey === true) {
-						li = $("a[accesskey="+String.fromCharCode(e.which)+"]", header).parent('li');
+						li = $('a[accesskey="'+String.fromCharCode(e.keyCode)+'"]', header).parent('li');
 						if (li.length !== 0) {
 							ctrlKey = false;
 							setTimeout(function() {
-								li.triggerHandler('mousedown');
+								li.triggerHandler('mouseup');
 							},1);
 							return false;
 						}
 					}
-					// si opera, on s'embete pas, il cree plus de problemes qu'autre chose
-					// car il ne prend pas en compte l'arret de ces evenements
-					if (!$.browser.opera) {				
-						if (e.which === 13 || e.which === 10) { // Enter key
+					
+ 					// si opera, on s'embete pas, il cree plus de problemes qu'autre chose
+ 					// car il ne prend pas en compte l'arret de ces evenements
+					if (!$.browser.opera) {	
+						if (e.keyCode === 13 || e.keyCode === 10) { // Enter key
 							if (ctrlKey === true) {  // Enter + Ctrl
 								ctrlKey = false;
 								markup(options.onCtrlEnter);
@@ -660,13 +711,21 @@
 								return options.onEnter.keepDefault;
 							}
 						}
-					
-						if (e.which === 9) { // Tab key
+						
+						if (e.keyCode === 9) { // Tab key
 							if (shiftKey == true || ctrlKey == true || altKey == true) {
-								return true;
+								return false; // true ?
 							}
-							markup(options.onTab);
-							return options.onTab.keepDefault;
+							if (caretOffset !== -1) {
+								get();
+								caretOffset = $$.val().length - caretOffset;
+								set(caretOffset, 0);
+								caretOffset = -1;
+								return false;
+							} else {
+								markup(options.onTab);
+								return options.onTab.keepDefault;
+							}
 						}
 					}
 				}

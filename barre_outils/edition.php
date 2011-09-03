@@ -77,7 +77,7 @@ function barre_outils_edition(){
 				"replaceWith" => "function(h){ return outil_liste(h, '*');}", 
 				"display"   => true,
 				"selectionType" => "line",
-				"forceMultiline" => true,
+				"multiline" => true,
 				"dropMenu"    => array(
 					// liste -#		
 					array(
@@ -87,7 +87,7 @@ function barre_outils_edition(){
 						"replaceWith" => "function(h){ return outil_liste(h, '#');}", 
 						"display"   => true,
 						"selectionType" => "line",
-						"forceMultiline" => true,
+						"multiline" => true,
 					),
 					// desindenter	
 					array(
@@ -97,7 +97,7 @@ function barre_outils_edition(){
 						"replaceWith" => "function(h){return outil_desindenter(h);}", 
 						"display"   => true,
 						"selectionType" => "line",
-						"forceMultiline" => true,
+						"multiline" => true,
 					),
 					// indenter		
 					array(
@@ -107,7 +107,7 @@ function barre_outils_edition(){
 						"replaceWith" => "function(h){return outil_indenter(h);}",  
 						"display"   => true,
 						"selectionType" => "line",
-						"forceMultiline" => true,
+						"multiline" => true,
 					),
 				),
 			),	

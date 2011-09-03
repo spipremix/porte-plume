@@ -62,7 +62,7 @@ function porte_plume_inserer_head($flux, $lang, $prive = false){
 
 	$flux 
 		.= porte_plume_insert_head_css('', $prive) // compat SPIP 2.0
-		.  "<script type='text/javascript' src='$xregexp'></script>\n"
+		//.  "<script type='text/javascript' src='$xregexp'></script>\n" // pour IE... pff
 		.  "<script type='text/javascript' src='$markitup'></script>\n"
 		.  "<script type='text/javascript' src='$js_previsu'></script>\n"
 		.  "<script type='text/javascript' src='$js_start'></script>\n";
