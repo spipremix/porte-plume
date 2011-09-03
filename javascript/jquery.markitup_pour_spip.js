@@ -336,7 +336,7 @@
 			function selectionBeforeAfter(pattern) {
 				if (!pattern) pattern = /\s/;
 
-				sautAvantIE = 0;
+				sautAvantIE = sautApresIE = 0;
 				if ($.browser.msie) {
 					 	// calcul du nombre reel de caracteres pour le substr()
 					 	// IE ne compte pas les sauts de lignes pour definir les selections
@@ -349,6 +349,10 @@
 							set(caretPosition - 1, 2);
 							sautAvantIE = fixIeBug(document.selection.createRange().text);
 						}
+						// idem pour le caractere apres la ligne !
+						set(caretPosition, 2);
+						sautApresIE = fixIeBug(document.selection.createRange().text);
+						alert(sautApresIE);
 						// selection avant
  						set(0,caretPosition);
  						before = document.selection.createRange().text;
@@ -364,9 +368,10 @@
 				}
 						
 				before = before.split(pattern);
-				// ajouter ce fichu saut de ligne pour IE
-				if (sautAvantIE) before[before.length] = "";
 				after = after.split(pattern);
+				// ajouter ce fichu saut de ligne pour IE
+				if (sautAvantIE) before.push("");
+				if (sautApresIE) after.unshift("");
 					
 			}
 			
@@ -420,25 +425,32 @@
 					// car on ne peut pas de l'exerieur (json) utiliser
 					// les fonctions internes de markitup
 					if (button.selectionType == "return"){
-						selectionBeforeAfter(/\r?\n/);
-						before_last = before[before.length-1];
-						after = '';
-						// gestion des listes -# et -* 
-						if (r = before_last.match(/^-([*#]+) ?(.*)$/)) {
-							if (r[2]) {
-								button.replaceWith = "\n-"+r[1]+' ';
-								before_last = '';
+						// le calcul de before et after sous IE
+						// necessitant de creer des selections
+						// c'est extremement vilain a chaque saut de ligne
+						// des qu'il y a un texte volumineux.
+						// on dit tant pis pour lui.
+						if (!$.browser.msie) {
+							selectionBeforeAfter(/\r?\n/);
+							before_last = before[before.length-1];
+							after = '';
+							// gestion des listes -# et -* 
+							if (r = before_last.match(/^-([*#]+) ?(.*)$/)) {
+								if (r[2]) {
+									button.replaceWith = "\n-"+r[1]+' ';
+									before_last = '';
+								} else {
+									// supprime le -* present
+									// (before le fera)
+									button.replaceWith = "\n";
+								}
 							} else {
-								// supprime le -* present
-								// (before le fera)
+								before_last = '';
 								button.replaceWith = "\n";
 							}
-						} else {
-							before_last = '';
-							button.replaceWith = "\n";
+							before[before.length-1] = before_last;
+							selectionSave();
 						}
-						before[before.length-1] = before_last;
-						selectionSave();
 					}
 				}
 				// / fin corrections
