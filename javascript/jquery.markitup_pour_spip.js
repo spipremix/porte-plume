@@ -284,7 +284,7 @@
 					block = openWith + replaceWith + closeWith;
 				} else if (selection === '' && placeHolder !== '') {
 					block = openWith + placeHolder + closeWith;
-				} else {
+				} else if (multiline === true) {
 					string = string || selection;
 
 					var lines = selection.split(/\r?\n/), blocks = [];
@@ -300,6 +300,8 @@
 					}
 
 					block = blocks.join("\n");
+				} else {
+					block = openWith + (string || selection) + closeWith;
 				}
 
 				block = openBlockWith + block + closeBlockWith;
@@ -462,7 +464,7 @@
 				}			
 				$.extend(hash, { line:1 });
 
-				if ((ctrlKey === true && shiftKey === true) || button.multiline === true) {
+				if ((ctrlKey === true && shiftKey === true) || button.forceMultiline === true) {
 					lines = selection.split(/\r?\n/);
 					for (j = 0, n = lines.length, i = 0; i < n; i++) {
 						// si une seule ligne, on se fiche de savoir qu'elle est vide,
