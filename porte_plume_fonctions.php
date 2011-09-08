@@ -57,7 +57,8 @@ class Barre_outils{
 		'lang', // langues dont le bouton doit apparaitre - array
 		'lang_not', // langues dont le bouton ne doit pas apparaitre - array
 		'selectionType', // '','word','line' : type de selection (normale, aux mots les plus proches, a la ligne la plus proche) 
-		'multiline', // pour faire comme si on faisait systematiquement un control+shift (multi ligne)
+		'multiline', // open/close sur chaque ligne (mais replace est applique sur l'ensemble de la selection)
+		'forceMultiline', // pour faire comme si on faisait systematiquement un control+shift (et replace est applique sur chaque ligne de la selection)
 		
 		'separator',
 		
