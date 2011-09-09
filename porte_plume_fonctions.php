@@ -377,10 +377,11 @@ class Barre_outils{
 			else {
 				if (isset($v['dropMenu']) and is_array($v['dropMenu'])) {
 					$this->enlever_elements_non_affiches($tableau[$p]['dropMenu']);
-					// si le sous-menu est vide, on enleve l'icone
+					// si le sous-menu est vide
+					// on enleve le sous menu.
+					// mais pas le parent ($tableau[$p]), qui peut effectuer une action.
 					if (!$tableau[$p]['dropMenu']) {
-						unset($tableau[$p]);
-						$tableau = array_values($tableau);
+						unset($tableau[$p]['dropMenu']);
 					}
 				}
 			}
@@ -461,7 +462,7 @@ class Barre_outils{
 		$barre = $this;
 		$type = $barre->nameSpace;
 		$fonctions = $barre->functions;
-		
+
 		$barre->enlever_elements_non_affiches($this->markupSet);
 		$barre->enlever_separateurs($this->markupSet);
 		$barre->enlever_parametres_inutiles();
