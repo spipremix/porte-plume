@@ -135,15 +135,11 @@
 .markItUp .markItUpHeader ul ul .markItUpDropMenu {
 	background:#F5F5F5 url(images/submenu.png) no-repeat 50% 50%;
 }
-.markItUp .markItUpHeader ul .markItUpSeparator {
-	margin:0 6px;
-	width:0px;
-	height:16px;
-	overflow:hidden;
+.markItUp .markItUpHeader ul .separateur {
+	margin-left:10px;
 }
-.markItUp .markItUpHeader ul ul .markItUpSeparator {
-	width:auto; height:1px;
-	margin:0px;
+.markItUp .markItUpHeader ul ul .separateur {
+	margin-left:0px;
 }
 
 .markItUp .markItUpHeader ul a {
