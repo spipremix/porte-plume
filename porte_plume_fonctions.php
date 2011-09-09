@@ -4,13 +4,7 @@
  * Licence GPL
  * Auteur Matthieu Marcillaud
  */
-include_spip('public/admin'); // pour stripos()
 
-/* pour compat 2.0 (inutile a partir de  2.1) */
-if (version_compare($GLOBALS['spip_version_branche'],'2.1.0 dev','<')) {
-	include_spip('inc/layer'); // pour effacer la globale browser_caret
-	$GLOBALS['browser_caret']="";
-}
 
 /**
  * La class Barre_outils est un objet contenant les differents
@@ -64,15 +58,6 @@ class Barre_outils{
 		
 		'call',
 		'keepDefault',
-		
-		
-		// icon est ajoute pour eventuellement creer un jour
-		// la css automatiquement...
-		// mais ca pose des problemes la tout de suite
-		// car il faudrait generer une css differente des qu'un bouton change
-		// ce qui est assez idiot
-		// ou alors il faudrait que jquery mette l'icone en fond des boutons automatiquement
-		'icon', 
 		
 		// cacher ou afficher facilement des boutons
 		'display',
@@ -457,7 +442,7 @@ class Barre_outils{
 		}
 		foreach($this->markupSet as $p=>$v) {
 			foreach ($v as $n=>$m) {
-				if (in_array($n, array('id', 'display', 'icon'))) {
+				if (in_array($n, array('id', 'display'))) {
 					unset($this->markupSet[$p][$n]);
 				}
 			}
@@ -575,7 +560,7 @@ function barre_outils_css_icones(){
 		}
 	}
 	
-	// passer le tout dans un pipeline pour ceux qui ajoute de simples icones a des barres existantes
+	// passer le tout dans un pipeline pour ceux qui ajoutent de simples icones a des barres existantes
 	$classe2icone = pipeline('porte_plume_lien_classe_vers_icone',$classe2icone);
 	
 	// passage en css
