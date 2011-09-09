@@ -131,12 +131,21 @@ class Barre_outils{
 	 * 
 	 * Lorsqu'on demande d'inserer avant ou apres, la fonction retourne les parametres inseres
 	 * 
-	 * @param string $identifiant : identifiant du bouton a afficher
-	 * @param array $params : parametres a affecter a la trouvaille
-	 * @param string $lieu : lieu d'affectation des parametres (dedans, avant, apres)
-	 * @param false/array $tableau : tableau ou chercher les elements (sert pour la recursion)
+	 * @param false/array $tableau
+	 * 		tableau ou chercher les elements (sert pour la recursion)
+	 * @param string $identifiant
+	 * 		identifiant du bouton a afficher
+	 * @param array $params
+	 * 		parametres a affecter a la trouvaille.
+	 * 		Peut etre tableau cle/valeur ou
+	 * 		Tableau de tableaux cle/valeur (sauf pour $lieu = dedans)
+	 * @param string $lieu
+	 * 		lieu d'affectation des parametres (dedans, avant, apres)
+	 * @param bool $plusieurs
+	 * 		definit si $params est une forme simple (tableau cle/valeur)
+	 * 		ou comporte plusieurs boutons (tableau de tableaux cle/valeur).
 	 */
-	function affecter(&$tableau, $identifiant, $params=array(), $lieu='dedans'){
+	function affecter(&$tableau, $identifiant, $params=array(), $lieu='dedans', $plusieurs=false){
 		static $cle_de_recherche = 'id'; // ou className ?
 		
 		if ($tableau === null)
@@ -156,18 +165,23 @@ class Barre_outils{
 		// si trouve, affectations
 		if (($trouve !== false)) {
 			if ($params) {
-				$params = $this->verif_params($identifiant, $params);
-				// dedans on merge
-				if ($lieu == 'dedans') {
-					return $tableau[$trouve] = array_merge($tableau[$trouve], $params);
+				// verifier que les insertions sont correctes
+				$les_params = ($plusieurs ? $params : array($params));
+				foreach ($les_params as $i=>$un_params) {
+					$les_params[$i] = $this->verif_params($identifiant, $un_params);
 				}
-				// avant ou apres, on insere
+	
+				// dedans on merge ($params uniquement tableau cle/valeur)
+				if ($lieu == 'dedans' && !$plusieurs) {
+					return $tableau[$trouve] = array_merge($tableau[$trouve], $les_params[0]);
+				}
+				// avant ou apres, on insere ($params peut etre tableau cle/valeur ou tableau de tableaux cle/valeur)
 				elseif ($lieu == 'avant') {
-					array_splice($tableau, $trouve, 0, array($params));
+					array_splice($tableau, $trouve, 0, $les_params);
 					return $params;
 				}
 				elseif ($lieu == 'apres') {
-					array_splice($tableau, $trouve+1, 0, array($params));
+					array_splice($tableau, $trouve+1, 0, $les_params);
 					return $params;
 				}
 			}
@@ -178,7 +192,7 @@ class Barre_outils{
 		foreach ($tableau as $i=>$v){
 			if (is_array($v)) {
 				foreach ($v as $m=>$n) {
-					if (is_array($n) AND ($r = $this->affecter($tableau[$i][$m], $identifiant, $params, $lieu))) 
+					if (is_array($n) AND ($r = $this->affecter($tableau[$i][$m], $identifiant, $params, $lieu, $plusieurs))) 
 						return $r;
 				}
 			}
@@ -300,23 +314,52 @@ class Barre_outils{
 	 * ajouter un bouton ou quelque chose, avant un autre deja present
 	 * 
 	 * @param string $identifiant : identifiant du bouton ou l'on doit se situer
-	 * @param array $params : parametres de l'ajout
+	 * @param array $params
+	 * 		Parametres de l'ajout.
+	 * 		Description d'1 bouton (tableau cle/valeurs)
 	 */
 	function ajouterAvant($identifiant, $params){
 		return $this->affecter($this->markupSet, $identifiant, $params, 'avant');
 	}
 	
 	/**
-	 * ajouter un bouton ou quelque chose, apres un autre deja present
+	 * ajouter plusieurs boutons, avant un autre deja present
 	 * 
 	 * @param string $identifiant : identifiant du bouton ou l'on doit se situer
-	 * @param array $params : parametres de l'ajout
+	 * @param array $tableau_params
+	 * 		Parametres de l'ajout.
+	 * 		Description de plusieurs boutons (tableau de tableaux cle/valeurs).
+	 */
+	function ajouterPlusieursAvant($identifiant, $tableau_params){
+		return $this->affecter($this->markupSet, $identifiant, $tableau_params, 'avant', true);
+	}
+	
+	/**
+	 * ajouter un bouton ou quelque chose, apres un autre deja present
+	 * 
+	 * @param string $identifiant
+	 * 		identifiant du bouton ou l'on doit se situer
+	 * @param array $params
+	 * 		parametres de l'ajout.
+	 * 		Description d'1 bouton (tableau cle/valeurs)
 	 */
 	function ajouterApres($identifiant, $params){
 		return $this->affecter($this->markupSet, $identifiant, $params, 'apres');
-		
 	}
-		
+
+	/**
+	 * ajouter plusieurs boutons, apres un autre deja present
+	 * 
+	 * @param string $identifiant
+	 * 		identifiant du bouton ou l'on doit se situer
+	 * @param array $tableau_params
+	 * 		Parametres de l'ajout.
+	 * 		Description de plusieurs boutons (tableau de tableaux cle/valeurs).
+	 */
+	function ajouterPlusieursApres($identifiant, $tableau_params){
+		return $this->affecter($this->markupSet, $identifiant, $tableau_params, 'apres', true);
+	}
+			
 	/**
 	 * ajouter une fonction js pour etre utilises dans les boutons
 	 * 
@@ -542,7 +585,7 @@ function barre_outils_css_icones(){
 			$pos = "background-position:".end($i);
 		  $i = reset($i);
 		}
-		$css .= "\n.markItUp .$n a em {background-image:url(".protocole_implicite(url_absolue(find_in_path("icones_barre/$i"))).");$pos}";
+		$css .= "\n.markItUp .$n>a>em {background-image:url(".protocole_implicite(url_absolue(find_in_path("icones_barre/$i"))).");$pos}";
 	}
 
 	return $css;
