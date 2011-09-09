@@ -331,6 +331,7 @@ class Barre_outils{
 		
 	/**
 	 * Supprimer les elements non affiches (display:false)
+	 * Et les séparateurs (li vides) selon la configuration
 	 * 
 	 * @param false/array $tableau : tableau a analyser (sert pour la recursion)
 	 */
@@ -353,6 +354,41 @@ class Barre_outils{
 						unset($tableau[$p]);
 						$tableau = array_values($tableau);
 					}
+				}
+			}
+
+		}
+	}
+
+	/**
+	 * Enleve les separateurs pour ameliorer l'accessibilite
+	 * au detriment du stylage possible de ces separateurs.
+	 *
+	 * Le bouton precedent le separateur recoit une classe CSS 'separateur_avant'
+	 * Celui apres 'separateur_apres'
+	 * 
+	 * @param 
+	 * @return 
+	**/
+	function enlever_separateurs(&$tableau) {
+		if ($tableau === null)
+			$tableau = &$this->markupSet;
+
+		foreach ($tableau as $p=>$v) {
+			if (isset($v['separator']) and $v['separator']) {
+				if (isset($tableau[$p-1])) {
+					$tableau[$p-1]['className'] .= " separateur_avant";
+				}
+				if (isset($tableau[$p+1])) {
+					$tableau[$p+1]['className'] .= " separateur separateur_apres $v[id]";
+				}
+				unset($tableau[$p]);
+				$tableau = array_values($tableau); // remettre les cles automatiques sinon json les affiche et ça plante.
+			}
+			// sinon, on lance une recursion sur les sous-menus
+			else {
+				if (isset($v['dropMenu']) and is_array($v['dropMenu'])) {
+					#$this->enlever_separateurs($tableau[$p]['dropMenu']);
 				}
 			}
 		}
@@ -399,6 +435,7 @@ class Barre_outils{
 		$fonctions = $barre->functions;
 		
 		$barre->enlever_elements_non_affiches($this->markupSet);
+		$barre->enlever_separateurs($this->markupSet);
 		$barre->enlever_parametres_inutiles();
 		
 		$json = Barre_outils::json_export($barre);
