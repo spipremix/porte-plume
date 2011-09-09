@@ -76,7 +76,9 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'barre_quote' => '<quote>Citer un message</quote>',
 	'barre_stats' => 'Afficher les statistiques du texte',
 	'barre_tableau' => 'Ins&eacute;rer/modifier (le s&eacute;lectionner avant) un tableau',
-
+	'barre_inserer_code' => "Ins&eacute;rer un code informatique (code)",
+	'barre_inserer_cadre' => "Ins&eacute;rer un code preformat&eacute; (cadre)",
+	
 	// C
 	'config_info_enregistree' => 'Configuration sauvegard&eacute;e',
 

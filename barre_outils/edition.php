@@ -356,6 +356,33 @@ function barre_outils_edition(){
 				),
 			),
 
+			// Groupe de Codes informatiques.
+			array(
+					"id" => "sepCode",
+					"separator" => "---------------",
+					"display"   => true,
+			),
+			array(
+					// groupe code et bouton <code>
+					"id"          => 'grpCode',
+					"name"        => _T('barreoutils:barre_inserer_code'),
+					"className"   => 'outil_code',
+					"openWith" => "<code>",
+					"closeWith" => "</code>",		
+					"display"     => true,
+					"dropMenu"    => array(
+						// bouton <cadre>
+						array(
+							"id"          => 'cadre',
+							"name"        => _T('barreoutils:barre_inserer_cadre'),
+							"className"   => 'outil_cadre', 
+							"openWith" => "<cadre>\n",
+							"closeWith" => "\n</cadre>",
+							"display"     => true,
+						),
+					),
+			),
+
 /*	inutile (origine de markitup et non de spip)
 					
 			// separation
@@ -500,6 +527,9 @@ function barre_outils_edition_icones(){
 			'outil_uppercase' => array('spt-v1.png','-10px -730px'), //'text_uppercase.png'
 			'outil_lowercase' => array('spt-v1.png','-10px -694px'), //'text_lowercase.png'
 
+		'outil_code' => array('spt-v1.png','-10px -1086px'),
+			'outil_cadre' => array('spt-v1.png','-10px -1122px'),
+		
 		'outil_clean' => array('spt-v1.png','-10px -982px'), //'clean.png'
 		'outil_preview' => array('spt-v1.png','-10px -1018px'), //'eye.png'
 	);
