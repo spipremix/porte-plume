@@ -13,9 +13,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 
 // P
 	'porte_plume_description' => 'Porte plume est une barre d\'outil extensible pour SPIP qui
-	utilise la librairie javascript [MarkItUp->http://markitup.jaysalvat.com/home/]
-
-	Les icones proviennent de la librairie [FamFamFam->http://www.famfamfam.com/]',
+	utilise la librairie javascript [MarkItUp->http://markitup.jaysalvat.com/home/]',
 	'porte_plume_slogan' => 'Une barre d\'outil pour bien écrire',
 );
 ?>
