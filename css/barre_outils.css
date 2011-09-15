@@ -55,7 +55,7 @@
 	text-align:right; 
 	padding:1px 1px 0;
 	margin-bottom: -2px;
-	margin-top: 7px;
+	margin-top: 6px;
 	overflow:hidden; 
 	width:auto; 
 	float:right; 
@@ -100,11 +100,11 @@
 	display: block;
 	margin: 0;
 	padding: 0;
-	background-color: #f5f5f5;
-	background: -webkit-gradient(linear, left top, left bottom, from(#F1F0EB), to(#DDDCDB));
-	background: -moz-linear-gradient(top, #F1F0EB, #DDDCDB);
+	background-color: #F5F5F5;
+	background: -webkit-gradient(linear, left top, left bottom, from(#F1F1F1), to(#DDD));
+	background: -moz-linear-gradient(top, #F1F1F1, #DDD);
 	border: 1px solid #ccc;
-	border-color: #F1F0EB #EEE #CCC;
+	border-color: #F1F1F1 #EEE #CCC;
 	border-radius: 6px 6px 0 0;
 }
 .markItUp .markItUpHeader:after {
@@ -117,8 +117,8 @@
 }
 .markItUp .markItUpHeader ul {
 	display: block;
-	margin:0 !important;
-	padding:0;
+	margin: 0 !important;
+	padding: 0;
 }
 .markItUp .markItUpHeader ul li {
 	list-style:none;
@@ -137,11 +137,16 @@
 .markItUp .markItUpHeader ul .markItUpDropMenu {
 	/*background:inherit url(images/menu.png) no-repeat 100% 80%;
 	padding-right:10px;*/
+	
 }
+.markItUp .markItUpHeader ul .markItUpDropMenu ul { border-left: 1px solid #CCC; }
 .markItUp .markItUpHeader ul .markItUpDropMenu li {
-	margin-right:0;
-	background-color: #EEE;
-	padding: 1px;
+	margin-right: 0;
+	padding: 0 1px 1px 0;
+	background-color: #CCC;
+}
+.markItUp .markItUpHeader ul ul a {
+	background-color: #F1F1F1;
 }
  
 /* next rows of buttons */
@@ -169,11 +174,11 @@
 .markItUp .markItUpHeader ul a {
 	display: block;
 	margin: 0;
-	padding: 7px;
+	padding: 7px 6px 6px;
 }
 .markItUp .markItUpHeader ul a:focus,
 .markItUp .markItUpHeader ul a:active { -moz-transform: translateY(1px); outline: none !important; }
-.markItUp .markItUpHeader ul a:hover { background-color:#fff; }
+.markItUp .markItUpHeader ul a:hover { background-color: #fff; }
 .markItUp .markItUpHeader ul a em {
 	display:block;
 	background-repeat:no-repeat;
