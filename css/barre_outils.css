@@ -105,6 +105,7 @@
 	background: -moz-linear-gradient(top, #F1F1F1, #DDD);
 	border: 1px solid #ccc;
 	border-color: #F1F1F1 #EEE #CCC;
+	border-color: #ddd #ddd #ccc;
 	border-radius: 6px 6px 0 0;
 }
 .markItUp .markItUpHeader:after {
@@ -165,8 +166,10 @@
 	background:#F5F5F5 url(images/submenu.png) no-repeat 50% 50%;
 }
 .markItUp .markItUpHeader ul .separateur {
-	border-left: 1px dotted #CCC;
+	border-left: 1px solid #d2d2d2;
+	margin-left:3px; padding-left:3px;
 }
+.markItUp .markItUpHeader ul .separateur ul {left:2px;}
 .markItUp .markItUpHeader ul ul .separateur {
 	margin:0; border: 0;
 }
