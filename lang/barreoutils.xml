@@ -6,4 +6,7 @@
 	<langue code="it">
 		<traducteur nom="renatoformato" />
 	</langue>
+	<langue code="sk">
+		<traducteur nom="jaro" />
+	</langue>
 </traduction>

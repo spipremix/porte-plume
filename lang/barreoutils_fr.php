@@ -56,7 +56,9 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'barre_guillemets' => 'Entourer de &laquo; guillemets &raquo;',
 	'barre_guillemets_simples' => 'Entourer de &ldquo;guillemets de second niveau&rdquo;',
 	'barre_indenter' => 'Indenter une liste',
+	'barre_inserer_cadre' => 'Ins&eacute;rer un code preformat&eacute; (cadre)',
 	'barre_inserer_caracteres' => 'Ins&eacute;rer des caract&egrave;res sp&eacute;cifiques',
+	'barre_inserer_code' => 'Ins&eacute;rer un code informatique (code)',
 	'barre_intertitre' => 'Transformer en {{{intertitre}}}',
 	'barre_italic' => 'Mettre en {italique}',
 	'barre_langue' => 'Langue abr&eacute;g&eacute;e',
@@ -76,9 +78,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'barre_quote' => '<quote>Citer un message</quote>',
 	'barre_stats' => 'Afficher les statistiques du texte',
 	'barre_tableau' => 'Ins&eacute;rer/modifier (le s&eacute;lectionner avant) un tableau',
-	'barre_inserer_code' => "Ins&eacute;rer un code informatique (code)",
-	'barre_inserer_cadre' => "Ins&eacute;rer un code preformat&eacute; (cadre)",
-	
+
 	// C
 	'config_info_enregistree' => 'Configuration sauvegard&eacute;e',
 
