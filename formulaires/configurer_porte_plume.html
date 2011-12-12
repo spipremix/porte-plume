@@ -6,6 +6,8 @@
 
 	<form action="#ENV{action}#formulaire_configurer_#FORM" method="post"><div>
 		[(#ACTION_FORMULAIRE{#ENV{action}})]
+		<input type="hidden" name="_meta_casier" value="" />[(#REM) a la racine de spip_meta ]
+		
 		<p class='explication'><:barreoutils:explication_barre_outils_public:></p>
 		<p class='explication'><:barreoutils:explication_barre_outils_public_2:></p>
 		<ul>
