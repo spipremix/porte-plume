@@ -5,9 +5,9 @@
 	<langue code="es" />
 	<langue code="fr" />
 	<langue code="it">
-		<traducteur nom="Cap" />
+		<traducteur nom="Cap" lien="http://trad.spip.org/auteur/cap" />
 	</langue>
 	<langue code="sk">
-		<traducteur nom="jaro" />
+		<traducteur nom="jaro" lien="http://trad.spip.org/auteur/jaro" />
 	</langue>
 </traduction>
