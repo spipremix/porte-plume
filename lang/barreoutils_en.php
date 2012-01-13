@@ -8,14 +8,14 @@ if (!defined('_ECRIRE_INC_VERSION')) return;
 $GLOBALS[$GLOBALS['idx_lang']] = array(
 
 	// B
-	'barre_a_accent_grave' => 'Insert a capital A with grave accent: À',
+	'barre_a_accent_grave' => 'Insert a capital A with grave accent: À', # MODIF
 	'barre_adresse' => 'Address',
 	'barre_aide' => 'Use the typographic short cuts to refine your layout',
 	'barre_alignerdroite' => '[/Right align/] the paragraph',
 	'barre_ancres' => 'Anchors',
 	'barre_barre' => 'Strike through the text',
 	'barre_bulle' => 'Help bubble',
-	'barre_c_cedille_maj' => 'Insert capital C cedilla',
+	'barre_c_cedille_maj' => 'Insert capital C cedilla', # MODIF
 	'barre_cadre' => 'Put in a &lt;cadre&gt;textarea&lt;/cadre&gt;',
 	'barre_caracteres' => 'Special characters',
 	'barre_centrer' => '[|Center|] the paragraph',
@@ -23,13 +23,13 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'barre_clean' => 'Clean the code of all HTML tags',
 	'barre_code' => 'Edit a &lt;code&gt;computer code&lt;/code&gt;',
 	'barre_desindenter' => 'Unindent a line',
-	'barre_e_accent_aigu' => 'Insert a capital E with acute accent: É',
-	'barre_e_accent_grave' => 'Insert capital E grave',
-	'barre_ea' => 'Insert æ',
-	'barre_ea_maj' => 'Insert Æ',
+	'barre_e_accent_aigu' => 'Insert a capital E with acute accent: É', # MODIF
+	'barre_e_accent_grave' => 'Insert capital E grave', # MODIF
+	'barre_ea' => 'Insert æ', # MODIF
+	'barre_ea_maj' => 'Insert Æ', # MODIF
 	'barre_encadrer' => '[(Frame)] the paragraph',
-	'barre_eo' => 'Insert an oe-ligature: œ',
-	'barre_eo_maj' => 'Insert a capital OE-ligature: Œ',
+	'barre_eo' => 'Insert an oe-ligature: œ', # MODIF
+	'barre_eo_maj' => 'Insert a capital OE-ligature: Œ', # MODIF
 	'barre_euro' => 'Insert the € symbol',
 	'barre_exposant' => 'Put the text in &lt;sup&gt;superscript&lt;/sup&gt;',
 	'barre_formatages_speciaux' => 'Special formating',
@@ -40,7 +40,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'barre_gestion_anc_inserer' => 'Convert to anchor',
 	'barre_gestion_anc_nom' => 'Anchor name',
 	'barre_gestion_anc_pointer' => 'Point to an anchor',
-	'barre_gestion_caption' => 'Caption and Summary',
+	'barre_gestion_caption' => 'Caption and Summary', # MODIF
 	'barre_gestion_colonne' => 'No. of columns',
 	'barre_gestion_cr_casse' => 'Match case',
 	'barre_gestion_cr_changercasse' => 'Change case',
@@ -50,7 +50,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'barre_gestion_cr_entier' => 'Only complete words',
 	'barre_gestion_cr_remplacer' => 'Replace',
 	'barre_gestion_cr_tout' => 'Replace all',
-	'barre_gestion_entete' => 'Header',
+	'barre_gestion_entete' => 'Header', # MODIF
 	'barre_gestion_ligne' => 'No. of lines',
 	'barre_gestion_taille' => 'Fixed size',
 	'barre_glossaire' => '[?Glossary] reference (Wikipedia)',
@@ -58,7 +58,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'barre_guillemets' => 'Place between «double quotes«',
 	'barre_guillemets_simples' => 'Place between “single quotes“',
 	'barre_indenter' => 'Indent a line',
-	'barre_inserer_cadre' => 'Insert a preformatted code (cadre)',
+	'barre_inserer_cadre' => 'Insert a preformatted code (cadre)', # MODIF
 	'barre_inserer_caracteres' => 'Insert special characters',
 	'barre_inserer_code' => 'Insert a computer code (code)',
 	'barre_intertitre' => 'Turn into a {{{subheading}}}',
@@ -93,7 +93,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'explication_barre_outils_public_2' => 'You can choose not to load
 	these scripts in to lighten public pages.
 	Therefore, whatever configuration the forums, crayons or plugins have, 
-	no Quill toolbar will show automatically in the public site.',
+	no Quill toolbar will show automatically in the public site.', # MODIF
 
 	// I
 	'info_barre_outils_public' => 'Public toolbars',

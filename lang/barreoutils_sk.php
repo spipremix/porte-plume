@@ -8,14 +8,14 @@ if (!defined('_ECRIRE_INC_VERSION')) return;
 $GLOBALS[$GLOBALS['idx_lang']] = array(
 
 	// B
-	'barre_a_accent_grave' => 'Vložiť veľké A s opačným dĺžňom: À',
+	'barre_a_accent_grave' => 'Vložiť veľké A s opačným dĺžňom: À', # MODIF
 	'barre_adresse' => 'Adresa',
 	'barre_aide' => 'Na úpravu vzhľadu použite klávesové skratky',
 	'barre_alignerdroite' => 'Odsek [/zarovnať vpravo/]',
 	'barre_ancres' => 'Kotvy',
 	'barre_barre' => 'Prečiarknuť text',
 	'barre_bulle' => 'Bublinková nápoveď',
-	'barre_c_cedille_maj' => 'Vložiť malé C s čiarkou',
+	'barre_c_cedille_maj' => 'Vložiť malé C s čiarkou', # MODIF
 	'barre_cadre' => 'Dať do &lt;rámu&gt; textového poľa&lt;/rámu&gt;',
 	'barre_caracteres' => 'Špeciálne znaky',
 	'barre_centrer' => 'Zarovnať odsek [|nastred|]',
@@ -23,13 +23,13 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'barre_clean' => 'Vyčistiť kód od všetkých tagov HTML',
 	'barre_code' => 'Upraviť &lt;kód&gt;počítačový kód&lt;/kód&gt;',
 	'barre_desindenter' => 'Zrušiť voľný riadok',
-	'barre_e_accent_aigu' => 'Vložiť veľké dlhé E: É',
-	'barre_e_accent_grave' => 'Vložiť veľké E s opačným dĺžňom',
-	'barre_ea' => 'Vložiť æ',
-	'barre_ea_maj' => 'Vložiť Æ',
+	'barre_e_accent_aigu' => 'Vložiť veľké dlhé E: É', # MODIF
+	'barre_e_accent_grave' => 'Vložiť veľké E s opačným dĺžňom', # MODIF
+	'barre_ea' => 'Vložiť æ', # MODIF
+	'barre_ea_maj' => 'Vložiť Æ', # MODIF
 	'barre_encadrer' => '[(Orámovať)] odsek',
-	'barre_eo' => 'Vložiť zložku oe: œ',
-	'barre_eo_maj' => 'Vložiť veľkú zložku OE: Œ',
+	'barre_eo' => 'Vložiť zložku oe: œ', # MODIF
+	'barre_eo_maj' => 'Vložiť veľkú zložku OE: Œ', # MODIF
 	'barre_euro' => 'Vložiť symbol €',
 	'barre_exposant' => 'Zmeniť text na &lt;sup&gt;horný index&lt;/sup&gt;',
 	'barre_formatages_speciaux' => 'Špeciálne formátovanie',
@@ -40,7 +40,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'barre_gestion_anc_inserer' => 'Zmeniť na kotvu',
 	'barre_gestion_anc_nom' => 'Názov kotvy',
 	'barre_gestion_anc_pointer' => 'Prepojiť s kotvou',
-	'barre_gestion_caption' => 'Popisok a zhrnutie',
+	'barre_gestion_caption' => 'Popisok a zhrnutie', # MODIF
 	'barre_gestion_colonne' => 'Počet stĺpcov',
 	'barre_gestion_cr_casse' => 'Rozlišovať malé a veľké písmená',
 	'barre_gestion_cr_changercasse' => 'Zmeniť malé písmená na veľké alebo opačne',
@@ -50,7 +50,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'barre_gestion_cr_entier' => 'Iba celé slová',
 	'barre_gestion_cr_remplacer' => 'Nahradiť',
 	'barre_gestion_cr_tout' => 'Nahradiť všetky',
-	'barre_gestion_entete' => 'Hlavička',
+	'barre_gestion_entete' => 'Hlavička', # MODIF
 	'barre_gestion_ligne' => 'Počet riadkov',
 	'barre_gestion_taille' => 'Pevná veľkosť',
 	'barre_glossaire' => 'Odkaz na [?Slovník] (Wikipédia)',
@@ -58,7 +58,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'barre_guillemets' => 'Dať do "dvojitých úvodzoviek"',
 	'barre_guillemets_simples' => 'Dať do “jednoduchých úvodzoviek“',
 	'barre_indenter' => 'Vynechať riadok',
-	'barre_inserer_cadre' => 'Vložiť predformátovaný kód (rám)',
+	'barre_inserer_cadre' => 'Vložiť predformátovaný kód (rám)', # MODIF
 	'barre_inserer_caracteres' => 'Vložiť špeciálne znaky',
 	'barre_inserer_code' => 'Vložiť počítačový kód (kód)',
 	'barre_intertitre' => 'Zmeniť na {{{podnadpis}}}',
@@ -93,7 +93,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'explication_barre_outils_public_2' => 'Môžete sa rozhodnúť, že nebudete spúšťať
  tieto skripty, aby ste odbremenili verejne prístupné stránky.
  Preto bez ohľadu na nastavenia diskusných fóra, crayonov alebo zásuvných modulov
- sa na verejne prístupnej stránke automaticky nezobrazí žiaden panel s nástrojmi Quill.',
+ sa na verejne prístupnej stránke automaticky nezobrazí žiaden panel s nástrojmi Quill.', # MODIF
 
 	// I
 	'info_barre_outils_public' => 'Verejné nástroje',
