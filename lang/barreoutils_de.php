@@ -8,14 +8,14 @@ if (!defined('_ECRIRE_INC_VERSION')) return;
 $GLOBALS[$GLOBALS['idx_lang']] = array(
 
 	// B
-	'barre_a_accent_grave' => 'Majuskel A mit accent grave einfügen',
+	'barre_a_accent_grave' => 'Majuskel A mit accent grave einfügen', # MODIF
 	'barre_adresse' => 'Adresse',
 	'barre_aide' => 'Gestalten sie ihre Seite mit typografischen Kürzeln',
 	'barre_alignerdroite' => 'Absatz [/rechtsbündig/] ausrichten',
 	'barre_ancres' => 'Anker verwalten',
 	'barre_barre' => 'Text durchstreichen',
 	'barre_bulle' => 'Sprechblasenhilfe',
-	'barre_c_cedille_maj' => 'Majuskel C cédille  einfügen',
+	'barre_c_cedille_maj' => 'Majuskel C cédille  einfügen', # MODIF
 	'barre_cadre' => 'In &lt;cadre&gt;Textfeld&lt;/cadre&gt; einfügen',
 	'barre_caracteres' => 'Sonderzeichen',
 	'barre_centrer' => 'Absatz [|zentrieren|]',
@@ -23,13 +23,13 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'barre_clean' => 'Code aller HTML-Tags bereinigen',
 	'barre_code' => '&lt;code&gt;Programmcode &lt;/code&gt; formatieren',
 	'barre_desindenter' => 'Einrückungen aus Liste entfernen',
-	'barre_e_accent_aigu' => 'Majuskel E mit accent aigu einfügen',
-	'barre_e_accent_grave' => 'Insérer un E majuscule accent grave',
-	'barre_ea' => 'Insérer un E dans l\'A',
-	'barre_ea_maj' => 'Majuskel E im A einfügen',
+	'barre_e_accent_aigu' => 'Majuskel E mit accent aigu einfügen', # MODIF
+	'barre_e_accent_grave' => 'Insérer un E majuscule accent grave', # MODIF
+	'barre_ea' => 'Insérer un E dans l\'A', # MODIF
+	'barre_ea_maj' => 'Majuskel E im A einfügen', # MODIF
 	'barre_encadrer' => 'Absatz mit [(Kasten)]',
-	'barre_eo' => 'E im O  einfügen',
-	'barre_eo_maj' => 'Majuskel E im O  einfügen',
+	'barre_eo' => 'E im O  einfügen', # MODIF
+	'barre_eo_maj' => 'Majuskel E im O  einfügen', # MODIF
 	'barre_euro' => '€ Symbol  einfügen',
 	'barre_exposant' => 'Text &lt;sup&gt;hochstellen&lt;/sup&gt;',
 	'barre_formatages_speciaux' => 'Spezielle Formatierungen',
@@ -40,7 +40,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'barre_gestion_anc_inserer' => 'In Anker umwandeln',
 	'barre_gestion_anc_nom' => 'Name des Ankers',
 	'barre_gestion_anc_pointer' => 'Link zu Anker',
-	'barre_gestion_caption' => 'Motto und Zusammenfassung',
+	'barre_gestion_caption' => 'Motto und Zusammenfassung', # MODIF
 	'barre_gestion_colonne' => 'Spaltenzahl',
 	'barre_gestion_cr_casse' => 'Gross/Klein beachten',
 	'barre_gestion_cr_changercasse' => 'Majusker/Gemeine tauschel',
@@ -50,7 +50,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'barre_gestion_cr_entier' => 'Ganzes Wort',
 	'barre_gestion_cr_remplacer' => 'Ersetzen',
 	'barre_gestion_cr_tout' => 'Alles ersetzen',
-	'barre_gestion_entete' => 'Kopf',
+	'barre_gestion_entete' => 'Kopf', # MODIF
 	'barre_gestion_ligne' => 'Zeilenzahl',
 	'barre_gestion_taille' => 'Feste Größe',
 	'barre_glossaire' => 'Eintrag in [?glossaire] (Wikipedia)',
@@ -92,7 +92,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	und in weiteren Plugins einzusetzen, wenn die jeweilige Konfiguration es erlaubt.',
 	'explication_barre_outils_public_2' => 'Sie können die Verwendung der Werkzeugleisten verhindern und so
 	den Code der  öffentlichen Seiten verschlanken. Damit stehen sie weder
-	in Foren, noch in den Eingabefeldern von Plugins zur Verfügung.',
+	in Foren, noch in den Eingabefeldern von Plugins zur Verfügung.', # MODIF
 
 	// I
 	'info_barre_outils_public' => 'Öffentliche Werkzeugleiste',
