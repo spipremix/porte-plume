@@ -10,7 +10,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	// P
 	'porte_plume_description' => 'Der Federhalter ist eine erweiterbare Werkzeugleiste für SPIP auf Grundlage der Javascript-Bibiliothek [MarkItUp->http://markitup.jaysalvat.com/home/]
 
-	Die Icons stammen aus der Sammlung [FamFamFam->http://www.famfamfam.com/].',
+	Die Icons stammen aus der Sammlung [FamFamFam->http://www.famfamfam.com/].', # MODIF
 	'porte_plume_nom' => 'Federhalter',
 	'porte_plume_slogan' => 'Eine Meüleiste zum Verschönern der Texte'
 );
