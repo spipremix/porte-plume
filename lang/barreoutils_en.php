@@ -98,8 +98,8 @@ Therefore, whatever configuration the forums, crayons or plugins have, no Quill 
 	'info_porte_plume_titre' => 'Toolbars configuration',
 
 	// L
-	'label_barre_outils_public_non' => 'Do not load the toolbars\\\' scripts in the public site',
-	'label_barre_outils_public_oui' => 'Load the toolbars\\\' scripts in the public site.',
+	'label_barre_outils_public_non' => 'Do not load the toolbars scripts in the public site',
+	'label_barre_outils_public_oui' => 'Load the toolbars scripts in the public site.',
 
 	// V
 	'voir' => 'Preview'
