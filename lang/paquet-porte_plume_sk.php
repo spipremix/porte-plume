@@ -8,8 +8,7 @@ if (!defined('_ECRIRE_INC_VERSION')) return;
 $GLOBALS[$GLOBALS['idx_lang']] = array(
 
 	// P
-	'porte_plume_description' => 'Porte plume je rozšíriteľný panel s nástrojmi pre SPIP,
-	ktorý využíva javascriptovú knižnicu [MarkItUp->http://markitup.jaysalvat.com/home/]', # MODIF
+	'porte_plume_description' => 'Porte plume je rozšíriteľný panel s nástrojmi pre SPIP, ktorý využíva javascriptovú knižnicu [MarkItUp->http://markitup.jaysalvat.com/home/]',
 	'porte_plume_nom' => 'Porte plume',
 	'porte_plume_slogan' => 'Panel s nástrojmi, vďaka ktorému môžete vylepšiť svoje texty'
 );
