@@ -28,4 +28,5 @@
 	<pipeline nom="header_prive" action="insert_head_prive" inclure="porte_plume_pipelines.php" />
 	<pipeline nom="affiche_milieu" inclure="porte_plume_pipelines.php" />
 	<pipeline nom="configurer_liste_metas" inclure="porte_plume_pipelines.php" />
+	<pipeline nom="ieconfig_metas" inclure="porte_plume_ieconfig.php" />
 </paquet>
