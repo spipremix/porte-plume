@@ -8,14 +8,14 @@ if (!defined('_ECRIRE_INC_VERSION')) return;
 $GLOBALS[$GLOBALS['idx_lang']] = array(
 
 	// B
-	'barre_a_accent_grave' => 'إدراج A مع نبر الاطالة: À', # MODIF
+	'barre_a_accent_grave' => 'إدراج A مع نبر الاطالة: À',
 	'barre_adresse' => 'عنوان',
 	'barre_aide' => 'استخدم شريط اختصارات الكتابة لإغناء تصميم صفحتك',
 	'barre_alignerdroite' => 'محاذاة الى [/اليمين/]',
 	'barre_ancres' => 'إدارة المراسي',
 	'barre_barre' => 'شطب النص',
 	'barre_bulle' => 'بالون تعليمات',
-	'barre_c_cedille_maj' => 'ادراج C كبير مع علامة لفظية: Ç', # MODIF
+	'barre_c_cedille_maj' => 'ادراج C كبير مع علامة لفظية: Ç',
 	'barre_cadre' => 'وضع في &lt;cadre&gt;مجال إدخال نصوص&lt;/cadre&gt;',
 	'barre_caracteres' => 'حروف خاصة',
 	'barre_centrer' => '[|توسيط|] الفقرة',
@@ -23,13 +23,13 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'barre_clean' => 'تنظيف الرموز البرمجية من كل علامات HTML',
 	'barre_code' => 'تنسيق &lt;code&gt;مقطع رموز برمجية&lt;/code&gt;',
 	'barre_desindenter' => 'إلغاء إزاحة لائحة',
-	'barre_e_accent_aigu' => 'ادراج E كبير مع نبر خفيض - È', # MODIF
-	'barre_e_accent_grave' => 'إدراج E كبير مع نبر الاطالة: È', # MODIF
-	'barre_ea' => 'ادراج e داخل a: æ', # MODIF
-	'barre_ea_maj' => 'ادراج E كبير داخل A كبير: Æ', # MODIF
+	'barre_e_accent_aigu' => 'ادراج E كبير مع نبر خفيض - È',
+	'barre_e_accent_grave' => 'إدراج E كبير مع نبر الاطالة: È',
+	'barre_ea' => 'ادراج e داخل a: æ',
+	'barre_ea_maj' => 'ادراج E كبير داخل A كبير: Æ',
 	'barre_encadrer' => 'وضع في [(إطار)]',
-	'barre_eo' => 'ادراج e داخل o: œ', # MODIF
-	'barre_eo_maj' => 'ادراج E كبير داخل O كبير: Œ', # MODIF
+	'barre_eo' => 'ادراج e داخل o: œ',
+	'barre_eo_maj' => 'ادراج E كبير داخل O كبير: Œ',
 	'barre_euro' => 'ادراج رمز €',
 	'barre_exposant' => 'تحويل الى &lt;sup&gt;نص فوقي&lt;/sup&gt;',
 	'barre_formatages_speciaux' => 'تنسيقات خاصة',
@@ -40,7 +40,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'barre_gestion_anc_inserer' => 'تحويل الى مرساة',
 	'barre_gestion_anc_nom' => 'اسم المرساة',
 	'barre_gestion_anc_pointer' => 'التصويب الى مرساة',
-	'barre_gestion_caption' => 'وصف وملخص', # MODIF
+	'barre_gestion_caption' => 'وصف وملخص',
 	'barre_gestion_colonne' => 'عدد الأعمدة',
 	'barre_gestion_cr_casse' => 'تطابق حجم الحروف',
 	'barre_gestion_cr_changercasse' => 'تغيير حجم الحروف',
@@ -50,7 +50,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'barre_gestion_cr_entier' => 'كلمة كاملة',
 	'barre_gestion_cr_remplacer' => 'استبدال',
 	'barre_gestion_cr_tout' => 'استبدال الكل',
-	'barre_gestion_entete' => 'ترويسة', # MODIF
+	'barre_gestion_entete' => 'ترويسة',
 	'barre_gestion_ligne' => 'عدد السطور',
 	'barre_gestion_taille' => 'حجم ثابت',
 	'barre_glossaire' => 'مدخل في [?المعجم] (ويكيبيديا)',
@@ -58,9 +58,9 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'barre_guillemets' => 'احاطة «بعلامتي اقتباس مزدوجة»',
 	'barre_guillemets_simples' => 'وضع بين "علامتي إقتباس مزدوجة من المستوى الثاني"',
 	'barre_indenter' => 'إزاحة لائحة',
-	'barre_inserer_cadre' => 'Insérer un code preformaté (cadre)', # NEW
+	'barre_inserer_cadre' => 'إدراج رموز منسقة مسبقاً (إطار)',
 	'barre_inserer_caracteres' => 'إدراج حروف محددة',
-	'barre_inserer_code' => 'Insérer un code informatique (code)', # NEW
+	'barre_inserer_code' => 'إدراج رموز برمجية (رموز)',
 	'barre_intertitre' => 'تحويل الى {{{عنوان فقرة}}}',
 	'barre_italic' => '{مائل}',
 	'barre_langue' => 'لغة مختصرة',
@@ -88,7 +88,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'editer' => 'تحرير',
 	'explication_barre_outils_public' => 'يتم تحميل أوامر أوراق الأنماط وجافاسكريبت (إضافة الريشة، Porte Plume) في الموقع العمومي لتوقر استخدام شريط الأدوات في استمارات المنتديات والأقلام العمومية وملحقات أخرى أذا سمحت إعداداتها بذلك.',
 	'explication_barre_outils_public_2' => 'يمكنك اختيار عدم تحميل هذه الأوامر لتخفيف وزن الصفحات العمومية.
-عندها، مهما تكن إعدادات المنتديات او الأقلام او الملحقات، لن يظهر اي شريط أدوات من الريشة في الموقع العمومي.', # MODIF
+عندها، مهما تكن إعدادات المنتديات او الأقلام او الملحقات، لن يظهر اي شريط أدوات من الريشة في الموقع العمومي.',
 
 	// I
 	'info_barre_outils_public' => 'شريط الأدوات العمومي',
