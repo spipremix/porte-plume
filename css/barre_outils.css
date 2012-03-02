@@ -22,6 +22,7 @@
 .markItUp  {
 	margin:5px 0 5px 0;
 	clear:both;
+    position: relative;
 }
 .markItUp .markItUpContainer  {
 	margin:0; padding:0;
@@ -55,12 +56,11 @@
 	text-align:right; 
 	padding:1px 1px 0;
 	margin-bottom: -2px;
-	margin-top: 6px;
-	overflow:hidden; 
-	width:auto; 
-	float:right; 
-	margin-right: 30px;
-	clear:both;
+	top: 6px;
+	overflow:hidden;
+    position: absolute;
+	right: 30px;
+	clear:right;
 }
 .markItUp .markItUpTabs a {
 	display:block; 
@@ -120,6 +120,7 @@
 	display: block;
 	margin: 0 !important;
 	padding: 0;
+    overflow: hidden;
 }
 .markItUp .markItUpHeader ul li {
 	list-style:none;
@@ -175,6 +176,7 @@
 }
 
 .markItUp .markItUpHeader ul a {
+    clear: none;
 	display: block;
 	margin: 0;
 	padding: 7px 6px 6px;
