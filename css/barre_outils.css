@@ -116,11 +116,12 @@
     visibility: hidden;
     overflow: hidden;
 }
+.lte7 .markItUp .markItUpHeader ul {height:29px;}
 .markItUp .markItUpHeader ul {
 	display: block;
 	margin: 0 !important;
 	padding: 0;
-    overflow: hidden;
+
 }
 .markItUp .markItUpHeader ul li {
 	list-style:none;
