@@ -7,6 +7,9 @@
 		<traducteur nom="jaro" lien="http://trad.spip.org/auteur/jaro" />
 		<traducteur nom="kent1" lien="http://trad.spip.org/auteur/kent1" />
 	</langue>
+	<langue code="fa" url="http://trad.spip.org/tradlang_module/paquet-porte_plume?lang_cible=fa">
+		<traducteur nom="Davood Hossein" lien="http://trad.spip.org/auteur/davood-hossein" />
+	</langue>
 	<langue code="fr" />
 	<langue code="it" url="http://trad.spip.org/tradlang_module/paquet-porte_plume?lang_cible=it">
 		<traducteur nom="phante" lien="http://trad.spip.org/auteur/phante" />
