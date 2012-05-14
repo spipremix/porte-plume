@@ -61,6 +61,7 @@
     position: absolute;
 	right: 30px;
 	clear:right;
+	z-index:10; /* Un rien plus que .markItUpPreview */
 }
 .markItUp .markItUpTabs a {
 	display:block; 
@@ -83,6 +84,9 @@
 	background:#fff;
 	overflow:auto;
 	padding:1em;
+	/* decaler de la hauteur de .markItUpTabs */
+	position:relative;
+	top:2.2em; 
 }
 
 /* correction des styles spip_formulaires appliques par defaut (grr) */
