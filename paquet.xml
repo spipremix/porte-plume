@@ -3,7 +3,7 @@
 	categorie="edition"
 	version="1.11.5"
 	etat="stable"
-	compatibilite="[3.0.0-beta;["
+	compatibilite="[3.0.0;3.1.*]"
 	logo="images/porte-plume-32.png"
 	documentation="http://www.spip-contrib.net/Porte-plume,3117"
 >	
