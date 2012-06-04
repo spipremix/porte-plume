@@ -38,7 +38,7 @@ function porte_plume_creer_json_markitup(){
 	//  	$barre->ajouterApres('italic',$bold);
 	$barres = pipeline('porte_plume_barre_pre_charger', $barres);
 
-		
+
 	// 3 chargement
 	// 		permet de cacher ou afficher certains boutons au besoin
 	// 		exemples :
