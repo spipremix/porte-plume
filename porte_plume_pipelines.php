@@ -119,7 +119,7 @@ function porte_plume_inserer_head($flux, $lang, $prive = false){
  * @param string $flux  Contenu du head
  * @return string Contenu du head complété
  */
-function porte_plume_insert_head_css($flux){
+function porte_plume_insert_head_prive_css($flux){
 	return porte_plume_insert_head_css($flux, true);
 }
 
