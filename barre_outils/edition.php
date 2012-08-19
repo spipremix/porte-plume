@@ -4,7 +4,7 @@
  * 
  * @plugin Porte Plume pour SPIP
  * @license GPL
- * @package Plugins\PortePlume\BarreOutils
+ * @package SPIP\PortePlume\BarreOutils
  */
 if (!defined("_ECRIRE_INC_VERSION")) return;
 

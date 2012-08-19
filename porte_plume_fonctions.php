@@ -4,7 +4,7 @@
  * 
  * @plugin Porte Plume pour SPIP
  * @license GPL
- * @package Plugins\PortePlume\BarreOutils
+ * @package SPIP\PortePlume\BarreOutils
  */
 
 if (!defined("_ECRIRE_INC_VERSION")) return;
@@ -16,7 +16,7 @@ if (!defined("_ECRIRE_INC_VERSION")) return;
  * @example
  *     $barre = new Barre_Outil($description);
  * 
- * @package Plugins\PortePlume\BarreOutils
+ * @package SPIP\PortePlume\BarreOutils
  */
 class Barre_outils{
 	/**
@@ -668,7 +668,7 @@ class Barre_outils{
  * l'exécute si existe, attendant alors en retour un tableau de couples :
  * nom de l'outil => nom de l'image
  *
- * @pipeline porte_plume_lien_classe_vers_icone
+ * @pipeline_appel porte_plume_lien_classe_vers_icone
  * 
  * @return string Déclaration CSS des icones
  */
@@ -697,7 +697,7 @@ function barre_outils_css_icones(){
 	 * On passe la liste des icones connues au pipeline pour ceux qui
 	 * ajoutent de simples icones à des barres existantes
 	 *
-	 * @pipeline porte_plume_lien_classe_vers_icone
+	 * @pipeline_appel porte_plume_lien_classe_vers_icone
 	 * @var array $classe2icone
 	 *     Couples identifiant de bouton => nom de l'image (ou tableau)
 	 *     Dans le cas d'un tableau, cela indique une sprite : (nom de l'image , position haut, position bas)
@@ -777,7 +777,7 @@ function barre_outils_liste(){
  * applique le traitement adequat. Si aucun traitement n'est trouvé,
  * alors propre() est appliqué.
  *
- * @package Plugins\PortePlume\Fonctions
+ * @package SPIP\PortePlume\Fonctions
  * @see champs_traitements() dans public/references.php
  * @global table_des_traitements
  * 

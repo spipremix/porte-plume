@@ -4,7 +4,7 @@
  * 
  * @plugin Porte Plume pour SPIP
  * @license GPL
- * @package Plugins\PortePlume\Pipelines
+ * @package SPIP\PortePlume\Pipelines
 **/
 
 if (!defined("_ECRIRE_INC_VERSION")) return;
@@ -13,7 +13,7 @@ if (!defined("_ECRIRE_INC_VERSION")) return;
 
 /**
  * Fonction du pipeline autoriser. N'a rien à faire
- * @pipelined autoriser
+ * @pipeline autoriser
  */
 function porte_plume_autoriser(){}
 
@@ -62,7 +62,7 @@ function autoriser_porteplume_afficher_public_dist($faire, $type, $id, $qui, $op
  * Uniquement si l'on est autorisé à l'afficher le porte plume dans
  * l'espace public !
  *
- * @pipelined insert_head
+ * @pipeline insert_head
  * @param  string $flux Contenu du head
  * @return string Contenu du head
  */
@@ -77,7 +77,7 @@ function porte_plume_insert_head_public($flux){
 /**
  * Ajout des scripts du porte-plume dans le head des pages privées
  *
- * @pipelined header_prive
+ * @pipeline header_prive
  * @param  string $flux Contenu du head
  * @return string Contenu du head
  */
@@ -115,7 +115,7 @@ function porte_plume_inserer_head($flux, $lang, $prive = false){
 /**
  * Ajout des CSS du porte-plume au head privé
  *
- * @pipelined header_prive_css
+ * @pipeline header_prive_css
  * @param string $flux  Contenu du head
  * @return string Contenu du head complété
  */
@@ -128,7 +128,7 @@ function porte_plume_insert_head_prive_css($flux){
  *
  * Appelé aussi depuis le privé avec $prive à true.
  * 
- * @pipelined insert_head_css
+ * @pipeline insert_head_css
  * @param string $flux  Contenu du head
  * @param  bool  $prive Est-ce pour l'espace privé ?
  * @return string Contenu du head complété
@@ -155,7 +155,7 @@ function porte_plume_insert_head_css($flux='', $prive = false){
 /**
  * Valeur par défaut des configurations
  *
- * @pipelined configurer_liste_metas
+ * @pipeline configurer_liste_metas
  * @param array $metas
  *     Tableaux des metas et valeurs par défaut
  * @return array
@@ -170,7 +170,7 @@ function porte_plume_configurer_liste_metas($metas){
  * Ajoute le formulaire de configuration du porte-plume sur la page
  * des configurations avancées.
  *
- * @pipelined affiche_milieu
+ * @pipeline affiche_milieu
  * @param array $flux Données du pipeline
  * @return array      Données du pipeline
  */

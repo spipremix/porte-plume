@@ -4,7 +4,7 @@
  * 
  * @plugin Porte Plume pour SPIP
  * @license GPL
- * @package Plugins\PortePlume\Fonctions
+ * @package SPIP\PortePlume\Fonctions
 **/
 
 if (!defined('_ECRIRE_INC_VERSION')) return;
