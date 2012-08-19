@@ -5,7 +5,7 @@
  * 
  * @plugin Porte Plume pour SPIP
  * @license GPL
- * @package Plugins\PortePlume\Javascript
+ * @package SPIP\PortePlume\Javascript
 **/
 if (!defined("_ECRIRE_INC_VERSION")) return;
 
@@ -17,9 +17,9 @@ if (!defined("_ECRIRE_INC_VERSION")) return;
  * permettent de récuperer l'objet de classe Barre_outil
  * avant son export en json pour modifier des elements.
  *
- * @pipeline porte_plume_barre_pre_charger
+ * @pipeline_appel porte_plume_barre_pre_charger
  *     Charge des nouveaux boutons au besoin
- * @pipeline porte_plume_barre_charger
+ * @pipeline_appel porte_plume_barre_charger
  *     Affiche ou cache certains boutons
  * 
  * @return string Déclaration json
@@ -51,7 +51,7 @@ function porte_plume_creer_json_markitup(){
 	 *     $bold = $barre->get('bold');
 	 *     $bold['id'] = 'bold2';
 	 *     $barre->ajouterApres('italic',$bold);
-	 * @pipeline porte_plume_barre_pre_charger
+	 * @pipeline_appel porte_plume_barre_pre_charger
 	 */
 	$barres = pipeline('porte_plume_barre_pre_charger', $barres);
 
@@ -68,7 +68,7 @@ function porte_plume_creer_json_markitup(){
 	 * 
 	 *     $barre->cacherTout();
 	 *     $barre->afficher(array('bold','italic','header1'));
-	 * @pipeline porte_plume_barre_charger
+	 * @pipeline_appel porte_plume_barre_charger
 	 */
 	$barres = pipeline('porte_plume_barre_charger', $barres);
 
