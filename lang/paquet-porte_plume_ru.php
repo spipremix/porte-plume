@@ -9,7 +9,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 
 	// P
 	'porte_plume_description' => 'Porte plume - расширение возможностей стандартного текстового редактора SPIP. Использует javascript библиотеку  [MarkItUp->http://markitup.jaysalvat.com/home/].',
-	'porte_plume_nom' => 'Porte plume',
+	'porte_plume_nom' => 'Панель инструментов (Porte plume)',
 	'porte_plume_slogan' => 'Дополнительные возможности для текстового редактора'
 );
 
