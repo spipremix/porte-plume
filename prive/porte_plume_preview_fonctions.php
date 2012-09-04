@@ -26,7 +26,7 @@ function filtre_pp_charset() {
 		return PORTE_PLUME_PREVIEW_CHARSET;
 	}
 
-	$charset = $GLOBALS['charset'];
+	$charset = $GLOBALS['meta']['charset'];
 	$charset_sql = isset($GLOBALS['charset_sql_base']) ? $GLOBALS['charset_sql_base'] : '';
 	if ($charset_sql == 'utf8') {
 		$charset_sql = 'utf-8';

@@ -794,7 +794,7 @@ function barre_outils_liste(){
  */
 function traitements_previsu($texte, $nom_champ='', $type_objet='', $connect=null) {
 	include_spip('public/interfaces'); // charger les traitements
-	safehtml($t);
+
 	global $table_des_traitements;
 	if (!strlen($nom_champ) || !isset($table_des_traitements[$nom_champ])) {
 		$texte = propre($texte, $connect);
@@ -809,6 +809,9 @@ function traitements_previsu($texte, $nom_champ='', $type_objet='', $connect=nul
 		if (!$ps) {
 			$texte = propre($texte, $connect);
 		} else {
+			// [FIXME] Éviter une notice sur le eval suivant qui ne connait
+			// pas la Pile ici. C'est pas tres joli...
+			$Pile = array( 0 => array() );
 			// remplacer le placeholder %s par le texte fourni
 			eval('$texte=' . str_replace('%s', '$texte', $ps) . ';');
 		}
