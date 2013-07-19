@@ -54,56 +54,49 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'barre_gestion_ligne' => 'Nº de linhas',
 	'barre_gestion_taille' => 'Tamanho fixo',
 	'barre_glossaire' => 'Entrada do [?glossário] (Wikipedia)',
-	'barre_gras' => 'Mettre en {{gras}}', # NEW
-	'barre_guillemets' => 'Entourer de « guillemets »', # NEW
-	'barre_guillemets_simples' => 'Entourer de “guillemets de second niveau”', # NEW
-	'barre_indenter' => 'Indenter une liste', # NEW
+	'barre_gras' => 'Colocar em {{negrito}}',
+	'barre_guillemets' => 'Colocar entre « aspas duplas »',
+	'barre_guillemets_simples' => 'Colocar entre “aspas simples”',
+	'barre_indenter' => 'Pôr avanço numa lista',
 	'barre_inserer_cadre' => 'Inserir um código pré-formatado (cadre)',
-	'barre_inserer_caracteres' => 'Insérer des caractères spécifiques', # NEW
-	'barre_inserer_code' => 'Insérer un code informatique (code)', # NEW
-	'barre_intertitre' => 'Transformer en {{{intertitre}}}', # NEW
-	'barre_italic' => 'Mettre en {italique}', # NEW
+	'barre_inserer_caracteres' => 'Inserir caracteres especiais',
+	'barre_inserer_code' => 'Inserir um código informático (code)',
+	'barre_intertitre' => 'Converter em {{{subcabeçalho}}}',
+	'barre_italic' => 'Colocar em {itálico}',
 	'barre_langue' => 'Idioma abreviado',
-	'barre_lien' => 'Transformer en [lien hypertexte->http://...]', # NEW
+	'barre_lien' => 'Transformar em [ligação hipertexto->http://...]',
 	'barre_lien_externe' => 'Ligação externa',
-	'barre_lien_input' => 'Veuillez indiquer l\'adresse de votre lien (vous pouvez indiquer une adresse Internet sous la forme http://www.monsite.com, une adresse courriel, ou simplement indiquer le numéro d\'un article de ce site.', # NEW
+	'barre_lien_input' => 'Por favor indique o endereço da sua ligação (pode indicar um endereço Internet na forma http://www.monsite.com, um endereço de e-mail, ou simplesmente o número de um artigo neste sítio).',
 	'barre_liste_ol' => 'Colocar em lista numerada',
 	'barre_liste_ul' => 'Colocar em lista',
-	'barre_lorem_ipsum' => 'Insérer un paragraphe factice', # NEW
-	'barre_lorem_ipsum_3' => 'Insérer trois paragraphes factices', # NEW
+	'barre_lorem_ipsum' => 'Inserir um falso parágrafo',
+	'barre_lorem_ipsum_3' => 'Inserir três falsos parágrafos',
 	'barre_miseenevidence' => '[*Realçar*] o texto',
-	'barre_note' => 'Transformer en [[Note de bas de page]]', # NEW
-	'barre_paragraphe' => 'Créer un paragraphe', # NEW
-	'barre_petitescapitales' => 'Mettre le texte en &lt;sc&gt;petites capitales&lt;/sc&gt;', # NEW
-	'barre_poesie' => 'Mettre en forme comme une &lt;poesie&gt;poésie&lt;/poesie&gt;', # NEW
+	'barre_note' => 'Converter em [[Nota de rodapé]]',
+	'barre_paragraphe' => 'Criar um parágrafo',
+	'barre_petitescapitales' => 'Colocar o texto em &lt;sc&gt;petites capitales&lt;/sc&gt;',
+	'barre_poesie' => 'Editar como uma &lt;poesie&gt;poésie&lt;/poesie&gt;',
 	'barre_preview' => 'Modo pré-visualização',
 	'barre_quote' => '<quote>Citar uma mensagem</quote>',
-	'barre_stats' => 'Afficher les statistiques du texte', # NEW
-	'barre_tableau' => 'Insérer/modifier (le sélectionner avant) un tableau', # NEW
+	'barre_stats' => 'Exibir as estatísticas do texto',
+	'barre_tableau' => 'Inserir/modificar (seleccionar primeiro) uma tabela',
 
 	// C
 	'config_info_enregistree' => 'Configuração guardada',
 
 	// E
 	'editer' => 'Editar',
-	'explication_barre_outils_public' => 'Les scripts CSS et Javascript des barre d\'outils
-	(extension Porte Plume) sont chargés sur l\'espace public
-	et permettent d\'utiliser ces barres sur les formulaires de forums,
-	les crayons publics ou pour d\'autres plugins, si leurs configurations
-	respectives le permettent.', # NEW
-	'explication_barre_outils_public_2' => 'Vous pouvez choisir de ne pas charger
-	ces scripts afin d\'alléger le poids des pages publiques.
-	Dès lors quelle que soit la configuration des forums, crayons ou plugin,
-	aucune barre d\'outils du Porte Plume ne pourra être
-	présente automatiquement sur l\'espace public.', # NEW
+	'explication_barre_outils_public' => 'Os scripts CSS e Javascript das barras de ferramentas	(extensão Porte Plume) são carregados no sítio público e permitem utilizar barras de ferramentas em fóruns, crayons públicos ou outros plugins, se a sua respectiva configuração o permitir.',
+	'explication_barre_outils_public_2' => 'Pode escolher não carregar estes scripts, para tornar mais leves as páginas públicas.
+Assim, em qualquer configuração dos fóruns, crayons ou plugins, nenhuma barra de ferramentas Pena aparecerá automaticamente no sítio público.',
 
 	// I
 	'info_barre_outils_public' => 'Barra de ferramentas pública',
-	'info_porte_plume_titre' => 'Configurer les barres d\'outils', # NEW
+	'info_porte_plume_titre' => 'Configurar a barra de ferramentas',
 
 	// L
-	'label_barre_outils_public_non' => 'Ne pas charger les scripts de barre d\'outils sur l\'espace public', # NEW
-	'label_barre_outils_public_oui' => 'Charger les scripts de barre d\'outils sur l\'espace public', # NEW
+	'label_barre_outils_public_non' => 'Não carregar os scripts de barras de ferramentas no sítio público.',
+	'label_barre_outils_public_oui' => 'Carregar os scripts de barras de ferramentas no sítio público.',
 
 	// V
 	'voir' => 'Visualizar'
