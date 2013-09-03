@@ -525,7 +525,8 @@ class Barre_outils{
 	 * Le bouton précédent le séparateur reçoit une classe CSS 'separateur_avant'
 	 * Celui apres 'separateur_apres'
 	 * 
-	 * @param array Tableau de description des outils 
+	 * @param array $tableau
+	 *     Tableau de description des outils 
 	 * @return void
 	**/
 	function enlever_separateurs(&$tableau) {
@@ -612,8 +613,10 @@ class Barre_outils{
 	 * JavaScript ne soient pas encapsulées dans une chaîne (string)
 	 * 
 	 * @access private
-	 * @param mixed the variable
-	 * @return string js script | boolean false if error
+	 * @param mixed $var the variable
+	 * @return string|boolean
+	 *     - string : js script
+	 *     - boolean false if error
 	 */
 	function json_export($var) {
 		$asso = false;
