@@ -12,3 +12,59 @@
 	font-size: 1.05em; 
 	line-height: 1.4em;
 }
+
+
+.markItUp .markItUpContainer.fullscreen {
+    position: fixed;
+    top:0;
+    left:0;
+    height: 100%;
+    width: 100%;
+    background: #DDD;
+    z-index: 1000;
+}
+.markItUp .fullscreen .markItUpHeader{
+    position: absolute;
+    top:0;
+    right: 50%;
+    width: 50%;
+    max-width: 40em;
+}
+.markItUp .fullscreen .markItUpEditor{
+    position: absolute;
+    top:0;
+    right: 50%;
+    width: 50%;
+    max-width: 40em;
+    height: 95% !important;
+    margin-top: 30px;
+}
+
+.markItUp .fullscreen .markItUpPreview{
+    position: absolute;
+    top:0;
+    left: 50%;
+    width: 50%;
+    max-width: 40em;
+    height: 95% !important;
+    margin-top: 30px;
+    display: block !important;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    box-sizing: border-box;
+}
+
+.markItUp .fullscreen .markItUpTabs {
+    position: absolute;
+    left: 50%;
+    width: 50%;
+    max-width: 40em;
+}
+.markItUp .fullscreen .markItUpTabs .previsuVoir,
+.markItUp .fullscreen .markItUpTabs .previsuEditer,
+.markItUp .fullscreen .markItUpFooter {
+    display: none;
+}
+
+.markItUp .markItUpTabs .fullscreen {text-indent: -1000em;font-size:1px;background: url(img/arrow_out.png) center no-repeat;width: 16px;}
+.markItUp .fullscreen .markItUpTabs .fullscreen {background-image: url(img/arrow_in.png);}
