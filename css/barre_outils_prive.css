@@ -31,7 +31,7 @@
     max-width: 40em;
 }
 .markItUp .fullscreen .markItUpEditor{
-    position: absolute;
+    position: absolute !important;
     top:0;
     right: 50%;
     width: 50%;
