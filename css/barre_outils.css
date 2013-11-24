@@ -46,7 +46,7 @@
 	width:22px; height:5px;
 	margin-left:auto;
 	margin-right:auto;
-	background-image:url(images/handle.png);
+	background-image:url(img/handle.png);
 	cursor:ns-resize;
 }
 
@@ -73,8 +73,8 @@
 	background:#EEE;
 	border-radius: 5px 5px 0 0;
 }
-.markItUp .markItUpTabs a.on { background: #fff; border-bottom: 1px solid #fff; box-shadow: 1px 1px #eee inset; }
-.markItUp .markItUpTabs a:hover {background:#fff;}
+.markItUp .markItUpTabs a.on { background-color: #fff; border-bottom: 1px solid #fff; box-shadow: 1px 1px #eee inset; }
+.markItUp .markItUpTabs a:hover {background-color:#fff;}
 
 /***************************/
 /* previsu */
@@ -142,7 +142,7 @@
 }
 
 .markItUp .markItUpHeader ul .markItUpDropMenu {
-	/*background:inherit url(images/menu.png) no-repeat 100% 80%;
+	/*background:inherit url(img/menu.png) no-repeat 100% 80%;
 	padding-right:10px;*/
 	
 }
@@ -172,7 +172,7 @@
 	float:left;
 }
 .markItUp .markItUpHeader ul ul .markItUpDropMenu {
-	background:#F5F5F5 url(images/submenu.png) no-repeat 50% 50%;
+	background:#F5F5F5 url(img/submenu.png) no-repeat 50% 50%;
 }
 .markItUp .markItUpHeader ul .separateur {
 	border-left: 1px solid #d2d2d2;
