@@ -10,7 +10,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	// B
 	'barre_a_accent_grave' => 'Insérer un À',
 	'barre_adresse' => 'Adresse',
-	'barre_aide' => 'Utilise les raccourcis typographiques pour enrichir ta mise en page', # RELIRE
+	'barre_aide' => 'Utilise les raccourcis typographiques pour enrichir ta mise en page',
 	'barre_alignerdroite' => '[/Aligne à droite/] le paragraphe',
 	'barre_ancres' => 'Gestion des ancres',
 	'barre_barre' => 'Barrer le texte',
@@ -66,7 +66,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'barre_langue' => 'Langue abrégée',
 	'barre_lien' => 'Transformer en [lien hypertexte->http://...]',
 	'barre_lien_externe' => 'Lien externe',
-	'barre_lien_input' => 'Indique l’adresse de ton lien (tu peux indiquer une adresse Internet sous la forme http://www.monsite.com, une adresse courriel, ou simplement indiquer le numéro d’un article de ce site.', # RELIRE
+	'barre_lien_input' => 'Indique l’adresse de ton lien (tu peux indiquer une adresse Internet sous la forme http://www.monsite.com, une adresse courriel, ou simplement indiquer le numéro d’un article de ce site.',
 	'barre_liste_ol' => 'Mettre en liste numérotée',
 	'barre_liste_ul' => 'Mettre en liste',
 	'barre_lorem_ipsum' => 'Insérer un paragraphe factice',
@@ -95,7 +95,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	ces scripts afin d’alléger le poids des pages publiques.
 	Dès lors quelle que soit la configuration des forums, crayons ou plugin,
 	aucune barre d’outils du Porte Plume ne pourra être
-	présente automatiquement sur l’espace public.', # RELIRE
+	présente automatiquement sur l’espace public.',
 
 	// I
 	'info_barre_outils_public' => 'Barre d’outils publique',
