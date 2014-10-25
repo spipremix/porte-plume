@@ -31,29 +31,35 @@
 				preview.hide();
 
 				var is_full_screen = false;
+				var mark = $$.parent();
+				var objet = mark.parents('.formulaire_spip')[0].className.match(/formulaire_editer_(\w+)/);
+				objet = (objet ? objet[1] : '');
+				var champ = mark.parents('li')[0].className.match(/editer_(\w+)/);
+				champ = (champ ? champ[1].toUpperCase() : '');
 				$('.fullscreen').click(function(){
-					mark = $(this).parent().parent();
 					mark.toggleClass('fullscreen');
-					objet = mark.parents('.formulaire_spip')[0].className.match(/formulaire_editer_(\w+)/);
-					champ = mark.parents('li')[0].className.match(/editer_(\w+)/);
 					if (mark.is('.fullscreen')){
 						is_full_screen = true;
 						if (!mark.is('.livepreview')){
 							var original_texte="";
+							var textarea = $(mark).find('textarea.pp_previsualisation');
+							var preview = $(mark).find('.markItUpPreview');
 							function refresh_preview(){
-								var texte = $(mark).find('textarea.pp_previsualisation').val();
+								var texte = textarea.val();
 								if (original_texte == texte){
 									return;
 								}
-								renderPreview($(mark).find('.markItUpPreview').addClass('ajaxLoad'),
-										texte,
-										champ[1].toUpperCase(),
-										(objet ? objet[1] : ''));
+								renderPreview(preview.addClass('ajaxLoad'),texte,champ,objet);
 								original_texte = texte;
 							}
 							var timerPreview=null;
-							mark.addClass('.livepreview').find('.markItUpEditor').bind('keyup click change focus refreshpreview',function(){
+							mark.addClass('.livepreview').find('.markItUpEditor').bind('keyup click change focus refreshpreview',function(e){
 								if (is_full_screen){
+									// Touche Echap pour sortir du mode fullscreen
+									if (e.type == 'keyup' && e.keyCode==27){
+										mark.removeClass('fullscreen');
+										is_full_screen = false;
+									}
 									if (timerPreview) clearTimeout(timerPreview);
 									timerPreview = setTimeout(refresh_preview,500);
 								}
@@ -66,9 +72,6 @@
 				});
 
 				$('.previsuVoir').click(function(){
-					mark = $(this).parent().parent();
-					objet = mark.parents('.formulaire_spip')[0].className.match(/formulaire_editer_(\w+)/);
-					champ = mark.parents('li')[0].className.match(/editer_(\w+)/);
 					$(mark).find('.markItUpPreview').height(
 						  $(mark).find('.markItUpHeader').height()
 						+ $(mark).find('.markItUpEditor').height()
@@ -81,13 +84,12 @@
 					$(this).addClass('on').next().removeClass('on');
 					renderPreview($(mark).find('.markItUpPreview').show().addClass('ajaxLoad'),
 							$(mark).find('textarea.pp_previsualisation').val(),
-							champ[1].toUpperCase(),
-							(objet ? objet[1] : ''));
+							champ,
+							objet);
 
 					return false;
 				});
 				$('.previsuEditer').click(function(){
-					mark = $(this).parent().parent();
 					$(mark).find('.markItUpPreview').hide();
 					$(mark).find('.markItUpHeader').show();
 					$(mark).find('.markItUpEditor').show();
