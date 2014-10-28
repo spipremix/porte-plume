@@ -53,7 +53,7 @@
 								original_texte = texte;
 							}
 							var timerPreview=null;
-							mark.addClass('.livepreview').find('.markItUpEditor').bind('keyup click change focus refreshpreview',function(e){
+							mark.addClass('livepreview').find('.markItUpEditor').bind('keyup click change focus refreshpreview',function(e){
 								if (is_full_screen){
 									// Touche Echap pour sortir du mode fullscreen
 									if (e.type == 'keyup' && e.keyCode==27){
@@ -85,7 +85,8 @@
 					renderPreview($(mark).find('.markItUpPreview').show().addClass('ajaxLoad'),
 							$(mark).find('textarea.pp_previsualisation').val(),
 							champ,
-							objet);
+							objet,
+					    false);
 
 					return false;
 				});
@@ -100,11 +101,11 @@
 			}
 
 
-			function renderPreview(node, val, champ, objet) {
+			function renderPreview(node, val, champ, objet, async) {
 				if (options.previewParserPath !== '') {
 					$.ajax( {
 						type: 'POST',
-						async: false,
+						async: typeof (async)=="undefined"?true:async,
 						url: options.previewParserPath,
 						data: 'champ='+champ
 							+'&objet='+objet
