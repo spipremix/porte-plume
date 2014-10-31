@@ -55,15 +55,19 @@
 							var timerPreview=null;
 							mark.addClass('livepreview').find('.markItUpEditor').bind('keyup click change focus refreshpreview',function(e){
 								if (is_full_screen){
-									// Touche Echap pour sortir du mode fullscreen
-									if (e.type == 'keyup' && e.keyCode==27){
-										mark.removeClass('fullscreen');
-										is_full_screen = false;
-									}
 									if (timerPreview) clearTimeout(timerPreview);
 									timerPreview = setTimeout(refresh_preview,500);
 								}
-							})
+							});
+							$(window).bind('keyup',function(e){
+								if (is_full_screen){
+									// Touche Echap pour sortir du mode fullscreen
+									if (e.type=='keyup' && e.keyCode==27){
+										mark.removeClass('fullscreen');
+										is_full_screen = false;
+									}
+								}
+							});
 						}
 						mark.find('.markItUpEditor').trigger('refreshpreview');
 					}
