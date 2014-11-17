@@ -53,7 +53,8 @@
 /***************************/
 /* tabs */
 .markItUp .markItUpTabs {
-	text-align:right; 
+	font-size:12px;
+	text-align:right;
 	padding:1px 1px 0;
 	margin-bottom: -2px;
 	top: 6px;
@@ -86,7 +87,7 @@
 	padding:1em;
 	/* decaler de la hauteur de .markItUpTabs */
 	position:relative;
-	top:2.2em; 
+	top:31px; 
 }
 
 /* correction des styles spip_formulaires appliques par defaut (grr) */
