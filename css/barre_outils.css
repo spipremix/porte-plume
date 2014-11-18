@@ -253,8 +253,6 @@
 .markItUp .markItUpTabs .fullscreen {
 	text-indent: -1000em;
 	text-align: left;
-	font-size: 1px;
-	line-height:18px;
 	background-image: url(img/arrow_out.png) !important;
 	background-position:center center !important;
 	background-repeat:no-repeat !important;
