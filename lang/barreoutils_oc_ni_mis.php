@@ -16,6 +16,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'barre_barre' => 'Serà lou tèst',
 	'barre_bulle' => 'Boufa d’ajuda',
 	'barre_c_cedille_maj' => 'Inserì un Ç',
+	'barre_cadre' => 'Metre dintre d’una &lt;cadre&gt;zona sesìda de tèst&lt;/cadre&gt;',
 	'barre_caracteres' => 'Caracter especial',
 	'barre_centrer' => '[|Centrà|] lou paràgrafou',
 	'barre_chercher' => 'Cercà Remplaçà',
@@ -29,14 +30,17 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'barre_eo' => 'Inserì un œ',
 	'barre_eo_maj' => 'Inserì un Œ',
 	'barre_euro' => 'Inserì le symbole €',
+	'barre_exposant' => 'Metre lou tèst en &lt;sup&gt;espounent&lt;/sup&gt;',
 	'barre_formatages_speciaux' => 'Fourmatage especial',
 	'barre_galerie' => 'Durbì la galerìa',
 	'barre_gestion_anc_bulle' => 'Boufa d’ajuda àncoura',
 	'barre_gestion_anc_caption' => 'Gestioun dei àncoura',
+	'barre_gestion_anc_cible' => 'Àncoura bressai',
 	'barre_gestion_anc_inserer' => 'Trasfourmà en àncoura',
 	'barre_gestion_anc_nom' => 'Noum de l’àncoura',
 	'barre_gestion_anc_pointer' => 'Pountà devers una àncoura',
 	'barre_gestion_caption' => 'Legenda e Coumpèndi',
+	'barre_gestion_colonne' => 'Nb coulòna',
 	'barre_gestion_cr_casse' => 'Respetà la cassa',
 	'barre_gestion_cr_changercasse' => 'Cambià la cassa',
 	'barre_gestion_cr_changercassemajuscules' => 'Passà en maiùscoula',
@@ -45,24 +49,30 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'barre_gestion_cr_remplacer' => 'Remplaça',
 	'barre_gestion_cr_tout' => 'Remplaça tout',
 	'barre_gestion_entete' => 'Prima-testa',
+	'barre_gestion_ligne' => 'Nb ligna',
 	'barre_glossaire' => 'Intrada dóu [?gloussari] (Wikipedia)',
 	'barre_gras' => 'Metre en {{gras}}',
 	'barre_guillemets' => 'Entourà embé de « virgouleta »',
 	'barre_guillemets_simples' => 'Entourà embé de “virgouleta de segount nivèu”',
 	'barre_inserer_cadre' => 'Inserà un code prefourmatat (cadre)',
+	'barre_inserer_caracteres' => 'Inserà dei caracter espechìficou',
 	'barre_inserer_code' => 'Insà un code infourmàticou (code)',
 	'barre_intertitre' => 'Trasfourmà en {{{intertitre}}}',
 	'barre_italic' => 'Metre en {itàlicou}',
+	'barre_langue' => 'Lenga abreviada',
 	'barre_lien' => 'Trasfourmà en [estac ipèrtest->http://...]',
 	'barre_lien_externe' => 'Estac estèrnou',
 	'barre_lien_input' => 'Vourguès endicà l’adressa dóu vouòstre estac (poudès endicà una adressa web souta la forma http://www.loumieusit.com o simplamen endicà lou nùmero d’un article d’aqueu sit).',
 	'barre_liste_ul' => 'Metre en lista',
 	'barre_lorem_ipsum' => 'Inserà un paràgrafou fatìci',
 	'barre_lorem_ipsum_3' => 'Inserà tré paràgrafou fatìci',
+	'barre_miseenevidence' => 'Metre lou tèst en [*evidença*]',
 	'barre_note' => 'Trasfourmà en [[Nota de bas de pàgina]]',
 	'barre_paragraphe' => 'Creà un paràgrafou',
+	'barre_petitescapitales' => 'Metre lou tèst en &lt;sc&gt;capitaleta&lt;/sc&gt;',
 	'barre_preview' => 'Mòdou previsualisacioun',
 	'barre_quote' => '<quote>Cità un message</quote>',
+	'barre_stats' => 'Afichà li estatìstica dóu tèst',
 	'barre_tableau' => 'Inserà/moudificà (lou seleciounà denant) un tabléu',
 
 	// C
@@ -70,6 +80,11 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 
 	// E
 	'editer' => 'Edità',
+	'explication_barre_outils_public' => 'Lu script CSS e Javascript dei barra d’óutis
+	(estencioun Pouòta Pluma) soun cargat soubre l’espaci pùblicou
+	e permeton d’utilisà aqueli barra soubre lu fourmulari dei fòrou,
+	lu creioun pùblicou o d’autre plugin, se li siéu coufiguracioun
+	lì permetoun.',
 
 	// I
 	'info_barre_outils_public' => 'Barra d’óutis pùbliqui',
