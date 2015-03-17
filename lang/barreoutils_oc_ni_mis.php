@@ -22,6 +22,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'barre_chercher' => 'Cercà Remplaçà',
 	'barre_clean' => 'Netegià lou code de touti li balisa HTML',
 	'barre_code' => 'Metre en fourma un &lt;code&gt;code infourmàticou&lt;/code&gt;',
+	'barre_desindenter' => 'Desindentà una lista',
 	'barre_e_accent_aigu' => 'Inserì un É',
 	'barre_e_accent_grave' => 'Inserì un È',
 	'barre_ea' => 'Inserì un æ',
@@ -46,14 +47,17 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'barre_gestion_cr_changercassemajuscules' => 'Passà en maiùscoula',
 	'barre_gestion_cr_changercasseminuscules' => 'Passà en minùscula',
 	'barre_gestion_cr_chercher' => 'Cercà',
+	'barre_gestion_cr_entier' => 'Mot entié',
 	'barre_gestion_cr_remplacer' => 'Remplaça',
 	'barre_gestion_cr_tout' => 'Remplaça tout',
 	'barre_gestion_entete' => 'Prima-testa',
 	'barre_gestion_ligne' => 'Nb ligna',
+	'barre_gestion_taille' => 'Talha fissa',
 	'barre_glossaire' => 'Intrada dóu [?gloussari] (Wikipedia)',
 	'barre_gras' => 'Metre en {{gras}}',
 	'barre_guillemets' => 'Entourà embé de « virgouleta »',
 	'barre_guillemets_simples' => 'Entourà embé de “virgouleta de segount nivèu”',
+	'barre_indenter' => 'Indentà una lista',
 	'barre_inserer_cadre' => 'Inserà un code prefourmatat (cadre)',
 	'barre_inserer_caracteres' => 'Inserà dei caracter espechìficou',
 	'barre_inserer_code' => 'Insà un code infourmàticou (code)',
@@ -63,6 +67,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'barre_lien' => 'Trasfourmà en [estac ipèrtest->http://...]',
 	'barre_lien_externe' => 'Estac estèrnou',
 	'barre_lien_input' => 'Vourguès endicà l’adressa dóu vouòstre estac (poudès endicà una adressa web souta la forma http://www.loumieusit.com o simplamen endicà lou nùmero d’un article d’aqueu sit).',
+	'barre_liste_ol' => 'Metre en lista numeroutada',
 	'barre_liste_ul' => 'Metre en lista',
 	'barre_lorem_ipsum' => 'Inserà un paràgrafou fatìci',
 	'barre_lorem_ipsum_3' => 'Inserà tré paràgrafou fatìci',
@@ -70,6 +75,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'barre_note' => 'Trasfourmà en [[Nota de bas de pàgina]]',
 	'barre_paragraphe' => 'Creà un paràgrafou',
 	'barre_petitescapitales' => 'Metre lou tèst en &lt;sc&gt;capitaleta&lt;/sc&gt;',
+	'barre_poesie' => 'Metre en fourma couma una &lt;poesie&gt;pouesìa&lt;/poesie&gt;',
 	'barre_preview' => 'Mòdou previsualisacioun',
 	'barre_quote' => '<quote>Cità un message</quote>',
 	'barre_stats' => 'Afichà li estatìstica dóu tèst',
@@ -85,6 +91,11 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	e permeton d’utilisà aqueli barra soubre lu fourmulari dei fòrou,
 	lu creioun pùblicou o d’autre plugin, se li siéu coufiguracioun
 	lì permetoun.',
+	'explication_barre_outils_public_2' => 'Poudès chausì de noun cargà
+	aquelu scripts afin d’alaugì lou pès dei pàgina pùbliqui.
+	Aloura quau que sìgue la counfiguracioun dei fòrou, creioun o plugin,
+	mìnga barra d’óutis dóu Pouòrta Pluma noun pourà estre
+	presenta  automaticamen soubre l’espaci pùblicou.',
 
 	// I
 	'info_barre_outils_public' => 'Barra d’óutis pùbliqui',
