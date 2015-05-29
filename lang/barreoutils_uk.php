@@ -91,7 +91,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 
 	// I
 	'info_barre_outils_public' => 'Панель інструментів на сайті',
-	'info_porte_plume_titre' => 'Настройка панелі інструментів',
+	'info_porte_plume_titre' => 'Налаштування панелі інструментів',
 
 	// L
 	'label_barre_outils_public_non' => 'Не додавати скрипти панелі інструментів на фронтенд сайту',
