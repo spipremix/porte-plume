@@ -34,7 +34,7 @@
 				var mark = $$.parent();
 				var objet = mark.parents('.formulaire_spip')[0].className.match(/formulaire_editer_(\w+)/);
 				objet = (objet ? objet[1] : '');
-				var champ = mark.parents('li')[0].className.match(/editer_(\w+)/);
+				var champ = mark.parents('div')[0].className.match(/editer_(\w+)/);
 				champ = (champ ? champ[1].toUpperCase() : '');
 				$('.fullscreen').click(function(){
 					mark.toggleClass('fullscreen');
