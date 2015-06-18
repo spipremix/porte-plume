@@ -163,7 +163,7 @@
 	position:absolute;
 	top: 29px; left:-1px;	
 	width:150px;
-	z-index:2;
+	z-index:3;
 	padding-top:2px;
 }
 /* le padding rompt la continuite du hover sous IE7&8 */
