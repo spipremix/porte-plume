@@ -73,6 +73,7 @@
 					}
 					else
 						is_full_screen = false;
+					return false;
 				});
 
 				$('.previsuVoir').click(function(){
