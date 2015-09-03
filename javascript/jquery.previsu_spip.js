@@ -36,14 +36,19 @@
 				objet = (objet ? objet[1] : '');
 				var champ = mark.parents('.editer')[0].className.match(/editer_(\w+)/);
 				champ = (champ ? champ[1].toUpperCase() : '');
+				var textarea = $(mark).find('textarea.pp_previsualisation');
+				var preview = $(mark).find('.markItUpPreview'); 
+				var dir = textarea.attr('dir');
+				if(dir){
+					preview.attr('dir',dir);
+				}
+
 				$('.fullscreen').click(function(){
 					mark.toggleClass('fullscreen');
 					if (mark.is('.fullscreen')){
 						is_full_screen = true;
 						if (!mark.is('.livepreview')){
 							var original_texte="";
-							var textarea = $(mark).find('textarea.pp_previsualisation');
-							var preview = $(mark).find('.markItUpPreview');
 							function refresh_preview(){
 								var texte = textarea.val();
 								if (original_texte == texte){
@@ -77,34 +82,29 @@
 				});
 
 				$('.previsuVoir').click(function(){
-					$(mark).find('.markItUpPreview').height(
+					preview.height(
 						  $(mark).find('.markItUpHeader').height()
 						+ $(mark).find('.markItUpEditor').height()
 						+ $(mark).find('.markItUpFooter').height()
 					);
 
-					$(mark).find('.markItUpHeader').hide();
-					$(mark).find('.markItUpEditor').hide();
-					$(mark).find('.markItUpFooter').hide();
+					$(mark).find('.markItUpHeader,.markItUpEditor,.markItUpFooter').hide();
 					$(this).addClass('on').next().removeClass('on');
-					renderPreview($(mark).find('.markItUpPreview').show().addClass('ajaxLoad'),
+					renderPreview(preview.show().addClass('ajaxLoad'),
 							$(mark).find('textarea.pp_previsualisation').val(),
 							champ,
 							objet,
-					    false);
+							false);
 
 					return false;
 				});
 				$('.previsuEditer').click(function(){
 					$(mark).find('.markItUpPreview').hide();
-					$(mark).find('.markItUpHeader').show();
-					$(mark).find('.markItUpEditor').show();
-					$(mark).find('.markItUpFooter').show();
+					$(mark).find('.markItUpHeader,.markItUpEditor,.markItUpFooter').show();
 					$(this).addClass('on').prev().removeClass('on');
 					return false;
 				});
 			}
-
 
 			function renderPreview(node, val, champ, objet, async) {
 				if (options.previewParserPath !== '') {
