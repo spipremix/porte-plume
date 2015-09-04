@@ -180,4 +180,3 @@ function porte_plume_affiche_milieu($flux){
 
 	return $flux;
 }
-?>

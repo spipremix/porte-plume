@@ -33,4 +33,3 @@ function action_porte_plume_previsu_dist() {
 
 	echo recuperer_fond('prive/porte_plume_preview', $contexte);
 }
-?>

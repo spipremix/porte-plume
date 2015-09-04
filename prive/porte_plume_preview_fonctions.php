@@ -33,5 +33,3 @@ function filtre_pp_charset() {
 	}
 	return $charset_sql ? $charset_sql : $charset;
 }
-
-?>

@@ -540,4 +540,3 @@ function barre_outils_edition_icones(){
 		'outil_preview' => array('spt-v1.png','-10px -1018px'), //'eye.png'
 	);
 }
-?>

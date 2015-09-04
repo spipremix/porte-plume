@@ -80,6 +80,3 @@ function porte_plume_creer_json_markitup(){
 	}
 	return $json;
 }
-
-
-?>

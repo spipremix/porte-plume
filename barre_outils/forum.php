@@ -32,6 +32,3 @@ function barre_outils_forum(){
 	));
 	return $barre;
 }
-
-
-?>
