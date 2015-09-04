@@ -52,7 +52,6 @@ class Barre_outils{
 	 * Option de markitup : que faire sur l'appuie de Entrée ?
 	 * @var array */
 	public $onEnter = array();
-	
 
 	/**
 	 * Option de markitup : que faire sur l'appuie de Shift+Entrée ?
@@ -95,21 +94,21 @@ class Barre_outils{
 	 * Liste des paramètres valides pour une description d'outils (markupSet)
 	 * @var array */
 	private $_liste_params_autorises = array(
-	
+
 		'replaceWith',
 		'openWith',
 		'closeWith',
 		'openBlockWith', // sur multiline, avant les lignes selectionnees
 		'closeBlockWith', // sur multiline, apres les lignes selectionnees
 		'placeHolder', // remplace par ce texte lorsqu'il n'y a pas de selection
-		
+
 		'beforeInsert', // avant l'insertion
 		'afterInsert', // apres l'insertion
 		'beforeMultiInsert',
 		'afterMultiInsert',
 
 		'dropMenu', // appelle un sous menu
-		
+
 		'name', // nom affiche au survol
 		'key', // raccourcis clavier
 		'className', // classe css utilisee
@@ -118,12 +117,12 @@ class Barre_outils{
 		'selectionType', // '','word','line' : type de selection (normale, aux mots les plus proches, a la ligne la plus proche) 
 		'multiline', // open/close sur chaque ligne (mais replace est applique sur l'ensemble de la selection)
 		'forceMultiline', // pour faire comme si on faisait systematiquement un control+shift (et replace est applique sur chaque ligne de la selection)
-		
+
 		'separator',
-		
+
 		'call',
 		'keepDefault',
-		
+
 		// cacher ou afficher facilement des boutons
 		'display',
 		// donner un identifiant unique au bouton (pour le php)
@@ -140,7 +139,7 @@ class Barre_outils{
 	 * @param array $params Paramètres de la barre d'outil
 	 * @return void
 	 */
-	function Barre_outils($params=array()){
+	function __construct($params=array()){
 		foreach ($params as $p=>$v) {
 			if (isset($this->$p)) {
 				// si tableau, on verifie les entrees
