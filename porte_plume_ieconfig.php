@@ -27,5 +27,3 @@ function porte_plume_ieconfig_metas($table){
 
 	return $table;
 }
-
-?>

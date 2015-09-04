@@ -362,6 +362,3 @@ class Test_barre_outil_markitup extends SpipTest{
 		#$this->assertPattern('/jquery\.markitup_pour_spip\.js/', $c);
 	}*/
 }
-
-
-?>
