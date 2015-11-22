@@ -139,7 +139,7 @@ class Barre_outils{
 	 * @param array $params Paramètres de la barre d'outil
 	 * @return void
 	 */
-	function __construct($params=array()){
+	function __construct($params = array()){
 		foreach ($params as $p=>$v) {
 			if (isset($this->$p)) {
 				// si tableau, on verifie les entrees
@@ -163,7 +163,7 @@ class Barre_outils{
 	 * @return array
 	 *     Paramètres, soustrait de ceux qui ne sont pas valides
 	 */
-	function verif_params($nom, $params=array()) {
+	function verif_params($nom, $params = array()) {
 		// si markupset, on boucle sur les items
 		if (stripos($nom, 'markupSet')!==false) {
 			foreach ($params as $i=>$v) {
@@ -211,7 +211,7 @@ class Barre_outils{
 	 *     Paramètres de l'élément modifié ou paramètres ajoutés
 	 *     False si l'identifiant cherché n'est pas trouvé
 	 */
-	function affecter(&$tableau, $identifiant, $params=array(), $lieu='dedans', $plusieurs=false){
+	function affecter(&$tableau, $identifiant, $params = array(), $lieu = 'dedans', $plusieurs = false){
 		static $cle_de_recherche = 'id'; // ou className ?
 
 		if ($tableau === null) // utile ?
@@ -281,7 +281,7 @@ class Barre_outils{
 	 * @return bool
 	 *     false si aucun paramètre à affecter, true sinon.
 	 */
-	function affecter_a_tous(&$tableau, $params=array(), $ids=array()){
+	function affecter_a_tous(&$tableau, $params = array(), $ids = array()){
 		if (!$params)
 			return false;
 
@@ -318,7 +318,7 @@ class Barre_outils{
 	 *     true si plusieurs identifiants,
 	 *     array sinon : description de l'identifiant cherché.
 	 */
-	function set($identifiant, $params=array()) {
+	function set($identifiant, $params = array()) {
 		// prudence tout de meme a pas tout modifier involontairement (si array)
 		if (!$identifiant) return false;
 
@@ -799,7 +799,7 @@ function barre_outils_liste(){
  * @return string
  *     Texte traité avec les filtres déclarés pour le champ.
  */
-function traitements_previsu($texte, $nom_champ='', $type_objet='', $connect=null) {
+function traitements_previsu($texte, $nom_champ = '', $type_objet = '', $connect = null) {
 	include_spip('public/interfaces'); // charger les traitements
 
 	global $table_des_traitements;
