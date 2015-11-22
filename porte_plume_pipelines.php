@@ -133,7 +133,7 @@ function porte_plume_insert_head_prive_css($flux){
  * @param  bool  $prive Est-ce pour l'espace privé ?
  * @return string Contenu du head complété
  */
-function porte_plume_insert_head_css($flux='', $prive = false){
+function porte_plume_insert_head_css($flux = '', $prive = false){
 	include_spip('inc/autoriser');
 	// toujours autoriser pour le prive.
 	if ($prive or autoriser('afficher_public', 'porteplume')) {
