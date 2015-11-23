@@ -509,7 +509,7 @@ class Barre_outils{
 					// si le sous-menu est vide
 					// on enleve le sous menu.
 					// mais pas le parent ($tableau[$p]), qui peut effectuer une action.
-					if (!$tableau[$p]['dropMenu']) {
+					if (empty($tableau[$p]['dropMenu'])) {
 						unset($tableau[$p]['dropMenu']);
 					}
 				}
@@ -535,9 +535,15 @@ class Barre_outils{
 		foreach ($tableau as $p=>$v) {
 			if (isset($v['separator']) and $v['separator']) {
 				if (isset($tableau[$p-1])) {
+					if (!isset($tableau[$p-1]['className'])) {
+						$tableau[$p-1]['className'] = "";
+					}
 					$tableau[$p-1]['className'] .= " separateur_avant";
 				}
 				if (isset($tableau[$p+1])) {
+					if (!isset($tableau[$p+1]['className'])) {
+						$tableau[$p+1]['className'] = "";
+					}
 					$tableau[$p+1]['className'] .= " separateur separateur_apres $v[id]";
 				}
 				unset($tableau[$p]);
