@@ -222,7 +222,7 @@ class Barre_outils{
 
 		// present en premiere ligne ?
 		$trouve = false;
-		foreach ($tableau as $i=>$v){
+		foreach ($tableau as $i => $v){
 			if (isset($v[$cle_de_recherche]) and ($v[$cle_de_recherche] == $identifiant)) {
 				$trouve = $i;
 				break;
@@ -255,9 +255,9 @@ class Barre_outils{
 		}
 
 		// recursivons sinon !
-		foreach ($tableau as $i=>$v){
+		foreach ($tableau as $i => $v){
 			if (is_array($v)) {
-				foreach ($v as $m=>$n) {
+				foreach ($v as $m => $n) {
 					if (is_array($n) AND ($r = $this->affecter($tableau[$i][$m], $identifiant, $params, $lieu, $plusieurs)))
 						return $r;
 				}
@@ -291,7 +291,7 @@ class Barre_outils{
 		$params = $this->verif_params('divers', $params);
 
 		// merge de premiere ligne
-		foreach ($tableau as $i=>$v){
+		foreach ($tableau as $i => &$v){
 			if (!$ids OR in_array($v['id'], $ids)) {
 				$tableau[$i] = array_merge($tableau[$i], $params);
 			}
@@ -493,11 +493,11 @@ class Barre_outils{
 	 * @return void
 	 */
 	function enlever_elements_non_affiches(&$tableau){
-		if ($tableau === null) // utile ?
+		if ($tableau === null) { // utile ?
 			$tableau = &$this->markupSet;
+		}
 
-		foreach ($tableau as $p=>$v) {
-
+		foreach ($tableau as $p => &$v) {
 			if (isset($v['display']) AND !$v['display']) {
 				unset($tableau[$p]);
 				$tableau = array_values($tableau); // remettre les cles automatiques sinon json les affiche et ça plante.
@@ -529,10 +529,12 @@ class Barre_outils{
 	 * @return void
 	**/
 	function enlever_separateurs(&$tableau) {
-		if ($tableau === null) // utile ?
+		if ($tableau === null) { // utile ?
 			$tableau = &$this->markupSet;
+		}
 
-		foreach ($tableau as $p=>$v) {
+
+		foreach ($tableau as $p => &$v) {
 			if (isset($v['separator']) and $v['separator']) {
 				if (isset($tableau[$p-1])) {
 					if (!isset($tableau[$p-1]['className'])) {
