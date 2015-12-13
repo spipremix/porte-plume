@@ -34,8 +34,8 @@ function porte_plume_autoriser() { }
  */
 function autoriser_porteplume_previsualiser_dist($faire, $type, $id, $qui, $opt) {
 	return
-		(test_espace_prive() AND autoriser('ecrire'))
-		OR (!test_espace_prive() AND autoriser('afficher_public', 'porteplume'));
+		(test_espace_prive() and autoriser('ecrire'))
+		or (!test_espace_prive() and autoriser('afficher_public', 'porteplume'));
 }
 
 /**
@@ -106,7 +106,7 @@ function porte_plume_inserer_head($flux, $lang, $prive = false) {
 	$markitup = find_in_path('javascript/jquery.markitup_pour_spip.js');
 	$js_previsu = find_in_path('javascript/jquery.previsu_spip.js');
 	$js_start = parametre_url(generer_url_public('porte_plume_start.js'), 'lang', $lang);
-	if (defined('_VAR_MODE') AND _VAR_MODE == "recalcul") {
+	if (defined('_VAR_MODE') and _VAR_MODE == "recalcul") {
 		$js_start = parametre_url($js_start, 'var_mode', 'recalcul');
 	}
 
@@ -149,7 +149,7 @@ function porte_plume_insert_head_css($flux = '', $prive = false) {
 		}
 		$css = direction_css(find_in_path('css/barre_outils.css'), lang_dir());
 		$css_icones = generer_url_public('barre_outils_icones.css');
-		if (defined('_VAR_MODE') AND _VAR_MODE == "recalcul") {
+		if (defined('_VAR_MODE') and _VAR_MODE == "recalcul") {
 			$css_icones = parametre_url($css_icones, 'var_mode', 'recalcul');
 		}
 		$flux
