@@ -7,7 +7,9 @@
  * @package SPIP\PortePlume\BarreOutils
  */
 
-if (!defined("_ECRIRE_INC_VERSION")) return;
+if (!defined("_ECRIRE_INC_VERSION")) {
+	return;
+}
 
 /**
  * Objet contenant les différents paramètres definissant une barre d'outils
@@ -18,105 +20,147 @@ if (!defined("_ECRIRE_INC_VERSION")) return;
  *
  * @package SPIP\PortePlume\BarreOutils
  */
-class Barre_outils{
+class Barre_outils {
 	/**
 	 * Identifiant HTML de la barre
+	 *
 	 * @todo À supprimer car non utilisé !
-	 * @var string */
+	 * @var string
+	 */
 	public $id = "";
 
 	/**
 	 * Nom de la barre d'outil
-	 * @var string */
+	 *
+	 * @var string
+	 */
 	public $nameSpace = "";
 
 	/**
 	 * Langue
+	 *
 	 * @todo À supprimer car non utilisé !
-	 * @var string */
+	 * @var string
+	 */
 	public $lang = "";
 
 	/**
 	 * Option de markitup : rafraîchir la prévisu ?
+	 *
 	 * @todo À supprimer car non utilisé !
-	 * @var bool */
+	 * @var bool
+	 */
 	public $previewAutoRefresh = false;
 
 	/**
 	 * Option de markitup : nom de la fonction de prévisu
+	 *
 	 * @todo À supprimer car on le redéfini dans l'appel javascript !
-	 * @var bool */
+	 * @var bool
+	 */
 	public $previewParserPath = "";
 
 	/**
 	 * Option de markitup : que faire sur l'appuie de Entrée ?
-	 * @var array */
+	 *
+	 * @var array
+	 */
 	public $onEnter = array();
 
 	/**
 	 * Option de markitup : que faire sur l'appuie de Shift+Entrée ?
+	 *
 	 * @example array('keepDefault'=>false, 'replaceWith'=>"\n_ ")
-	 * @var array */
+	 * @var array
+	 */
 	public $onShiftEnter = array();
 
 	/**
 	 * Option de markitup : que faire sur l'appuie de Control+Entrée ?
-	 * @var array */
+	 *
+	 * @var array
+	 */
 	public $onCtrlEnter = array();
 
 	/**
 	 * Option de markitup : que faire sur l'appuie d'une tabulation ?
-	 * @var array */
+	 *
+	 * @var array
+	 */
 	public $onTab = array();
 
 	/**
 	 * Option de markitup : Code JS à exécuter avant une insertion
-	 * @var string */
+	 *
+	 * @var string
+	 */
 	public $beforeInsert = "";
 
 	/**
 	 * Option de markitup : Code JS à exécuter après une insertion
-	 * @var string */
+	 *
+	 * @var string
+	 */
 	public $afterInsert = "";
 
 	/**
 	 * Description des outils/boutons et leurs sous boutons éventuels
-	 * @var array */
+	 *
+	 * @var array
+	 */
 	public $markupSet = array();
 
 	/**
 	 * Fonctions JS supplémentaires à écrire après la déclaration JSON
 	 * des outils. Ces fonctions peuvent servir aux boutons.
-	 * @var string */
+	 *
+	 * @var string
+	 */
 	public $functions = "";
 
 	/**
 	 * Liste des paramètres valides pour une description d'outils (markupSet)
-	 * @var array */
+	 *
+	 * @var array
+	 */
 	private $_liste_params_autorises = array(
 
 		'replaceWith',
 		'openWith',
 		'closeWith',
-		'openBlockWith', // sur multiline, avant les lignes selectionnees
-		'closeBlockWith', // sur multiline, apres les lignes selectionnees
-		'placeHolder', // remplace par ce texte lorsqu'il n'y a pas de selection
+		'openBlockWith',
+		// sur multiline, avant les lignes selectionnees
+		'closeBlockWith',
+		// sur multiline, apres les lignes selectionnees
+		'placeHolder',
+		// remplace par ce texte lorsqu'il n'y a pas de selection
 
-		'beforeInsert', // avant l'insertion
-		'afterInsert', // apres l'insertion
+		'beforeInsert',
+		// avant l'insertion
+		'afterInsert',
+		// apres l'insertion
 		'beforeMultiInsert',
 		'afterMultiInsert',
 
-		'dropMenu', // appelle un sous menu
+		'dropMenu',
+		// appelle un sous menu
 
-		'name', // nom affiche au survol
-		'key', // raccourcis clavier
-		'className', // classe css utilisee
-		'lang', // langues dont le bouton doit apparaitre - array
-		'lang_not', // langues dont le bouton ne doit pas apparaitre - array
-		'selectionType', // '','word','line' : type de selection (normale, aux mots les plus proches, a la ligne la plus proche)
-		'multiline', // open/close sur chaque ligne (mais replace est applique sur l'ensemble de la selection)
-		'forceMultiline', // pour faire comme si on faisait systematiquement un control+shift (et replace est applique sur chaque ligne de la selection)
+		'name',
+		// nom affiche au survol
+		'key',
+		// raccourcis clavier
+		'className',
+		// classe css utilisee
+		'lang',
+		// langues dont le bouton doit apparaitre - array
+		'lang_not',
+		// langues dont le bouton ne doit pas apparaitre - array
+		'selectionType',
+		// '','word','line' : type de selection (normale, aux mots les plus proches, a la ligne la plus proche)
+		'multiline',
+		// open/close sur chaque ligne (mais replace est applique sur l'ensemble de la selection)
+		'forceMultiline',
+		// pour faire comme si on faisait systematiquement un control+shift (et replace est applique sur chaque ligne de la selection)
 
 		'separator',
 
@@ -139,12 +183,12 @@ class Barre_outils{
 	 * @param array $params Paramètres de la barre d'outil
 	 * @return void
 	 */
-	function __construct($params = array()){
-		foreach ($params as $p=>$v) {
+	function __construct($params = array()) {
+		foreach ($params as $p => $v) {
 			if (isset($this->$p)) {
 				// si tableau, on verifie les entrees
 				if (is_array($v)) {
-					$v = $this->verif_params($p,$v);
+					$v = $this->verif_params($p, $v);
 				}
 				$this->$p = $v;
 			}
@@ -165,19 +209,19 @@ class Barre_outils{
 	 */
 	function verif_params($nom, $params = array()) {
 		// si markupset, on boucle sur les items
-		if (stripos($nom, 'markupSet')!==false) {
-			foreach ($params as $i=>$v) {
+		if (stripos($nom, 'markupSet') !== false) {
+			foreach ($params as $i => $v) {
 				$params[$i] = $this->verif_params($i, $v);
 			}
-		}
-		// sinon on teste la validite
+		} // sinon on teste la validite
 		else {
-			foreach ($params as $p=>$v) {
+			foreach ($params as $p => $v) {
 				if (!in_array($p, $this->_liste_params_autorises)) {
 					unset($params[$p]);
 				}
 			}
 		}
+
 		return $params;
 	}
 
@@ -211,18 +255,21 @@ class Barre_outils{
 	 *     Paramètres de l'élément modifié ou paramètres ajoutés
 	 *     False si l'identifiant cherché n'est pas trouvé
 	 */
-	function affecter(&$tableau, $identifiant, $params = array(), $lieu = 'dedans', $plusieurs = false){
+	function affecter(&$tableau, $identifiant, $params = array(), $lieu = 'dedans', $plusieurs = false) {
 		static $cle_de_recherche = 'id'; // ou className ?
 
 		if ($tableau === null) // utile ?
+		{
 			$tableau = &$this->markupSet;
+		}
 
-		if (!in_array($lieu, array('dedans','avant','apres')))
+		if (!in_array($lieu, array('dedans', 'avant', 'apres'))) {
 			$lieu = 'dedans';
+		}
 
 		// present en premiere ligne ?
 		$trouve = false;
-		foreach ($tableau as $i => $v){
+		foreach ($tableau as $i => $v) {
 			if (isset($v[$cle_de_recherche]) and ($v[$cle_de_recherche] == $identifiant)) {
 				$trouve = $i;
 				break;
@@ -233,36 +280,39 @@ class Barre_outils{
 			if ($params) {
 				// verifier que les insertions sont correctes
 				$les_params = ($plusieurs ? $params : array($params));
-				foreach ($les_params as $i=>$un_params) {
+				foreach ($les_params as $i => $un_params) {
 					$les_params[$i] = $this->verif_params($identifiant, $un_params);
 				}
 
 				// dedans on merge ($params uniquement tableau cle/valeur)
 				if ($lieu == 'dedans' && !$plusieurs) {
 					return $tableau[$trouve] = array_merge($tableau[$trouve], $les_params[0]);
-				}
-				// avant ou apres, on insere ($params peut etre tableau cle/valeur ou tableau de tableaux cle/valeur)
+				} // avant ou apres, on insere ($params peut etre tableau cle/valeur ou tableau de tableaux cle/valeur)
 				elseif ($lieu == 'avant') {
 					array_splice($tableau, $trouve, 0, $les_params);
+
 					return $params;
-				}
-				elseif ($lieu == 'apres') {
+				} elseif ($lieu == 'apres') {
 					array_splice($tableau, $trouve+1, 0, $les_params);
+
 					return $params;
 				}
 			}
+
 			return $tableau[$trouve];
 		}
 
 		// recursivons sinon !
-		foreach ($tableau as $i => $v){
+		foreach ($tableau as $i => $v) {
 			if (is_array($v)) {
 				foreach ($v as $m => $n) {
-					if (is_array($n) AND ($r = $this->affecter($tableau[$i][$m], $identifiant, $params, $lieu, $plusieurs)))
+					if (is_array($n) AND ($r = $this->affecter($tableau[$i][$m], $identifiant, $params, $lieu, $plusieurs))) {
 						return $r;
+					}
 				}
 			}
 		}
+
 		return false;
 	}
 
@@ -281,17 +331,19 @@ class Barre_outils{
 	 * @return bool
 	 *     false si aucun paramètre à affecter, true sinon.
 	 */
-	function affecter_a_tous(&$tableau, $params = array(), $ids = array()){
-		if (!$params)
+	function affecter_a_tous(&$tableau, $params = array(), $ids = array()) {
+		if (!$params) {
 			return false;
+		}
 
-		if ($tableau === null)
+		if ($tableau === null) {
 			$tableau = &$this->markupSet;
+		}
 
 		$params = $this->verif_params('divers', $params);
 
 		// merge de premiere ligne
-		foreach ($tableau as $i => &$v){
+		foreach ($tableau as $i => &$v) {
 			if (!$ids OR in_array($v['id'], $ids)) {
 				$tableau[$i] = array_merge($tableau[$i], $params);
 			}
@@ -300,6 +352,7 @@ class Barre_outils{
 				$this->affecter_a_tous($tableau[$i]['dropMenu'], $params, $ids);
 			}
 		}
+
 		return true;
 	}
 
@@ -320,14 +373,16 @@ class Barre_outils{
 	 */
 	function set($identifiant, $params = array()) {
 		// prudence tout de meme a pas tout modifier involontairement (si array)
-		if (!$identifiant) return false;
+		if (!$identifiant) {
+			return false;
+		}
 
 		if (is_string($identifiant)) {
 			return $this->affecter($this->markupSet, $identifiant, $params);
-		}
-		elseif (is_array($identifiant)) {
+		} elseif (is_array($identifiant)) {
 			return $this->affecter_a_tous($this->markupSet, $params, $identifiant);
 		}
+
 		return false;
 	}
 
@@ -345,6 +400,7 @@ class Barre_outils{
 		if ($a = $this->affecter($this->markupSet, $identifiant)) {
 			return $a;
 		}
+
 		return false;
 	}
 
@@ -360,8 +416,8 @@ class Barre_outils{
 	 *     true si plusieurs identifiants,
 	 *     array sinon : description de l'identifiant cherché.
 	 */
-	function afficher($identifiant){
-		return $this->set($identifiant,array('display'=>true));
+	function afficher($identifiant) {
+		return $this->set($identifiant, array('display' => true));
 	}
 
 
@@ -376,8 +432,8 @@ class Barre_outils{
 	 *     true si plusieurs identifiants,
 	 *     array sinon : description de l'identifiant cherché.
 	 */
-	function cacher($identifiant){
-		return $this->set($identifiant, array('display'=>false));
+	function cacher($identifiant) {
+		return $this->set($identifiant, array('display' => false));
 	}
 
 
@@ -388,8 +444,8 @@ class Barre_outils{
 	 * @return bool
 	 *     false si aucun paramètre à affecter, true sinon.
 	 */
-	function afficherTout(){
-		return $this->affecter_a_tous($this->markupSet, array('display'=>true));
+	function afficherTout() {
+		return $this->affecter_a_tous($this->markupSet, array('display' => true));
 	}
 
 	/**
@@ -399,8 +455,8 @@ class Barre_outils{
 	 * @return bool
 	 *     false si aucun paramètre à affecter, true sinon.
 	 */
-	function cacherTout(){
-		return $this->affecter_a_tous($this->markupSet, array('display'=>false));
+	function cacherTout() {
+		return $this->affecter_a_tous($this->markupSet, array('display' => false));
 	}
 
 
@@ -417,7 +473,7 @@ class Barre_outils{
 	 *     Paramètres ajoutés avant
 	 *     False si l'identifiant cherché n'est pas trouvé
 	 */
-	function ajouterAvant($identifiant, $params){
+	function ajouterAvant($identifiant, $params) {
 		return $this->affecter($this->markupSet, $identifiant, $params, 'avant');
 	}
 
@@ -434,7 +490,7 @@ class Barre_outils{
 	 *     Paramètres ajoutés avant
 	 *     False si l'identifiant cherché n'est pas trouvé
 	 */
-	function ajouterPlusieursAvant($identifiant, $tableau_params){
+	function ajouterPlusieursAvant($identifiant, $tableau_params) {
 		return $this->affecter($this->markupSet, $identifiant, $tableau_params, 'avant', true);
 	}
 
@@ -451,7 +507,7 @@ class Barre_outils{
 	 *     Paramètres ajoutés après
 	 *     False si l'identifiant cherché n'est pas trouvé
 	 */
-	function ajouterApres($identifiant, $params){
+	function ajouterApres($identifiant, $params) {
 		return $this->affecter($this->markupSet, $identifiant, $params, 'apres');
 	}
 
@@ -468,7 +524,7 @@ class Barre_outils{
 	 *     Paramètres ajoutés après
 	 *     False si l'identifiant cherché n'est pas trouvé
 	 */
-	function ajouterPlusieursApres($identifiant, $tableau_params){
+	function ajouterPlusieursApres($identifiant, $tableau_params) {
 		return $this->affecter($this->markupSet, $identifiant, $tableau_params, 'apres', true);
 	}
 
@@ -479,8 +535,8 @@ class Barre_outils{
 	 * @param string $fonction Code de la fonction JS
 	 * @return void
 	 */
-	function ajouterFonction($fonction){
-		if (false === strpos($this->functions, $fonction)){
+	function ajouterFonction($fonction) {
+		if (false === strpos($this->functions, $fonction)) {
 			$this->functions .= "\n" . $fonction . "\n";
 		}
 	}
@@ -492,7 +548,7 @@ class Barre_outils{
 	 * @param array $tableau Tableau de description des outils
 	 * @return void
 	 */
-	function enlever_elements_non_affiches(&$tableau){
+	function enlever_elements_non_affiches(&$tableau) {
 		if ($tableau === null) { // utile ?
 			$tableau = &$this->markupSet;
 		}
@@ -501,8 +557,7 @@ class Barre_outils{
 			if (isset($v['display']) AND !$v['display']) {
 				unset($tableau[$p]);
 				$tableau = array_values($tableau); // remettre les cles automatiques sinon json les affiche et ça plante.
-			}
-			// sinon, on lance une recursion sur les sous-menus
+			} // sinon, on lance une recursion sur les sous-menus
 			else {
 				if (isset($v['dropMenu']) and is_array($v['dropMenu'])) {
 					$this->enlever_elements_non_affiches($tableau[$p]['dropMenu']);
@@ -527,7 +582,7 @@ class Barre_outils{
 	 * @param array $tableau
 	 *     Tableau de description des outils
 	 * @return void
-	**/
+	 **/
 	function enlever_separateurs(&$tableau) {
 		if ($tableau === null) { // utile ?
 			$tableau = &$this->markupSet;
@@ -550,8 +605,7 @@ class Barre_outils{
 				}
 				unset($tableau[$p]);
 				$tableau = array_values($tableau); // remettre les cles automatiques sinon json les affiche et ça plante.
-			}
-			// sinon, on lance une recursion sur les sous-menus
+			} // sinon, on lance une recursion sur les sous-menus
 			else {
 				if (isset($v['dropMenu']) and is_array($v['dropMenu'])) {
 					#$this->enlever_separateurs($tableau[$p]['dropMenu']);
@@ -569,7 +623,7 @@ class Barre_outils{
 	 * (id, display, icone)
 	 */
 	function enlever_parametres_inutiles() {
-		foreach($this as $p=>$v){
+		foreach ($this as $p => $v) {
 			if (!$v) {
 				if (is_array($v) or is_string($v)) {
 					unset($this->$p);
@@ -578,8 +632,8 @@ class Barre_outils{
 				unset($this->$p);
 			}
 		}
-		foreach($this->markupSet as $p=>$v) {
-			foreach ($v as $n=>$m) {
+		foreach ($this->markupSet as $p => $v) {
+			foreach ($v as $n => $m) {
 				if (in_array($n, array('id', 'display'))) {
 					unset($this->markupSet[$p][$n]);
 				}
@@ -594,7 +648,7 @@ class Barre_outils{
 	 *
 	 * @return string Déclaration json de la barre
 	 */
-	function creer_json(){
+	function creer_json() {
 		$barre = $this;
 		$type = $barre->nameSpace;
 		$fonctions = $barre->functions;
@@ -610,7 +664,8 @@ class Barre_outils{
 		// lorsqu'on clique sur l'icone
 		include_spip('inc/charsets');
 		$json = unicode2charset(html2unicode($json));
-		return "\n\nbarre_outils_$type = ".$json . "\n\n $fonctions";
+
+		return "\n\nbarre_outils_$type = " . $json . "\n\n $fonctions";
 	}
 
 	/**
@@ -631,14 +686,16 @@ class Barre_outils{
 			case is_null($var) :
 				return 'null';
 			case is_string($var) :
-				if (strtolower(substr(ltrim($var),0,8))=='function')
+				if (strtolower(substr(ltrim($var), 0, 8)) == 'function') {
 					return $var;
+				}
+
 				return '"' . addcslashes($var, "\"\\\n\r") . '"';
 			case is_bool($var) :
 				return $var ? 'true' : 'false';
 			case is_scalar($var) :
 				return $var;
-			case is_object( $var) :
+			case is_object($var) :
 				$var = get_object_vars($var);
 				$asso = true;
 			case is_array($var) :
@@ -654,16 +711,19 @@ class Barre_outils{
 						$ret .= $sep . '"' . $key . '":' . Barre_outils::json_export($elt);
 						$sep = ',';
 					}
-					return $ret ."}\n";
+
+					return $ret . "}\n";
 				} else {
 					$ret = '[';
 					foreach ($var as $elt) {
 						$ret .= $sep . Barre_outils::json_export($elt);
 						$sep = ',';
 					}
-					return $ret ."]\n";
+
+					return $ret . "]\n";
 				}
 		}
+
 		return false;
 	}
 
@@ -682,13 +742,14 @@ class Barre_outils{
  *
  * @return string Déclaration CSS des icones
  */
-function barre_outils_css_icones(){
+function barre_outils_css_icones() {
 	// recuperer la liste, extraire les icones
 	$css = "";
 
 	// liste des barres
-	if (!$barres = barre_outils_liste())
+	if (!$barres = barre_outils_liste()) {
 		return null;
+	}
 
 	// liste des classes css et leur correspondance avec une icone
 	$classe2icone = array();
@@ -716,18 +777,20 @@ function barre_outils_css_icones(){
 	$classe2icone = pipeline('porte_plume_lien_classe_vers_icone', $classe2icone);
 
 	// passage en css
-	foreach ($classe2icone as $n=>$i) {
-		$pos="";
-		if (is_array($i)){
-			$pos = "background-position:".end($i);
-		  $i = reset($i);
+	foreach ($classe2icone as $n => $i) {
+		$pos = "";
+		if (is_array($i)) {
+			$pos = "background-position:" . end($i);
+			$i = reset($i);
 		}
-		if (file_exists($i))
+		if (file_exists($i)) {
 			$file = $i;
-		else
+		} else {
 			$file = find_in_path("icones_barre/$i");
-		if ($file)
-			$css .= "\n.markItUp .$n>a>em {background-image:url(".protocole_implicite(url_absolue($file)).");$pos}";
+		}
+		if ($file) {
+			$css .= "\n.markItUp .$n>a>em {background-image:url(" . protocole_implicite(url_absolue($file)) . ");$pos}";
+		}
 	}
 
 	return $css;
@@ -746,11 +809,12 @@ function barre_outils_css_icones(){
  * @return Barre_Outils|bool
  *     La barre d'outil si la fonction a été trouvée, false sinon
  */
-function barre_outils_initialiser($set){
+function barre_outils_initialiser($set) {
 	if ($f = charger_fonction($set, 'barre_outils')) {
 		// retourne une instance de l'objet Barre_outils
 		return $f();
 	}
+
 	return false;
 }
 
@@ -761,22 +825,26 @@ function barre_outils_initialiser($set){
  *     Tableau des noms de barres d'outils trouvées
  *     False si on ne trouve aucune barre.
  */
-function barre_outils_liste(){
+function barre_outils_liste() {
 	static $sets = -1;
-	if ($sets !== -1)
+	if ($sets !== -1) {
 		return $sets;
+	}
 
 	// on recupere l'ensemble des barres d'outils connues
-	if (!$sets = find_all_in_path('barre_outils/','.*[.]php')
-	or !is_array($sets)) {
+	if (!$sets = find_all_in_path('barre_outils/', '.*[.]php')
+		or !is_array($sets)
+	) {
 		spip_log("[Scandale] Porte Plume ne trouve pas de barre d'outils !");
 		$sets = false;
+
 		return $sets;
 	}
 
-	foreach($sets as $fichier=>$adresse) {
-		$sets[$fichier] = substr($fichier,0,-4); // juste le nom
+	foreach ($sets as $fichier => $adresse) {
+		$sets[$fichier] = substr($fichier, 0, -4); // juste le nom
 	}
+
 	return $sets;
 }
 
@@ -813,8 +881,7 @@ function traitements_previsu($texte, $nom_champ = '', $type_objet = '', $connect
 	global $table_des_traitements;
 	if (!strlen($nom_champ) || !isset($table_des_traitements[$nom_champ])) {
 		$texte = propre($texte, $connect);
-	}
-	else {
+	} else {
 		include_spip('base/abstract_sql');
 		$table = table_objet($type_objet);
 		$ps = $table_des_traitements[$nom_champ];
@@ -826,7 +893,7 @@ function traitements_previsu($texte, $nom_champ = '', $type_objet = '', $connect
 		} else {
 			// [FIXME] Éviter une notice sur le eval suivant qui ne connait
 			// pas la Pile ici. C'est pas tres joli...
-			$Pile = array( 0 => array() );
+			$Pile = array(0 => array());
 			// remplacer le placeholder %s par le texte fourni
 			eval('$texte=' . str_replace('%s', '$texte', $ps) . ';');
 		}
