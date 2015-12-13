@@ -1,13 +1,15 @@
 <?php
 /**
  * Gestion de l'action porte_plume_previsu
- * 
+ *
  * @plugin Porte Plume pour SPIP
  * @license GPL
  * @package SPIP\PortePlume\Actions
  */
 
-if (!defined("_ECRIRE_INC_VERSION")) return;
+if (!defined("_ECRIRE_INC_VERSION")) {
+	return;
+}
 
 /**
  * Action affichant la prévisualisation de porte plume
@@ -28,8 +30,9 @@ function action_porte_plume_previsu_dist() {
 
 	// mais il faut avoir le droit de previsualiser
 	// (par defaut le droit d'aller dans ecrire/)
-	if (!autoriser('previsualiser','porteplume'))
+	if (!autoriser('previsualiser', 'porteplume')) {
 		$contexte = array();
+	}
 
 	echo recuperer_fond('prive/porte_plume_preview', $contexte);
 }
