@@ -36,7 +36,7 @@ function porte_plume_creer_json_markitup() {
 	// 1) On initialise tous les jeux de barres
 	$barres = array();
 	foreach ($sets as $set) {
-		if (($barre = barre_outils_initialiser($set)) AND is_object($barre)) {
+		if (($barre = barre_outils_initialiser($set)) and is_object($barre)) {
 			$barres[$set] = $barre;
 		}
 	}

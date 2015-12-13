@@ -183,7 +183,7 @@ class Barre_outils {
 	 * @param array $params Paramètres de la barre d'outil
 	 * @return void
 	 */
-	function __construct($params = array()) {
+	public function __construct($params = array()) {
 		foreach ($params as $p => $v) {
 			if (isset($this->$p)) {
 				// si tableau, on verifie les entrees
@@ -207,7 +207,7 @@ class Barre_outils {
 	 * @return array
 	 *     Paramètres, soustrait de ceux qui ne sont pas valides
 	 */
-	function verif_params($nom, $params = array()) {
+	public function verif_params($nom, $params = array()) {
 		// si markupset, on boucle sur les items
 		if (stripos($nom, 'markupSet') !== false) {
 			foreach ($params as $i => $v) {
@@ -255,7 +255,7 @@ class Barre_outils {
 	 *     Paramètres de l'élément modifié ou paramètres ajoutés
 	 *     False si l'identifiant cherché n'est pas trouvé
 	 */
-	function affecter(&$tableau, $identifiant, $params = array(), $lieu = 'dedans', $plusieurs = false) {
+	public function affecter(&$tableau, $identifiant, $params = array(), $lieu = 'dedans', $plusieurs = false) {
 		static $cle_de_recherche = 'id'; // ou className ?
 
 		if ($tableau === null) // utile ?
@@ -293,7 +293,7 @@ class Barre_outils {
 
 					return $params;
 				} elseif ($lieu == 'apres') {
-					array_splice($tableau, $trouve+1, 0, $les_params);
+					array_splice($tableau, $trouve + 1, 0, $les_params);
 
 					return $params;
 				}
@@ -306,7 +306,7 @@ class Barre_outils {
 		foreach ($tableau as $i => $v) {
 			if (is_array($v)) {
 				foreach ($v as $m => $n) {
-					if (is_array($n) AND ($r = $this->affecter($tableau[$i][$m], $identifiant, $params, $lieu, $plusieurs))) {
+					if (is_array($n) and ($r = $this->affecter($tableau[$i][$m], $identifiant, $params, $lieu, $plusieurs))) {
 						return $r;
 					}
 				}
@@ -331,7 +331,7 @@ class Barre_outils {
 	 * @return bool
 	 *     false si aucun paramètre à affecter, true sinon.
 	 */
-	function affecter_a_tous(&$tableau, $params = array(), $ids = array()) {
+	public function affecter_a_tous(&$tableau, $params = array(), $ids = array()) {
 		if (!$params) {
 			return false;
 		}
@@ -344,7 +344,7 @@ class Barre_outils {
 
 		// merge de premiere ligne
 		foreach ($tableau as $i => &$v) {
-			if (!$ids OR in_array($v['id'], $ids)) {
+			if (!$ids or in_array($v['id'], $ids)) {
 				$tableau[$i] = array_merge($tableau[$i], $params);
 			}
 			// recursion si sous-menu
@@ -371,7 +371,7 @@ class Barre_outils {
 	 *     true si plusieurs identifiants,
 	 *     array sinon : description de l'identifiant cherché.
 	 */
-	function set($identifiant, $params = array()) {
+	public function set($identifiant, $params = array()) {
 		// prudence tout de meme a pas tout modifier involontairement (si array)
 		if (!$identifiant) {
 			return false;
@@ -396,7 +396,7 @@ class Barre_outils {
 	 *     false si l'identifiant n'est pas trouvé
 	 *     array sinon : Description de l'identifiant cherché.
 	 */
-	function get($identifiant) {
+	public function get($identifiant) {
 		if ($a = $this->affecter($this->markupSet, $identifiant)) {
 			return $a;
 		}
@@ -416,7 +416,7 @@ class Barre_outils {
 	 *     true si plusieurs identifiants,
 	 *     array sinon : description de l'identifiant cherché.
 	 */
-	function afficher($identifiant) {
+	public function afficher($identifiant) {
 		return $this->set($identifiant, array('display' => true));
 	}
 
@@ -432,7 +432,7 @@ class Barre_outils {
 	 *     true si plusieurs identifiants,
 	 *     array sinon : description de l'identifiant cherché.
 	 */
-	function cacher($identifiant) {
+	public function cacher($identifiant) {
 		return $this->set($identifiant, array('display' => false));
 	}
 
@@ -444,7 +444,7 @@ class Barre_outils {
 	 * @return bool
 	 *     false si aucun paramètre à affecter, true sinon.
 	 */
-	function afficherTout() {
+	public function afficherTout() {
 		return $this->affecter_a_tous($this->markupSet, array('display' => true));
 	}
 
@@ -455,7 +455,7 @@ class Barre_outils {
 	 * @return bool
 	 *     false si aucun paramètre à affecter, true sinon.
 	 */
-	function cacherTout() {
+	public function cacherTout() {
 		return $this->affecter_a_tous($this->markupSet, array('display' => false));
 	}
 
@@ -473,7 +473,7 @@ class Barre_outils {
 	 *     Paramètres ajoutés avant
 	 *     False si l'identifiant cherché n'est pas trouvé
 	 */
-	function ajouterAvant($identifiant, $params) {
+	public function ajouterAvant($identifiant, $params) {
 		return $this->affecter($this->markupSet, $identifiant, $params, 'avant');
 	}
 
@@ -490,7 +490,7 @@ class Barre_outils {
 	 *     Paramètres ajoutés avant
 	 *     False si l'identifiant cherché n'est pas trouvé
 	 */
-	function ajouterPlusieursAvant($identifiant, $tableau_params) {
+	public function ajouterPlusieursAvant($identifiant, $tableau_params) {
 		return $this->affecter($this->markupSet, $identifiant, $tableau_params, 'avant', true);
 	}
 
@@ -507,7 +507,7 @@ class Barre_outils {
 	 *     Paramètres ajoutés après
 	 *     False si l'identifiant cherché n'est pas trouvé
 	 */
-	function ajouterApres($identifiant, $params) {
+	public function ajouterApres($identifiant, $params) {
 		return $this->affecter($this->markupSet, $identifiant, $params, 'apres');
 	}
 
@@ -524,7 +524,7 @@ class Barre_outils {
 	 *     Paramètres ajoutés après
 	 *     False si l'identifiant cherché n'est pas trouvé
 	 */
-	function ajouterPlusieursApres($identifiant, $tableau_params) {
+	public function ajouterPlusieursApres($identifiant, $tableau_params) {
 		return $this->affecter($this->markupSet, $identifiant, $tableau_params, 'apres', true);
 	}
 
@@ -535,7 +535,7 @@ class Barre_outils {
 	 * @param string $fonction Code de la fonction JS
 	 * @return void
 	 */
-	function ajouterFonction($fonction) {
+	public function ajouterFonction($fonction) {
 		if (false === strpos($this->functions, $fonction)) {
 			$this->functions .= "\n" . $fonction . "\n";
 		}
@@ -548,13 +548,13 @@ class Barre_outils {
 	 * @param array $tableau Tableau de description des outils
 	 * @return void
 	 */
-	function enlever_elements_non_affiches(&$tableau) {
+	public function enlever_elements_non_affiches(&$tableau) {
 		if ($tableau === null) { // utile ?
 			$tableau = &$this->markupSet;
 		}
 
 		foreach ($tableau as $p => &$v) {
-			if (isset($v['display']) AND !$v['display']) {
+			if (isset($v['display']) and !$v['display']) {
 				unset($tableau[$p]);
 				$tableau = array_values($tableau); // remettre les cles automatiques sinon json les affiche et ça plante.
 			} // sinon, on lance une recursion sur les sous-menus
@@ -583,7 +583,7 @@ class Barre_outils {
 	 *     Tableau de description des outils
 	 * @return void
 	 **/
-	function enlever_separateurs(&$tableau) {
+	public function enlever_separateurs(&$tableau) {
 		if ($tableau === null) { // utile ?
 			$tableau = &$this->markupSet;
 		}
@@ -591,17 +591,17 @@ class Barre_outils {
 
 		foreach ($tableau as $p => &$v) {
 			if (isset($v['separator']) and $v['separator']) {
-				if (isset($tableau[$p-1])) {
-					if (!isset($tableau[$p-1]['className'])) {
-						$tableau[$p-1]['className'] = "";
+				if (isset($tableau[$p - 1])) {
+					if (!isset($tableau[$p - 1]['className'])) {
+						$tableau[$p - 1]['className'] = "";
 					}
-					$tableau[$p-1]['className'] .= " separateur_avant";
+					$tableau[$p - 1]['className'] .= " separateur_avant";
 				}
-				if (isset($tableau[$p+1])) {
-					if (!isset($tableau[$p+1]['className'])) {
-						$tableau[$p+1]['className'] = "";
+				if (isset($tableau[$p + 1])) {
+					if (!isset($tableau[$p + 1]['className'])) {
+						$tableau[$p + 1]['className'] = "";
 					}
-					$tableau[$p+1]['className'] .= " separateur separateur_apres $v[id]";
+					$tableau[$p + 1]['className'] .= " separateur separateur_apres $v[id]";
 				}
 				unset($tableau[$p]);
 				$tableau = array_values($tableau); // remettre les cles automatiques sinon json les affiche et ça plante.
@@ -622,7 +622,7 @@ class Barre_outils {
 	 * Supprime les paramètres inutiles a markitup/json dans les paramètres markupSet
 	 * (id, display, icone)
 	 */
-	function enlever_parametres_inutiles() {
+	public function enlever_parametres_inutiles() {
 		foreach ($this as $p => $v) {
 			if (!$v) {
 				if (is_array($v) or is_string($v)) {
@@ -639,7 +639,7 @@ class Barre_outils {
 				}
 			}
 		}
-		unset ($this->_liste_params_autorises);
+		unset($this->_liste_params_autorises);
 	}
 
 
@@ -648,7 +648,7 @@ class Barre_outils {
 	 *
 	 * @return string Déclaration json de la barre
 	 */
-	function creer_json() {
+	public function creer_json() {
 		$barre = $this;
 		$type = $barre->nameSpace;
 		$fonctions = $barre->functions;
@@ -680,7 +680,7 @@ class Barre_outils {
 	 *     - string : js script
 	 *     - boolean false if error
 	 */
-	function json_export($var) {
+	public function json_export($var) {
 		$asso = false;
 		switch (true) {
 			case is_null($var) :
