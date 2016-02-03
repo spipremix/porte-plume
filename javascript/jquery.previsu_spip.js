@@ -36,19 +36,20 @@
 				objet = (objet ? objet[1] : '');
 				var champ = mark.parents('.editer')[0].className.match(/editer_(\w+)/);
 				champ = (champ ? champ[1].toUpperCase() : '');
-				var textarea = $(mark).find('textarea.pp_previsualisation');
-				var preview = $(mark).find('.markItUpPreview'); 
+				var textarea = mark.find('textarea.pp_previsualisation');
+				var preview = mark.find('.markItUpPreview'); 
 				var dir = textarea.attr('dir');
 				if(dir){
 					preview.attr('dir',dir);
 				}
 
-				$('.fullscreen').click(function(){
+				tabs.find('.fullscreen').click(function(){
 					mark.toggleClass('fullscreen');
 					if (mark.is('.fullscreen')){
 						is_full_screen = true;
 						if (!mark.is('.livepreview')){
 							var original_texte="";
+							
 							function refresh_preview(){
 								var texte = textarea.val();
 								if (original_texte == texte){
@@ -57,6 +58,7 @@
 								renderPreview(preview.addClass('ajaxLoad'),texte,champ,objet);
 								original_texte = texte;
 							}
+							
 							var timerPreview=null;
 							mark.addClass('livepreview').find('.markItUpEditor').bind('keyup click change focus refreshpreview',function(e){
 								if (is_full_screen){
@@ -64,8 +66,9 @@
 									timerPreview = setTimeout(refresh_preview,500);
 								}
 							});
+							
 							$(window).bind('keyup',function(e){
-								if (is_full_screen){
+								if (is_full_screen) {
 									// Touche Echap pour sortir du mode fullscreen
 									if (e.type=='keyup' && e.keyCode==27){
 										mark.removeClass('fullscreen');
@@ -76,32 +79,37 @@
 						}
 						mark.find('.markItUpEditor').trigger('refreshpreview');
 					}
-					else
+					else {
 						is_full_screen = false;
+					}
+					
 					return false;
 				});
 
-				$('.previsuVoir').click(function(){
+				tabs.find('.previsuVoir').click(function(){
 					preview.height(
-						  $(mark).find('.markItUpHeader').height()
-						+ $(mark).find('.markItUpEditor').height()
-						+ $(mark).find('.markItUpFooter').height()
+						  mark.find('.markItUpHeader').height()
+						+ mark.find('.markItUpEditor').height()
+						+ mark.find('.markItUpFooter').height()
 					);
 
-					$(mark).find('.markItUpHeader,.markItUpEditor,.markItUpFooter').hide();
+					mark.find('.markItUpHeader,.markItUpEditor,.markItUpFooter').hide();
 					$(this).addClass('on').next().removeClass('on');
-					renderPreview(preview.show().addClass('ajaxLoad'),
-							$(mark).find('textarea.pp_previsualisation').val(),
-							champ,
-							objet,
-							false);
+					renderPreview(
+						preview.show().addClass('ajaxLoad'),
+						mark.find('textarea.pp_previsualisation').val(),
+						champ,
+						objet,
+						false
+					);
 
 					return false;
 				});
-				$('.previsuEditer').click(function(){
-					$(mark).find('.markItUpPreview').hide();
-					$(mark).find('.markItUpHeader,.markItUpEditor,.markItUpFooter').show();
+				tabs.find('.previsuEditer').click(function(){
+					mark.find('.markItUpPreview').hide();
+					mark.find('.markItUpHeader,.markItUpEditor,.markItUpFooter').show();
 					$(this).addClass('on').prev().removeClass('on');
+					
 					return false;
 				});
 			}
