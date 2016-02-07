@@ -12,7 +12,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	// B
 	'barre_a_accent_grave' => 'Insert À',
 	'barre_adresse' => 'Address',
-	'barre_aide' => 'Use the typographic short cuts to refine your layout',
+	'barre_aide' => 'Use the typographic shortcuts to refine your layout',
 	'barre_alignerdroite' => '[/Right align/] the paragraph',
 	'barre_ancres' => 'Anchors',
 	'barre_barre' => 'Strike through the text',
