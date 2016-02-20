@@ -12,7 +12,7 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	// B
 	'barre_a_accent_grave' => 'Inserì un À',
 	'barre_adresse' => 'Adressa',
-	'barre_aide' => 'Utilisàs li escourcha tipougràfiqui da enriquì la vouòstra coumpaginacioun',
+	'barre_aide' => 'Utilisas li escourcha tipougràfiqui da enriquì la vouòstra coumpaginacioun',
 	'barre_alignerdroite' => '[/Aligna a drecha/] lou paràgrafou',
 	'barre_ancres' => 'Gestioun dei àncoura',
 	'barre_barre' => 'Serà lou tèst',
