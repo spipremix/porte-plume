@@ -70,7 +70,7 @@
 							$(window).bind('keyup',function(e){
 								if (is_full_screen) {
 									// Touche Echap pour sortir du mode fullscreen
-									if (e.type=='keyup' && e.keyCode==27){
+									if (e.type=='keyup' && e.keyCode==27 && !markitup_prompt){
 										mark.removeClass('fullscreen');
 										is_full_screen = false;
 									}

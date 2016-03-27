@@ -54,7 +54,8 @@
 ;(function($) {
 	$.fn.markItUp = function(settings, extraSettings) {
 		var method, params, options, ctrlKey, shiftKey, altKey; ctrlKey = shiftKey = altKey = false;
-
+		markitup_prompt = false; // variable volontairement globale
+		
 		if (typeof settings == 'string') {
 			method = settings;
 			params = extraSettings;
@@ -304,10 +305,19 @@
 							if (abort === true) {
 								return false;
 							}
+							
+							// On prévient qu'un prompt s'ouvre
+							markitup_prompt = true;
+							
 							value = prompt(b[0], (b[1]) ? b[1] : '');
 							if (value === null) {
 								abort = true;
 							}
+							
+							// On attend un peu avant de dire que le prompt est fermé
+							// pour ne pas que ça soit pris en compte en même temps que la fermeture du prompt
+							setTimeout(function(){markitup_prompt = false;}, 500);
+							
 							return value;
 						}
 					);
