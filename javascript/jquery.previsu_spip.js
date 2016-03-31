@@ -47,7 +47,6 @@
 					// On commence par garder en mémoire la valeur d'origine de la taille du champ
 					if (!mark.is('.fullscreen')) {
 						textarea.data('height-origin', textarea.css('height'));
-						console.log(textarea.css('height'));
 					}
 					
 					mark.toggleClass('fullscreen');
