@@ -107,4 +107,3 @@ Preto bez ohľadu na nastavenia diskusných fóra, crayonov alebo zásuvných m
 	// V
 	'voir' => 'Ukážka'
 );
-

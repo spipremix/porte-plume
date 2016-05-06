@@ -107,4 +107,3 @@ In questo caso, qualunque sia la configurazione dei forum, pennarelli o plugin, 
 	// V
 	'voir' => 'Vedi'
 );
-

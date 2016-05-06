@@ -106,4 +106,3 @@ Therefore, whatever configuration the forums, crayons or plugins have, no Quill 
 	// V
 	'voir' => 'Preview'
 );
-

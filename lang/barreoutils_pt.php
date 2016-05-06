@@ -103,4 +103,3 @@ Assim, em qualquer configuração dos fóruns, crayons ou plugins, nenhuma barra
 	// V
 	'voir' => 'Visualizar'
 );
-

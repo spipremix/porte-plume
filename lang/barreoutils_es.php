@@ -103,4 +103,3 @@ Si es así, sea cual sea la configuración de los foros, lápiz, u otro plugin, 
 	// V
 	'voir' => 'Ver'
 );
-
