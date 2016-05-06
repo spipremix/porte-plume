@@ -15,4 +15,3 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'porte_plume_slogan' => 'Eine Menüleiste zum Formatieren der Texte'
 );
 
-?>

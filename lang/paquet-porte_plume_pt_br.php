@@ -15,4 +15,3 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'porte_plume_slogan' => 'Barre de ferramentas para edição de texto'
 );
 
-?>
