@@ -14,4 +14,3 @@ $GLOBALS[$GLOBALS['idx_lang']] = array(
 	'porte_plume_nom' => 'Portapenne',
 	'porte_plume_slogan' => 'Una barra degli strumenti per scrivere bene'
 );
-
