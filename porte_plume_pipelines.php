@@ -7,7 +7,7 @@
  * @package SPIP\PortePlume\Pipelines
  **/
 
-if (!defined("_ECRIRE_INC_VERSION")) {
+if (!defined('_ECRIRE_INC_VERSION')) {
 	return;
 }
 
@@ -18,7 +18,8 @@ if (!defined("_ECRIRE_INC_VERSION")) {
  *
  * @pipeline autoriser
  */
-function porte_plume_autoriser() { }
+function porte_plume_autoriser() {
+}
 
 /**
  * Autoriser l'action de previsu
@@ -88,7 +89,7 @@ function porte_plume_insert_head_public($flux) {
  */
 function porte_plume_insert_head_prive($flux) {
 	$js = find_in_path('javascript/porte_plume_forcer_hauteur.js');
-	$flux = porte_plume_inserer_head($flux, $GLOBALS['spip_lang'], $prive = true)
+	$flux = porte_plume_inserer_head($flux, $GLOBALS['spip_lang'], true)
 		. "<script type='text/javascript' src='$js'></script>\n";
 
 	return $flux;
@@ -106,7 +107,7 @@ function porte_plume_inserer_head($flux, $lang, $prive = false) {
 	$markitup = find_in_path('javascript/jquery.markitup_pour_spip.js');
 	$js_previsu = find_in_path('javascript/jquery.previsu_spip.js');
 	$js_start = parametre_url(generer_url_public('porte_plume_start.js'), 'lang', $lang);
-	if (defined('_VAR_MODE') and _VAR_MODE == "recalcul") {
+	if (defined('_VAR_MODE') and _VAR_MODE == 'recalcul') {
 		$js_start = parametre_url($js_start, 'var_mode', 'recalcul');
 	}
 
@@ -149,7 +150,7 @@ function porte_plume_insert_head_css($flux = '', $prive = false) {
 		}
 		$css = direction_css(find_in_path('css/barre_outils.css'), lang_dir());
 		$css_icones = generer_url_public('barre_outils_icones.css');
-		if (defined('_VAR_MODE') and _VAR_MODE == "recalcul") {
+		if (defined('_VAR_MODE') and _VAR_MODE == 'recalcul') {
 			$css_icones = parametre_url($css_icones, 'var_mode', 'recalcul');
 		}
 		$flux
@@ -185,8 +186,10 @@ function porte_plume_configurer_liste_metas($metas) {
  */
 function porte_plume_affiche_milieu($flux) {
 	if ($flux['args']['exec'] == 'configurer_avancees') {
-		$flux['data'] .= recuperer_fond('prive/squelettes/inclure/configurer',
-			array('configurer' => 'configurer_porte_plume'));
+		$flux['data'] .= recuperer_fond(
+			'prive/squelettes/inclure/configurer',
+			array('configurer' => 'configurer_porte_plume')
+		);
 	}
 
 	return $flux;
