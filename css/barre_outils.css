@@ -112,6 +112,7 @@
 	border-color: #F1F1F1 #EEE #CCC;
 	border-color: #ddd #ddd #ccc;
 	border-radius: 6px 6px 0 0;
+	min-height:29px;
 }
 .markItUp .markItUpHeader:after {
     content: "\0020";

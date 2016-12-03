@@ -20,7 +20,16 @@
 			// init and build previsu buttons
 			function init() {
 				$$.addClass("pp_previsualisation");
-				tabs = $('<div class="markItUpTabs"></div>').prependTo($$.parent());
+				
+				// s'il n'y a pas de barre d'outil, mais qu'on demande une previsu,
+				// insérer une barre d'outil vide.
+				if (! $$.parent().has('.markItUpContainer').length) {
+					$$.barre_outils('vide');
+				}
+				var mark = $$.parent();
+
+
+				tabs = $('<div class="markItUpTabs"></div>').prependTo(mark);
 				$(tabs).append(
 					'<a href="#fullscreen" class="fullscreen">' + options.textFullScreen + '</a>' +
 					'<a href="#previsuVoir" class="previsuVoir">' + options.textVoir + '</a>' +
@@ -31,7 +40,7 @@
 				preview.hide();
 
 				var is_full_screen = false;
-				var mark = $$.parent();
+
 				var objet = mark.parents('.formulaire_spip')[0].className.match(/formulaire_editer_(\w+)/);
 				objet = (objet ? objet[1] : '');
 				var champ = mark.parents('.editer')[0].className.match(/editer_(\w+)/);

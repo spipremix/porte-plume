@@ -627,6 +627,9 @@ class Barre_outils {
 	 */
 	public function enlever_parametres_inutiles() {
 		foreach ($this as $p => $v) {
+			if ($p == 'markupSet') {
+				continue;
+			}
 			if (!$v) {
 				if (is_array($v) or is_string($v)) {
 					unset($this->$p);
