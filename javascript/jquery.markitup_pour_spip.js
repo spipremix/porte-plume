@@ -193,26 +193,26 @@
 				if (options.resizeHandle === true && browser.safari !== true) {
 					resizeHandle = $('<div class="markItUpResizeHandle"></div>')
 						.insertAfter($$)
-						.bind("mousedown.markItUp", function(e) {
+						.on("mousedown.markItUp", function(e) {
 							var h = $$.height(), y = e.clientY, mouseMove, mouseUp;
 							mouseMove = function(e) {
 								$$.css("height", Math.max(20, e.clientY+h-y)+"px");
 								return false;
 							};
 							mouseUp = function(e) {
-								$("html").unbind("mousemove.markItUp", mouseMove).unbind("mouseup.markItUp", mouseUp);
+								$("html").off("mousemove.markItUp", mouseMove).off("mouseup.markItUp", mouseUp);
 								return false;
 							};
-							$("html").bind("mousemove.markItUp", mouseMove).bind("mouseup.markItUp", mouseUp);
+							$("html").on("mousemove.markItUp", mouseMove).on("mouseup.markItUp", mouseUp);
 					});
 					footer.append(resizeHandle);
 				}
 
 				// listen key events
-				$$.bind('keydown.markItUp', keyPressed).bind('keyup', keyPressed);
+				$$.on('keydown.markItUp', keyPressed).on('keyup', keyPressed);
 				
 				// bind an event to catch external calls
-				$$.bind("insertion.markItUp", function(e, settings) {
+				$$.on("insertion.markItUp", function(e, settings) {
 					if (settings.target !== false) {
 						get();
 					}
@@ -222,7 +222,7 @@
 				});
 
 				// remember the last focus
-				$$.bind('focus.markItUp', function() {
+				$$.on('focus.markItUp', function() {
 					$.markItUp.focused = this;
 				});
 
@@ -252,25 +252,25 @@
 								t += levels[j]+"-";
 							}
 							li = $('<li class="markItUpButton markItUpButton'+t+(i)+' '+(button.className||'')+'"><a href="#" '+key+' title="'+title+'"><em>'+(button.name||'')+'</em></a></li>')
-							.bind("contextmenu.markItUp", function() { // prevent contextmenu on mac and allow ctrl+click
+							.on("contextmenu.markItUp", function() { // prevent contextmenu on mac and allow ctrl+click
 								return false;
-							}).bind('click.markItUp', function(e) {
+							}).on('click.markItUp', function(e) {
 								e.preventDefault();
-							}).bind("focusin.markItUp", function(){
+							}).on("focusin.markItUp", function(){
 								$$.focus();
-							}).bind('mouseup', function(e) {
+							}).on('mouseup', function(e) {
 								if (button.call) {
 									eval(button.call)(e); // Pass the mouseup event to custom delegate
 								}
 								setTimeout(function() { markup(button) },1);
 								return false;
-							}).bind('mouseenter.markItUp', function() {
+							}).on('mouseenter.markItUp', function() {
 									$('> ul', this).show();
 									$(document).one('click', function() { // close dropmenu if click outside
 											$('ul ul', header).hide();
 										}
 									);
-							}).bind('mouseleave.markItUp', function() {
+							}).on('mouseleave.markItUp', function() {
 									$('> ul', this).hide();
 							}).appendTo(ul);
 							if (button.dropMenu) {
@@ -825,7 +825,7 @@
 			}
 
 			function remove() {
-				$$.unbind(".markItUp").removeClass('markItUpEditor');
+				$$.off(".markItUp").removeClass('markItUpEditor');
 				$$.parent('div').parent('div.markItUp').parent('div').replaceWith($$);
 
 				var relativeRef = $$.parent('div').parent('div.markItUp').parent('div');
