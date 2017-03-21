@@ -36,7 +36,7 @@
 					'<a href="#previsuEditer" class="previsuEditer on">' + options.textEditer + '</a>'
 				);
 				
-				preview = $('<div class="markItUpPreview"></div>').insertAfter(tabs);
+				preview = $('<div class="markItUpPreview"></div>').insertAfter(mark.find('.markItUpHeader'));
 				preview.hide();
 
 				var is_full_screen = false;
@@ -63,6 +63,8 @@
 					// Si on vient de passer en fullscreen
 					if (mark.is('.fullscreen')){
 						is_full_screen = true;
+						// afficher les boutons de la barre s'ils étaient masqués (cf prévisu)
+						mark.find('.markItUpHeader a').show();
 						if (!mark.is('.livepreview')){
 							var original_texte="";
 							
@@ -101,6 +103,10 @@
 					else {
 						// On remet la taille d'origine
 						textarea.css('height', textarea.data('height-origin'));
+						// masquer les boutons de la barre s'ils étaient masqués avant le plein écran (cf prévisu)
+						if ($(this).next().hasClass('on')) {
+							mark.find('.markItUpHeader a').hide();
+						}
 						is_full_screen = false;
 					}
 					
@@ -109,12 +115,11 @@
 
 				tabs.find('.previsuVoir').click(function(){
 					preview.height(
-						  mark.find('.markItUpHeader').height()
-						+ mark.find('.markItUpEditor').height()
+						  mark.find('.markItUpEditor').height()
 						+ mark.find('.markItUpFooter').height()
 					);
 
-					mark.find('.markItUpHeader,.markItUpEditor,.markItUpFooter').hide();
+					mark.find('.markItUpHeader a,.markItUpEditor,.markItUpFooter').hide();
 					$(this).addClass('on').next().removeClass('on');
 					renderPreview(
 						preview.show().addClass('ajaxLoad'),
@@ -128,7 +133,7 @@
 				});
 				tabs.find('.previsuEditer').click(function(){
 					mark.find('.markItUpPreview').hide();
-					mark.find('.markItUpHeader,.markItUpEditor,.markItUpFooter').show();
+					mark.find('.markItUpHeader a,.markItUpEditor,.markItUpFooter').show();
 					$(this).addClass('on').prev().removeClass('on');
 					
 					return false;

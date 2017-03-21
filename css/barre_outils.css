@@ -85,9 +85,6 @@
 	background:#fff;
 	overflow:auto;
 	padding:1em;
-	/* decaler de la hauteur de .markItUpTabs */
-	position:relative;
-	top:31px; 
 }
 
 /* correction des styles spip_formulaires appliques par defaut (grr) */
