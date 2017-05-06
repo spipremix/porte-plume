@@ -88,7 +88,7 @@ function porte_plume_insert_head_public($flux) {
  * @return string Contenu du head
  */
 function porte_plume_insert_head_prive($flux) {
-	$js = find_in_path('javascript/porte_plume_forcer_hauteur.js');
+	$js = timestamp(find_in_path('javascript/porte_plume_forcer_hauteur.js'));
 	$flux = porte_plume_inserer_head($flux, $GLOBALS['spip_lang'], true)
 		. "<script type='text/javascript' src='$js'></script>\n";
 
@@ -104,15 +104,11 @@ function porte_plume_insert_head_prive($flux) {
  * @return string Contenu du head complété
  */
 function porte_plume_inserer_head($flux, $lang, $prive = false) {
-	$markitup = find_in_path('javascript/jquery.markitup_pour_spip.js');
-	$js_previsu = find_in_path('javascript/jquery.previsu_spip.js');
-	if (defined('_VAR_MODE') and _VAR_MODE == 'recalcul') {
-		$js_start = parametre_url(generer_url_public('porte_plume_start.js'), 'lang', $lang);
-		$js_start = parametre_url($js_start, 'var_mode', 'recalcul');
-	} else {
-		$hash = md5(porte_plume_creer_json_markitup());
-		$js_start = produire_fond_statique('porte_plume_start.js', array('lang' => $lang, 'hash' => $hash));
-	}
+	$markitup = timestamp(find_in_path('javascript/jquery.markitup_pour_spip.js'));
+	$js_previsu = timestamp(find_in_path('javascript/jquery.previsu_spip.js'));
+
+	$hash = md5(porte_plume_creer_json_markitup());
+	$js_start = produire_fond_statique('javascript/porte_plume_start.js', array('lang' => $lang, 'hash' => $hash));
 
 	$flux .=
 		"<script type='text/javascript' src='$markitup'></script>\n"
@@ -148,17 +144,14 @@ function porte_plume_insert_head_css($flux = '', $prive = false) {
 	// toujours autoriser pour le prive.
 	if ($prive or autoriser('afficher_public', 'porteplume')) {
 		if ($prive) {
-			$cssprive = find_in_path('css/barre_outils_prive.css');
+			$cssprive = timestamp(find_in_path('css/barre_outils_prive.css'));
 			$flux .= "<link rel='stylesheet' type='text/css' media='all' href='$cssprive' />\n";
 		}
-		$css = direction_css(find_in_path('css/barre_outils.css'), lang_dir());
-		if (defined('_VAR_MODE') and _VAR_MODE == 'recalcul') {
-			$css_icones = generer_url_public('barre_outils_icones.css');
-			$css_icones = parametre_url($css_icones, 'var_mode', 'recalcul');
-		} else {
-			$hash = md5(barre_outils_css_icones());
-			$css_icones = produire_fond_statique('barre_outils_icones.css', array('hash' => $hash));
-		}
+		$css = timestamp(direction_css(find_in_path('css/barre_outils.css'), lang_dir()));
+
+		$hash = md5(barre_outils_css_icones());
+		$css_icones = produire_fond_statique('css/barre_outils_icones.css', array('hash' => $hash));
+
 		$flux
 			.= "<link rel='stylesheet' type='text/css' media='all' href='$css' />\n"
 			. "<link rel='stylesheet' type='text/css' media='all' href='$css_icones' />\n";
