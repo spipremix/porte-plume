@@ -5,7 +5,7 @@
 	[<p class="reponse_formulaire reponse_formulaire_erreur">(#ENV*{message_erreur})</p>]
 
 	<form action="#ENV{action}#formulaire_configurer_#FORM" method="post"><div>
-		[(#ACTION_FORMULAIRE{#ENV{action}})]
+		#ACTION_FORMULAIRE
 		<input type="hidden" name="_meta_casier" value="" />[(#REM) a la racine de spip_meta ]
 		
 		<p class='explication'><:barreoutils:explication_barre_outils_public:></p>
