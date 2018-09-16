@@ -257,7 +257,9 @@
 							}).on('click.markItUp', function(e) {
 								e.preventDefault();
 							}).on("focusin.markItUp", function(){
-								$$.focus();
+								setTimeout(function(){
+									$$.focus();
+								}, 0);
 							}).on('mouseup', function(e) {
 								if (button.call) {
 									eval(button.call)(e); // Pass the mouseup event to custom delegate
