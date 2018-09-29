@@ -15,11 +15,11 @@
 				<label><:barreoutils:info_barre_outils_public:></label>
 				[<span class='erreur_message'>(#ENV**{erreurs}|table_valeur{barre_outils_public})</span>]
 				<div class='choix'>
-					<input class='radio' type="radio" name="barre_outils_public" value='oui'[ (#ENV{barre_outils_public}|!={non}|oui)checked="checked"] id="barre_outils_public_oui"/>
+					<input class='radio' type="radio" name="barre_outils_public" value='oui'[ (#ENV{barre_outils_public}|=={oui}|oui)checked="checked"] id="barre_outils_public_oui"/>
 					<label for="barre_outils_public_oui"><:barreoutils:label_barre_outils_public_oui:></label>
 				</div>
 				<div class='choix'>
-					<input class='radio' type="radio" name="barre_outils_public" value='non'[ (#ENV{barre_outils_public}|=={non}|oui)checked="checked"] id="barre_outils_public_non"/>
+					<input class='radio' type="radio" name="barre_outils_public" value='non'[ (#ENV{barre_outils_public}|=={oui}|oui)checked="checked"] id="barre_outils_public_non"/>
 					<label for="barre_outils_public_non"><:barreoutils:label_barre_outils_public_non:></label>
 				</div>
 			</div>

@@ -55,7 +55,7 @@ function autoriser_porteplume_afficher_public_dist($faire, $type, $id, $qui, $op
 		return PORTE_PLUME_PUBLIC;
 	}
 
-	return ($GLOBALS['meta']['barre_outils_public'] !== 'non');
+	return (isset($GLOBALS['meta']['barre_outils_public']) and $GLOBALS['meta']['barre_outils_public'] === 'oui');
 
 	// n'autoriser qu'aux identifies :
 	# return $qui['id_auteur'] ? PORTE_PLUME_PUBLIC : false;
