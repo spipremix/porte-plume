@@ -1,6 +1,6 @@
 // ----------------------------------------------------------------------------
 // markItUp! Universal MarkUp Engine, JQuery plugin
-// v 1.1.14 ( c014800b - 02/06/2014 )
+// v 1.1.15 ( e147ca3 - 16/08/2018 )
 // Dual licensed under the MIT and GPL licenses.
 // ----------------------------------------------------------------------------
 // Copyright (C) 2007-2012 Jay Salvat
@@ -60,7 +60,7 @@
 		// compute markItUp! path
 		if (!options.root) {
 			$('script').each(function(a, tag) {
-				miuScript = $(tag).get(0).src.match(/(.*)jquery\.markitup(\.pack)?\.js$/);
+				var miuScript = $(tag).get(0).src.match(/(.*)jquery\.markitup(\.pack)?\.js$/);
 				if (miuScript !== null) {
 					options.root = miuScript[1];
 				}
@@ -538,18 +538,19 @@
 
 			function renderPreview() {
 				var phtml;
+				var parsedData = $$.val();
+				if (options.previewParser && typeof options.previewParser === 'function') {
+					parsedData = options.previewParser(parsedData); 
+				}
 				if (options.previewHandler && typeof options.previewHandler === 'function') {
-					options.previewHandler( $$.val() );
-				} else if (options.previewParser && typeof options.previewParser === 'function') {
-					var data = options.previewParser( $$.val() );
-					writeInPreview(localize(data, 1) ); 
+					options.previewHandler(parsedData);
 				} else if (options.previewParserPath !== '') {
 					$.ajax({
 						type: options.previewParserAjaxType,
 						dataType: 'text',
 						global: false,
 						url: options.previewParserPath,
-						data: options.previewParserVar+'='+encodeURIComponent($$.val()),
+						data: options.previewParserVar+'='+encodeURIComponent(parsedData),
 						success: function(data) {
 							writeInPreview( localize(data, 1) ); 
 						}
