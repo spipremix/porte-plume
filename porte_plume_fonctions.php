@@ -608,11 +608,6 @@ class Barre_outils {
 				unset($tableau[$p]);
 				// remettre les cles automatiques sinon json les affiche et ça plante.
 				$tableau = array_values($tableau);
-			} else {
-				// sinon, on lance une recursion sur les sous-menus
-				if (isset($v['dropMenu']) and is_array($v['dropMenu'])) {
-					#$this->enlever_separateurs($tableau[$p]['dropMenu']);
-				}
 			}
 		}
 	}
@@ -648,6 +643,25 @@ class Barre_outils {
 		unset($this->_liste_params_autorises);
 	}
 
+	public function echapper_appels_fonctions(&$tableau, &$rappels = []) {
+		static $i = 0;
+		foreach ($tableau as $p => $v) {
+			if (is_array($v)) {
+				foreach ($v as $k => $w) {
+					if ($k === 'dropMenu' and is_array($tableau[$p][$k])) {
+						$this->echapper_appels_fonctions($tableau[$p][$k], $rappels);
+					} elseif (is_string($w) and substr($w, 0, 8) == 'function') {
+						$echap = "%function$i%";
+						$i++;
+						$rappels["\"$echap\""] = $w;
+						$tableau[$p][$k] = $echap;
+					}
+				}
+			}
+		}
+		return $rappels;
+	}
+
 
 	/**
 	 * Crée la sortie json pour le javascript des paramètres de la barre
@@ -662,8 +676,9 @@ class Barre_outils {
 		$barre->enlever_elements_non_affiches($this->markupSet);
 		$barre->enlever_separateurs($this->markupSet);
 		$barre->enlever_parametres_inutiles();
-
-		$json = Barre_outils::json_export($barre);
+		$appels_fonctions = $barre->echapper_appels_fonctions($this->markupSet);
+		$json = json_encode($barre, JSON_PRETTY_PRINT);
+		$json = str_replace(array_keys($appels_fonctions), $appels_fonctions, $json);
 
 		// on lance la transformation des &chose; en veritables caracteres
 		// sinon markitup restitue &laquo; au lieu de « directement
@@ -672,65 +687,6 @@ class Barre_outils {
 		$json = unicode2charset(html2unicode($json));
 
 		return "\n\nbarre_outils_$type = " . $json . "\n\n $fonctions";
-	}
-
-	/**
-	 * Transforme une variable PHP dans un équivalent javascript (json)
-	 *
-	 * Copié depuis ecrire/inc/json, mais modifié pour que les fonctions
-	 * JavaScript ne soient pas encapsulées dans une chaîne (string)
-	 *
-	 * @access private
-	 * @param mixed $var the variable
-	 * @return string|boolean
-	 *     - string : js script
-	 *     - boolean false if error
-	 */
-	public function json_export($var) {
-		$asso = false;
-		switch (true) {
-			case is_null($var):
-				return 'null';
-			case is_string($var):
-				if (strtolower(substr(ltrim($var), 0, 8)) == 'function') {
-					return $var;
-				}
-
-				return '"' . addcslashes($var, "\"\\\n\r") . '"';
-			case is_bool($var):
-				return $var ? 'true' : 'false';
-			case is_scalar($var):
-				return $var;
-			case is_object($var):
-				$var = get_object_vars($var);
-				$asso = true;
-			case is_array($var):
-				$keys = array_keys($var);
-				$ikey = count($keys);
-				while (!$asso && $ikey--) {
-					$asso = $ikey !== $keys[$ikey];
-				}
-				$sep = '';
-				if ($asso) {
-					$ret = '{';
-					foreach ($var as $key => $elt) {
-						$ret .= $sep . '"' . $key . '":' . Barre_outils::json_export($elt);
-						$sep = ',';
-					}
-
-					return $ret . "}\n";
-				} else {
-					$ret = '[';
-					foreach ($var as $elt) {
-						$ret .= $sep . Barre_outils::json_export($elt);
-						$sep = ',';
-					}
-
-					return $ret . "]\n";
-				}
-		}
-
-		return false;
 	}
 }
 
