@@ -1,0 +1,11 @@
+{
+    "name": "spip/porte-plume",
+    "type": "spip-plugin",
+    "description": "Une barre d'outil pour bien écrire",
+    "license": "GPL-3.0-or-later",
+    "authors": [{
+        "name": "Collectif SPIP",
+        "email": "spip-dev@rezo.net"
+    }],
+    "require": {}
+}
